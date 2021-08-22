@@ -66,7 +66,7 @@
 
     ![관리 메뉴 항목이 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)**를 선택하고 **계속**을 선택합니다.
+2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)** 를 선택하고 **계속**을 선택합니다.
 
     ![관리, 새로 만들기, Azure Cosmos DB 연결된 서비스 옵션이 강조 표시되어 있는 그래픽](media/create-cosmos-db-linked-service-step1.png "New linked service")
 
@@ -88,11 +88,11 @@
 
     ![새 데이터 집합 만들기 화면의 스크린샷](media/new-dataset.png "New Dataset")
 
-3. 목록에서 **Azure Cosmos DB(SQL API)** **(1)**를 선택하고 **계속(2)** 을 선택합니다.
+3. 목록에서 **Azure Cosmos DB(SQL API)** **(1)** 를 선택하고 **계속(2)** 을 선택합니다.
 
     ![Azure Cosmos DB SQL API 옵션이 강조 표시되어 있는 그래픽](media/new-cosmos-db-dataset.png "Integration dataset")
 
-4. 다음 특성으로 데이터 집합을 구성하고 **확인(4)**을 선택합니다.
+4. 다음 특성으로 데이터 집합을 구성하고 **확인(4)** 을 선택합니다.
 
     - **이름**: `asal400_customerprofile_cosmosdb` **(1)** 를 입력합니다.
     - **연결된 서비스**: Azure Cosmos DB 연결된 서비스 **(2)** 를 선택합니다.
@@ -153,7 +153,7 @@
 
     ![새 데이터 흐름 링크가 강조 표시되어 있는 그래픽](media/new-data-flow-link.png "New data flow")
 
-3. 새 데이터 흐름 **속성** 블레이드의 **일반 **설정에서 **이름**을 `user_profiles_to_datalake`로 업데이트합니다. 이름이 정확하게 일치해야 합니다. 그렇지 않으면 몇 단계 후 코드 보기를 닫을 때 오류가 발생합니다.
+3. 새 데이터 흐름 **속성** 블레이드의 **일반**설정에서 **이름**을 `user_profiles_to_datalake`로 업데이트합니다. 이름이 정확하게 일치해야 합니다. 그렇지 않으면 몇 단계 후 코드 보기를 닫을 때 오류가 발생합니다.
 
     ![정의된 값이 입력되어 있는 이름 필드의 스크린샷](media/data-flow-user-profiles-name.png "Name")
 
@@ -261,7 +261,7 @@
 
     ![설명에 따라 일반 탭에서 이름을 설정한 그래픽](media/pipeline-data-flow-general.png "Name on the General tab")
 
-6. **설정** 탭**(1)** 을 선택합니다. **데이터 흐름(2)**으로 `user_profiles_to_datalake`를 선택하고** 실행 대상(Azure IR)(3)** 에서 `AutoResolveIntegrationRuntime`이 선택되어 있는지 확인합니다. `General purpose` **컴퓨팅 형식(4)** 을 선택하고 **코어 수(5)** 로는 `8(코어 8개 이상)`을 선택합니다.
+6. **설정** 탭 **(1)** 을 선택합니다. **데이터 흐름(2)** 으로 `user_profiles_to_datalake`를 선택하고 **실행 대상(Azure IR)(3)** 에서 `AutoResolveIntegrationRuntime`이 선택되어 있는지 확인합니다. `General purpose` **컴퓨팅 형식(4)** 을 선택하고 **코어 수(5)** 로는 `8 (+ 8 cores)`을 선택합니다.
 
     ![설명에 해당하는 설정이 구성되어 있는 그래픽](media/data-flow-activity-settings1.png "Settings")
 
@@ -271,7 +271,7 @@
 
 ### 작업 4: 파이프라인 트리거
 
-1. 파이프라인 위쪽에서 **트리거 추가(1)**와 **지금 트리거(2)**를 차례로 선택합니다.
+1. 파이프라인 위쪽에서 **트리거 추가(1)** 와 **지금 트리거(2)** 를 차례로 선택합니다.
 
     ![파이프라인 트리거 옵션이 강조 표시되어 있는 그래픽](media/pipeline-user-profiles-new-trigger.png "Trigger now")
 
@@ -283,7 +283,7 @@
 
     ![모니터 허브 메뉴 항목이 선택되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-4. **파이프라인 실행(1)**을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다**(2)**. 보기를 새로 고쳐야 할 수도 있습니다**(3)**.
+4. **파이프라인 실행(1)** 을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다 **(2)**. 보기를 새로 고쳐야 할 수도 있습니다 **(3)**.
 
     > 쿼리가 실행되는 동안 나머지 랩 지침을 확인하여 해당 내용을 숙지하세요.
 
@@ -303,7 +303,7 @@ Tailwind Traders는 Synapse Analytics의 매핑 데이터 흐름을 사용하여
 
     ![데이터 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-2. **연결됨** 탭**(1)**을 선택하고 **Azure Data Lake Storage Gen2** 아래의 **기본 데이터 레이크 스토리지 계정(2)**을 확장합니다. **wwi-02** 컨테이너**(3)**를 선택하고 **top-products** 폴더 **(4)** 를 엽니다. 아무 Parquet 파일 **(5)** 이나 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 메뉴 항목 **(6)** 을 선택한 다음 **데이터 프레임에 로드(7)** 를 선택합니다. 해당 폴더가 표시되지 않으면 위쪽의 `Refresh`을 선택합니다.
+2. **연결됨** 탭 **(1)** 을 선택하고 **Azure Data Lake Storage Gen2** 아래의 **기본 데이터 레이크 스토리지 계정(2)** 을 확장합니다. **wwi-02** 컨테이너 **(3)** 를 선택하고 **top-products** 폴더 **(4)** 를 엽니다. 아무 Parquet 파일 **(5)** 이나 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 메뉴 항목 **(6)** 을 선택한 다음 **데이터 프레임에 로드(7)** 를 선택합니다. 해당 폴더가 표시되지 않으면 위쪽의 `Refresh`을 선택합니다.
 
     ![Parquet 파일과 새 Notebook 옵션이 강조 표시되어 있는 그래픽](media/synapse-studio-top-products-folder.png "New notebook")
 
@@ -311,7 +311,7 @@ Tailwind Traders는 Synapse Analytics의 매핑 데이터 흐름을 사용하여
 
     ![Spark 풀에 연결 메뉴 항목이 강조 표시되어 있는 그래픽](media/notebook-top-products-attach-pool.png "Select Spark pool")
 
-4. Parquet 파일 이름을 `*.parquet`**(1)**으로 바꿔 `top-products` 폴더의 모든 Parquet 파일을 선택합니다. 예를 들어 `abfss://wwi-02@YOUR_DATALAKE_NAME.dfs.core.windows.net/top-products/*.parquet`과 같은 경로를 사용할 수 있습니다.
+4. Parquet 파일 이름을 `*.parquet` **(1)** 으로 바꿔 `top-products` 폴더의 모든 Parquet 파일을 선택합니다. 예를 들어 `abfss://wwi-02@YOUR_DATALAKE_NAME.dfs.core.windows.net/top-products/*.parquet`과 같은 경로를 사용할 수 있습니다.
 
     ![파일 이름이 강조 표시되어 있는 그래픽](media/notebook-top-products-filepath.png "Folder path")
 
@@ -459,7 +459,7 @@ Tailwind Traders는 Synapse Analytics의 매핑 데이터 흐름을 사용하여
 
     위의 코드에 나와 있는 것처럼, Spark에서 제공되는 `uuid` 라이브러리를 사용하여 임의 GUID를 생성했습니다. 파이프라인에서 전달한 매개 변수로 `runId` 변수를 재정의하려고 합니다. 이렇게 하려면 이 셀을 매개 변수 셀로 토글해야 합니다.
 
-14. 셀**(1)** 위의 작업 줄임표**(...)**를 선택하고 **매개 변수 셀 토글(2)**을 선택합니다.
+14. 셀 **(1)** 위의 작업 줄임표 **(...)** 를 선택하고 **매개 변수 셀 토글(2)** 을 선택합니다.
 
     ![메뉴 항목이 강조 표시되어 있는 그래픽](media/toggle-parameter-cell.png "Toggle parameter cell")
 
@@ -467,7 +467,7 @@ Tailwind Traders는 Synapse Analytics의 매핑 데이터 흐름을 사용하여
 
     ![매개 변수를 사용할 수 있도록 구성한 셀의 그래픽](media/parameters-tag.png "Parameters")
 
-15. 새 셀에 다음 코드를 붙여넣습니다. 그러면 기본 데이터 레이크 계정의 `/top5-products/` 경로에서 `runId` 매개 변수가 Parquet 파일 이름으로 사용됩니다. 경로의 **`YOUR_DATALAKE_NAME`**은 기본 데이터 레이크 계정 이름으로 바꿉니다. 이 이름을 찾으려면 페이지 위쪽**(1)**으로 스크롤하여 **셀 1**을 찾습니다. 경로**(2)**에서 데이터 레이크 스토리지 계정을 복사합니다. 새 셀 내의 경로**(3)**에서 **`YOUR_DATALAKE_NAME`** 대신 이 값을 붙여넣고 셀을 실행합니다.
+15. 새 셀에 다음 코드를 붙여넣습니다. 그러면 기본 데이터 레이크 계정의 `/top5-products/` 경로에서 `runId` 매개 변수가 Parquet 파일 이름으로 사용됩니다. 경로의 **`YOUR_DATALAKE_NAME`** 은 기본 데이터 레이크 계정 이름으로 **바꿉니다**. 이 이름을 찾으려면 페이지 위쪽 **(1)** 으로 스크롤하여 **셀 1**을 찾습니다. 경로 **(2)** 에서 데이터 레이크 스토리지 계정을 복사합니다. 새 셀 내의 경로 **(3)** 에서 **`YOUR_DATALAKE_NAME`** 대신 이 값을 붙여넣고 셀을 실행합니다.
 
     ```python
     %%pyspark
@@ -477,7 +477,7 @@ Tailwind Traders는 Synapse Analytics의 매핑 데이터 흐름을 사용하여
 
     ![기본 데이터 레이크 계정 이름을 입력하여 업데이트된 경로가 표시되어 있는 그래픽](media/datalake-path-in-cell.png "Data lake name")
 
-16. 데이터 레이크에 파일이 작성되었는지 확인합니다. **데이터** 허브로 이동하여 **연결됨** 탭**(1)**을 선택합니다. 기본 데이터 레이크 스토리지 계정을 확장하고 **wwi-02** 컨테이너**(2)**를 선택합니다. **top5-products** 폴더 **(3)**로 이동합니다. 디렉터리에 GUID가 파일 이름으로 지정된 Parquet 파일의 폴더가 표시됩니다**(4)**.
+16. 데이터 레이크에 파일이 작성되었는지 확인합니다. **데이터** 허브로 이동하여 **연결됨** 탭 **(1)** 을 선택합니다. 기본 데이터 레이크 스토리지 계정을 확장하고 **wwi-02** 컨테이너 **(2)** 를 선택합니다. **top5-products** 폴더 **(3)** 로 이동합니다. 디렉터리에 GUID가 파일 이름으로 지정된 Parquet 파일의 폴더가 표시됩니다 **(4)**.
 
     ![Parquet 파일이 강조 표시되어 있는 그래픽](media/top5-products-parquet.png "Top 5 products parquet")
 
@@ -495,15 +495,15 @@ Tailwind Traders는 Synapse Analytics의 매핑 데이터 흐름을 사용하여
 
 Tailwind Traders는 오케스트레이션 프로세스의 일환으로 매핑 데이터 흐름 실행 후에 이 Notebook을 실행하려고 합니다. 이 작업에서는 해당 Notebook을 새 Notebook 활동으로 파이프라인에 추가합니다.
 
-1. Notebook으로 돌아갑니다. Notebook 오른쪽 위의 **속성** 단추**(1)** 를 선택하고 **이름(2)** 으로 `Calculate Top 5 Products`를 입력합니다.
+1. Notebook으로 돌아갑니다. Notebook 오른쪽 위의 **속성** 단추 **(1)** 를 선택하고 **이름(2)** 으로 `Calculate Top 5 Products`를 입력합니다.
 
     ![속성 블레이드가 표시되어 있는 그래픽](media/notebook-top-products-top-5-preferred-properties.png "Properties")
 
-2. Notebook 오른쪽 위의 **파이프라인에 추가** 단추**(1)** 를 선택하고 **기존 파이프라인(2)** 을 선택합니다.
+2. Notebook 오른쪽 위의 **파이프라인에 추가** 단추 **(1)** 를 선택하고 **기존 파이프라인(2)** 을 선택합니다.
 
     ![파이프라인에 추가 단추가 강조 표시되어 있는 그래픽](media/add-to-pipeline.png "Add to pipeline")
 
-3. **User Profiles to Datalake** 파이프라인**(1)** 을 선택하고 **추가(2)** 를 선택합니다.
+3. **User Profiles to Datalake** 파이프라인 **(1)** 을 선택하고 **추가(2)** 를 선택합니다.
 
     ![파이프라인이 선택되어 있는 그래픽](media/add-to-pipeline-selection.png "Add to pipeline")
 
@@ -513,11 +513,11 @@ Tailwind Traders는 오케스트레이션 프로세스의 일환으로 매핑 �
 
     성공 활동 화살표를 Notebook 활동으로 끌면 데이터 흐름 활동이 정상적으로 실행된 후 Notebook 활동을 실행하라는 명령이 파이프라인에 전송됩니다.
 
-5. **Notebook 활동(1)** 을 선택하고 **설정** 탭 **(2)** 을 선택한 후 **기본 매개 변수(3)** 를 확장하고 **+ 새로 만들기(4)** 를 선택합니다. **이름** 필드**(5)**에 **`runId`**를 입력합니다. **유형(6)** 으로 **문자열**을 선택합니다. **값**으로 **동적 콘텐츠 추가(7)** 를 선택합니다.
+5. **Notebook 활동(1)** 을 선택하고 **설정** 탭 **(2)** 을 선택한 후 **기본 매개 변수(3)** 를 확장하고 **+ 새로 만들기(4)** 를 선택합니다. **이름** 필드 **(5)** 에 **`runId`**를 입력합니다. **유형(6)** 으로 **문자열**을 선택합니다. **값**으로 **동적 콘텐츠 추가(7)** 를 선택합니다.
 
     ![설정이 표시되어 있는 그래픽](media/notebook-activity-settings.png "Settings")
 
-6. **시스템 변수(1)** 알래에서 **파이프라인 실행 ID**를 선택합니다. 그러면 동적 콘텐츠 상자**(2)** 에 `@pipeline().RunId`가 추가됩니다. **마침(3)** 을 선택하여 대화 상자를 닫습니다.
+6. **시스템 변수(1)** 알래에서 **파이프라인 실행 ID**를 선택합니다. 그러면 동적 콘텐츠 상자 **(2)** 에 `@pipeline().RunId`가 추가됩니다. **마침(3)** 을 선택하여 대화 상자를 닫습니다.
 
     ![동적 콘텐츠 양식이 표시되어 있는 그래픽](media/add-dynamic-content.png "Add dynamic content")
 
@@ -527,7 +527,7 @@ Tailwind Traders는 오케스트레이션 프로세스의 일환으로 매핑 �
 
     ![모두 게시가 강조 표시되어 있는 그래픽](media/publish-all-1.png "Publish all")
 
-8. **선택 사항 - 파이프라인이 10분 이상 실행됨 -** 게시가 완료되면 **트리거 추가(1)**, **지금 트리거(2)**를 차례로 선택하여 업데이트된 파이프라인을 실행합니다.
+8. **선택 사항 - 파이프라인이 10분 이상 실행됨 -** 게시가 완료되면 **트리거 추가(1)**, **지금 트리거(2)** 를 차례로 선택하여 업데이트된 파이프라인을 실행합니다.
 
     ![트리거 메뉴 항목이 강조 표시되어 있는 그래픽](media/trigger-updated-pipeline.png "Trigger pipeline")
 
@@ -550,11 +550,11 @@ Tailwind Traders는 오케스트레이션 프로세스의 일환으로 매핑 �
 
     ![파이프라인 이름이 선택되어 있는 그래픽](media/select-pipeline.png "Pipeline runs")
 
-13. 이번에는 **데이터 흐름** 활동과 새 **Notebook** 활동**(1)**이 모두 표시됩니다. **파이프라인 실행 ID** 값**(2)**을 적어 둡니다. 이 값을 Notebook에서 생성된 Parquet 파일 이름과 비교할 것입니다. **Calculate Top 5 Products** Notebook 이름을 선택하여 해당 세부 정보**(3)**를 확인합니다.
+13. 이번에는 **데이터 흐름** 활동과 새 **Notebook** 활동 **(1)** 이 모두 표시됩니다. **파이프라인 실행 ID** 값 **(2)** 을 적어 둡니다. 이 값을 Notebook에서 생성된 Parquet 파일 이름과 비교할 것입니다. **Calculate Top 5 Products** Notebook 이름을 선택하여 해당 세부 정보 **(3)** 를 확인합니다.
 
     ![파이프라인 실행 세부 정보가 표시되어 있는 그래픽](media/pipeline-run-details2.png "Write User Profile Data to ASA details")
 
-14. Notebook 실행 세부 정보가 표시됩니다. **재생** 단추 **(1)** 를 선택하면 **작업(2)** 진행 상황을 확인할 수 있습니다. 아래쪽에서는 다양한 필터 옵션**(3)**을 사용하여 **진단** 및 **로그**를 확인할 수 있습니다. 특정 단계를 가리키면 지속 시간, 총 작업 수, 데이터 세부 정보 등의 단계 세부 정보를 확인할 수 있습니다. **단계**의 **세부 정보 보기** 링크를 선택하면 해당 세부 정보**(5)**가 표시됩니다.
+14. Notebook 실행 세부 정보가 표시됩니다. **재생** 단추 **(1)** 를 선택하면 **작업(2)** 진행 상황을 확인할 수 있습니다. 아래쪽에서는 다양한 필터 옵션 **(3)** 을 사용하여 **진단** 및 **로그**를 확인할 수 있습니다. 특정 단계를 가리키면 지속 시간, 총 작업 수, 데이터 세부 정보 등의 단계 세부 정보를 확인할 수 있습니다. **단계**의 **세부 정보 보기** 링크를 선택하면 해당 세부 정보 **(5)** 가 표시됩니다.
 
     ![실행 세부 정보가 표시되어 있는 그래픽](media/notebook-run-details.png "Notebook run details")
 
@@ -566,7 +566,7 @@ Tailwind Traders는 오케스트레이션 프로세스의 일환으로 매핑 �
 
     ![데이터 허브](media/data-hub.png "Data hub")
 
-17. **연결됨** 탭**(1)** 을 선택하고 기본 데이터 레이크 스토리지 계정에서 **wwi-02** 컨테이너**(2)** 를 선택합니다. 그런 다음 **top5-products** 폴더 **(3)** 로 이동하여 이름이 **파이프라인 실행 ID**와 일치하는 Parquet 파일용 폴더가 있는지 확인합니다.
+17. **연결됨** 탭 **(1)** 을 선택하고 기본 데이터 레이크 스토리지 계정에서 **wwi-02** 컨테이너 **(2)** 를 선택합니다. 그런 다음 **top5-products** 폴더 **(3)** 로 이동하여 이름이 **파이프라인 실행 ID**와 일치하는 Parquet 파일용 폴더가 있는지 확인합니다.
 
     ![파일이 강조 표시되어 있는 그래픽](media/parquet-from-pipeline-run.png "Parquet file from pipeline run")
 

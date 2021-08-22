@@ -24,10 +24,12 @@
   - [연습 2: Azure Synapse 파이프라인을 사용하여 페타바이트 단위 데이터 수집](#exercise-2-petabyte-scale-ingestion-with-azure-synapse-pipelines)
     - [작업 1: 워크로드 관리 분류 구성](#task-1-configure-workload-management-classification)
     - [작업 2: 복사 작업을 사용하여 파이프라인 만들기](#task-2-create-pipeline-with-copy-activity)
+  - [연습 3: 정리](#exercise-3-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `랩 설정 및 필수 구성 요소` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)에 나와 있는 작업을 완료**하세요.
 
@@ -54,7 +56,7 @@
 
     ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다**(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](media/resume-dedicated-sql-pool.png "Resume")
 
@@ -181,7 +183,7 @@ PolyBase를 사용하려면 다음 요소가 필요합니다.
 1. 쿼리 창에서 스크립트를 다음 코드로 바꿔 외부 데이터 원본을 만듭니다. `SUFFIX`는 랩 작업 영역 ID로 바꿔야 합니다.
 
     ```sql
-    -- `SUFFIX`를 랩 작업 영역 ID로 바꿉니다.
+    -- Replace SUFFIX with the lab workspace id.
     CREATE EXTERNAL DATA SOURCE ABSS
     WITH
     ( TYPE = HADOOP,
@@ -224,7 +226,7 @@ PolyBase를 사용하려면 다음 요소가 필요합니다.
         )
     WITH
         (
-            LOCATION = '/sale-small%2FYear%3D2019',  
+            LOCATION = '/sale-small/Year=2019',  
             DATA_SOURCE = ABSS,
             FILE_FORMAT = [ParquetFormat]  
         )  
@@ -245,6 +247,12 @@ PolyBase를 사용하려면 다음 요소가 필요합니다.
 
     > 쿼리가 실행되는 동안 나머지 랩 지침을 확인하여 해당 내용을 숙지하세요.
 
+6. 쿼리 창에서 스크립트를 다음 코드로 바꿔 가져온 행의 수를 확인합니다.
+
+    ```sql
+    SELECT COUNT(1) FROM wwi_staging.SaleHeap(nolock)
+    ```
+
 ### 작업 3: COPY 문 구성 및 실행
 
 이번에는 COPY 문을 사용하여 같은 로드 작업을 수행하는 방법을 살펴보겠습니다.
@@ -255,9 +263,9 @@ PolyBase를 사용하려면 다음 요소가 필요합니다.
     TRUNCATE TABLE wwi_staging.SaleHeap;
     GO
 
-    -- <PrimaryStorage>를 작업 영역 기본 스토리지 계정 이름으로 바꿉니다.
+    -- Replace <PrimaryStorage> with the workspace default storage account name.
     COPY INTO wwi_staging.SaleHeap
-    FROM 'https://asadatalakeSUFFIX.dfs.core.windows.net/wwi-02/sale-small%2FYear%3D2019'
+    FROM 'https://asadatalakeSUFFIX.dfs.core.windows.net/wwi-02/sale-small/Year=2019'
     WITH (
         FILE_TYPE = 'PARQUET',
         COMPRESSION = 'SNAPPY'
@@ -286,9 +294,9 @@ PolyBase를 사용하려면 다음 요소가 필요합니다.
 1. 쿼리 창에서 스크립트를 다음 코드로 바꿔 COPY 문을 사용하여 클러스터형 columnstore `Sale` 테이블에 데이터를 로드합니다. `SUFFIX`는 작업 영역 ID로 바꿔야 합니다. 이 명령을 실행하지는 **마세요**! 이 명령을 실행하려면 7분 정도 걸리므로, 시간 관계상 이 명령은 건너뛰겠습니다.
 
     ```sql
-    -- SUFFIX를 작업 영역 기본 스토리지 계정 이름으로 바꿉니다.
+    -- Replace SUFFIX with the workspace default storage account name.
     COPY INTO wwi_staging.Sale
-    FROM 'https://asadatalakeSUFFIX.dfs.core.windows.net/wwi-02/sale-small%2FYear%3D2019'
+    FROM 'https://asadatalakeSUFFIX.dfs.core.windows.net/wwi-02/sale-small/Year=2019'
     WITH (
         FILE_TYPE = 'PARQUET',
         COMPRESSION = 'SNAPPY'
@@ -300,7 +308,7 @@ PolyBase를 사용하려면 다음 요소가 필요합니다.
 
 이 작업의 결과는 다음과 같습니다.
 
-PolyBase 사용 시와 COPY(DW500) 사용 시의 결과*(2019년의 작은 데이터 집합(행 339,507,246개) 삽입)*:
+PolyBase 사용 시와 COPY(DW500) 사용 시의 결과 *(2019년의 작은 데이터 집합(행 339,507,246개) 삽입)*:
 
 - COPY(힙: **5:08**, 클러스터형 columnstore: **6:52**)
 - PolyBase(힙: **5:59**)
@@ -331,7 +339,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
         )
     GO
 
-    -- <PrimaryStorage>를 작업 영역 기본 스토리지 계정 이름으로 바꿉니다.
+    -- Replace <PrimaryStorage> with the workspace default storage account name.
     COPY INTO wwi_staging.DailySalesCounts
     FROM 'https://asadatalakeSUFFIX.dfs.core.windows.net/wwi-02/campaign-analytics/dailycounts.txt'
     WITH (
@@ -400,7 +408,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
 2. 도구 모음 메뉴에서 **실행**을 선택하여 SQL 명령을 실행합니다.
 
-다음과 같은 오류가 표시됩니다. `쿼리를 실행하지 못했습니다. 오류: HdfsBridge::recordReaderFillBuffer - 레코드 판독기 버퍼를 채우는 중에 예기치 않은 오류가 발생했습니다. HadoopExecutionException: 줄에 열이 너무 많습니다.`
+다음과 같은 오류가 표시됩니다. `Failed to execute query. Error: HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer：HadoopExecutionException： Too many columns in the line.`.
 
 이 오류가 발생하는 이유는 [PolyBase 설명서](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver15#limitations-and-restrictions)에서 확인할 수 있습니다.
 
@@ -430,7 +438,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![개발 메뉴 항목이 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-2. **개발** 메뉴에서 **+** 단추**(1)**를 선택하고 상황에 맞는 메뉴에서 **SQL 스크립트**를 선택합니다**(2)**.
+2. **개발** 메뉴에서 **+** 단추 **(1)** 를 선택하고 상황에 맞는 메뉴에서 **SQL 스크립트**를 선택합니다 **(2)**.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -478,7 +486,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![관리 메뉴 항목이 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-9. 왼쪽 메뉴에서 **연결된 서비스**를 선택**(1)**하고 연결된 서비스 **`sqlpool01_import01`(2)**을 선택합니다..
+9. 왼쪽 메뉴에서 **연결된 서비스**를 선택 **(1)** 하고 연결된 서비스 **`sqlpool01_import01`(2)** 을 선택합니다..
 
     ![연결된 서비스가 표시되어 있는 그래픽](media/linked-services.png "Linked services")
 
@@ -494,11 +502,11 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![통합 허브가 강조 표시되어 있는 그래픽](media/integrate-hub.png "Integrate hub")
 
-2. **+(1)**, **파이프라인(2)**을 차례로 선택하여 새 파이프라인을 만듭니다.
+2. **+(1)**, **파이프라인(2)** 을 차례로 선택하여 새 파이프라인을 만듭니다.
 
     ![새 파이프라인 상황에 맞는 메뉴 항목이 선택되어 있는 그래픽](media/new-pipeline.png "New pipeline")
 
-3. 새 파이프라인 **속성** 창에서 **이름**으로 **`Copy December Sales`**를 입력합니다.
+3. 새 파이프라인 **속성** 창에서 **이름**으로 **`Copy December Sales`** 를 입력합니다.
 
     ![이름 속성이 강조 표시되어 있는 그래픽](media/pipeline-copy-sales-name.png "Properties")
 
@@ -506,51 +514,51 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![캔버스로 데이터 복사를 끄는 화면의 스크린샷](media/pipeline-copy-sales-drag-copy-data.png "Pipeline canvas")
 
-5. 캔버스에서 **데이터 복사** 활동을 선택하고 **일반** 탭**(1)**을 선택한 후 **이름**을 **`Copy Sales`(2)**로 설정합니다.
+5. 캔버스에서 **데이터 복사** 활동을 선택하고 **일반** 탭 **(1)** 을 선택한 후 **이름**을 **`Copy Sales`(2)** 로 설정합니다.
 
     ![일반 탭의 이름이 강조 표시되어 있는 그래픽](media/pipeline-copy-sales-general.png "General tab")
 
-6. **원본** 탭**(1)**을 선택하고 `원본 데이터 집합` 옆의 **+ 새로 만들기(2)**를 선택합니다.
+6. **원본** 탭 **(1)** 을 선택하고 `Source dataset` 옆의 **+ 새로 만들기(2)** 를 선택합니다.
 
     ![새로 만들기 단추가 강조 표시되어 있는 그래픽](media/pipeline-copy-sales-source-new.png "Source tab")
 
-7. **Azure Data Lake Storage Gen2** 데이터 저장소**(1)**를 선택하고 **계속(2)**을 선택합니다.
+7. **Azure Data Lake Storage Gen2** 데이터 저장소 **(1)** 를 선택하고 **계속(2)** 을 선택합니다.
 
     ![ADLS Gen2가 선택되어 있는 그래픽](media/new-dataset-adlsgen2.png "New dataset")
 
-8. **Parquet** 형식**(1)**을 선택하고 **계속(2)**을 선택합니다.
+8. **Parquet** 형식 **(1)** 을 선택하고 **계속(2)** 을 선택합니다.
 
     ![Parquet 형식이 강조 표시되어 있는 그래픽](media/new-dataset-adlsgen2-parquet.png "Select format")
 
-9. 속성에서 이름을 **asal400_december_sales(1)**로 설정하고 **asadatalakeNNNNNN** 연결된 서비스**(2)**를 선택합니다. **`wwi-02/campaign-analytics/sale-20161230-snappy.parquet`** 파일 위치**(3)**로 이동하여 가져올 스키마의 위치로 **샘플 파일(4)**을 선택합니다. 컴퓨터에 [이 샘플 파일을 다운로드](sale-small-20100102-snappy.parquet?raw=true)한 후 **파일 선택** 필드**(5)**에서 해당 파일을 찾습니다. **확인(6)**을 선택합니다.
+9. 속성에서 이름을 **asal400_december_sales(1)** 로 설정하고 **asadatalakeNNNNNN** 연결된 서비스 **(2)** 를 선택합니다. **`wwi-02/campaign-analytics/sale-20161230-snappy.parquet`** 파일 위치 **(3)** 로 이동하여 가져올 스키마의 위치로 **샘플 파일(4)** 을 선택합니다. 컴퓨터에 [이 샘플 파일을 다운로드](sale-small-20100102-snappy.parquet?raw=true)한 후 **파일 선택** 필드 **(5)** 에서 해당 파일을 찾습니다. **확인(6)** 을 선택합니다.
 
     ![속성이 표시되어 있는 그래픽](media/pipeline-copy-sales-source-dataset.png "Dataset properties")
 
     스키마는 정확히 동일하지만 크기는 훨씬 작은 샘플 Parquet 파일을 다운로드했습니다. 복사하려는 파일이 너무 커서 복사 작업 원본 설정의 스키마를 자동으로 유추할 수가 없기 때문입니다.
 
-10. **싱크** 탭**(1)**을 선택하고 `싱크 데이터 집합` 옆의 **+ 새로 만들기(2)**를 선택합니다.
+10. **싱크** 탭 **(1)** 을 선택하고 `Sink dataset` 옆의 **+ 새로 만들기(2)** 를 선택합니다.
 
     ![새로 만들기 단추가 강조 표시되어 있는 그래픽](media/pipeline-copy-sales-sink-new.png "Sink tab")
 
-11. **Azure Synapse Analytics** 데이터 저장소**(1)**를 선택하고 **계속(2)**을 선택합니다.
+11. **Azure Synapse Analytics** 데이터 저장소 **(1)** 를 선택하고 **계속(2)** 을 선택합니다.
 
     ![Azure Synapse Analytics가 선택되어 있는 그래픽](media/new-dataset-asa.png "New dataset")
 
-12. 속성에서 이름을 **`asal400_saleheap_asa`(1)**로 설정하고 **sqlpool01_import01** 연결된 서비스**(2)**를 선택합니다. 이 서비스는 `asa.sql.import01` 사용자로 Synapse Analytics에 연결합니다. 테이블 이름으로는 테이블 이름 드롭다운을 스크롤하여 **wwi_perf.Sale_Heap** 테이블**(3)**을 선택하고 **확인(4)**을 선택합니다.
+12. 속성에서 이름을 **`asal400_saleheap_asa`(1)** 로 설정하고 **sqlpool01_import01** 연결된 서비스 **(2)** 를 선택합니다. 이 서비스는 `asa.sql.import01` 사용자로 Synapse Analytics에 연결합니다. 테이블 이름으로는 테이블 이름 드롭다운을 스크롤하여 **wwi_perf.Sale_Heap** 테이블 **(3)** 을 선택하고 **확인(4)** 을 선택합니다.
 
     ![속성이 표시되어 있는 그래픽](media/pipeline-copy-sales-sink-dataset.png "Dataset properties")
 
-13. **싱크** 탭에서 **복사 명령(1)** 복사 방법을 선택하고 복사 전 스크립트에 **`TRUNCATE TABLE wwi_perf.Sale_Heap`(2)**을 입력하여 테이블을 가져오기 전에 내용을 지웁니다.
+13. **싱크** 탭에서 **복사 명령(1)** 복사 방법을 선택하고 복사 전 스크립트에 **`TRUNCATE TABLE wwi_perf.Sale_Heap`(2)** 을 입력하여 테이블을 가져오기 전에 내용을 지웁니다.
 
     ![설명의 설정이 표시되어 있는 그래픽](media/pipeline-copy-sales-sink-settings.png "Sink")
 
-    데이터를 확장 가능한 방식으로 가장 빠르게 로드하는 방법은 PolyBase 또는 COPY 문**(1)**을 사용하는 것입니다. COPY 문을 사용하는 경우 높은 처리량을 유지하면서 가장 유동적인 방식으로 SQL 풀에 데이터를 수집할 수 있습니다.
+    데이터를 확장 가능한 방식으로 가장 빠르게 로드하는 방법은 PolyBase 또는 COPY 문 **(1)** 을 사용하는 것입니다. COPY 문을 사용하는 경우 높은 처리량을 유지하면서 가장 유동적인 방식으로 SQL 풀에 데이터를 수집할 수 있습니다.
 
-14. **매핑** 탭**(1)**을 선택하고 **스키마 가져오기(2)**를 선택하여 각 원본 및 대상 필드의 매핑을 만듭니다. 원본 열**(3)**에서 **`TransactionDate`**를 선택하여 `TransactionDateId` 대상 열에 매핑합니다.
+14. **매핑** 탭 **(1)** 을 선택하고 **스키마 가져오기(2)** 를 선택하여 각 원본 및 대상 필드의 매핑을 만듭니다. 원본 열 **(3)** 에서 **`TransactionDate`** 를 선택하여 `TransactionDateId` 대상 열에 매핑합니다.
 
     ![매핑이 표시되어 있는 그래픽](media/pipeline-copy-sales-sink-mapping.png "Mapping")
 
-15. **설정** 탭**(1)**을 선택하고 **데이터 통합 단위**를 **`8`(2)**로 설정합니다. 이렇게 설정해야 하는 이유는 원본 Parquet 파일이 크기 때문입니다.
+15. **설정** 탭 **(1)** 을 선택하고 **데이터 통합 단위**를 **`8`(2)** 로 설정합니다. 이렇게 설정해야 하는 이유는 원본 Parquet 파일이 크기 때문입니다.
 
     ![데이터 통합 단위 값이 8로 설정되어 있는 화면의 스크린샷](media/pipeline-copy-sales-settings.png "Settings")
 
@@ -558,7 +566,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![모두 게시가 강조 표시되어 있는 그래픽](media/publish-all-1.png "Publish all")
 
-17. **트리거 추가(1)**와 **지금 트리거(2)**를 차례로 선택합니다. 파이프라인 실행 트리거에서 **확인**을 선택하여 파이프라인 실행을 시작합니다.
+17. **트리거 추가(1)** 와 **지금 트리거(2)** 를 차례로 선택합니다. 파이프라인 실행 트리거에서 **확인**을 선택하여 파이프라인 실행을 시작합니다.
 
     ![지금 트리거가 표시되어 있는 그래픽](media/copy-pipeline-trigger-now.png "Trigger now")
 
@@ -566,6 +574,26 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![모니터 허브 메뉴 항목이 선택되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-19. **파이프라인 실행(1)**을 선택합니다. 여기서 파이프라인 상태**(2)**를 확인할 수 있습니다. 보기를 새로 고쳐야 할 수도 있습니다**(3)**. 파이프라인 실행이 완료되면 `wwi_perf.Sale_Heap` 테이블을 쿼리하여 가져온 데이터를 확인할 수 있습니다.
+19. **파이프라인 실행(1)** 을 선택합니다. 여기서 파이프라인 상태 **(2)** 를 확인할 수 있습니다. 보기를 새로 고쳐야 할 수도 있습니다 **(3)**. 파이프라인 실행이 완료되면 `wwi_perf.Sale_Heap` 테이블을 쿼리하여 가져온 데이터를 확인할 수 있습니다.
 
     ![완료된 파이프라인 실행이 표시되어 있는 그래픽](media/pipeline-copy-sales-pipeline-run.png "Pipeline runs")
+
+## 연습 3: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

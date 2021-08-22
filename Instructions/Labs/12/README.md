@@ -27,7 +27,7 @@
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `랩 설정 및 필수 구성 요소` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
 
 이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)에 나와 있는 작업을 완료**하세요.
 
@@ -62,11 +62,11 @@
 
     ![관리 메뉴 항목이 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)**를 선택하고 **계속**을 선택합니다.
+2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)** 를 선택하고 **계속**을 선택합니다.
 
     ![관리, 새로 만들기, Azure Cosmos DB 연결된 서비스 옵션이 강조 표시되어 있는 그래픽](media/create-cosmos-db-linked-service-step1.png "New linked service")
 
-3. 연결된 서비스의 이름을 `asacosmosdb01`**(1)**로 지정하고 **Cosmos DB 계정 이름**(`asacosmosdbSUFFIX`)를 선택한 후에 **데이터베이스 이름** 값을 `CustomerProfile`**(2)**로 설정합니다. **연결 테스트**를 선택하여 서비스에 정상적으로 연결되는지 확인**(3)**한 다음 **만들기(4)**를 선택합니다.
+3. 연결된 서비스의 이름을 `asacosmosdb01`**(1)** 로 지정하고 **Cosmos DB 계정 이름**(`asacosmosdbSUFFIX`)를 선택한 후에 **데이터베이스 이름** 값을 `CustomerProfile`**(2)** 로 설정합니다. **연결 테스트**를 선택하여 서비스에 정상적으로 연결되는지 확인 **(3)** 한 다음 **만들기(4)** 를 선택합니다.
 
     ![새 Azure Cosmos DB 연결된 서비스](media/create-cosmos-db-linked-service.png "New linked service")
 
@@ -80,19 +80,19 @@
 
     ![데이터 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-2. 도구 모음에서 **+****(1)**를 선택하고 **통합 데이터 집합(2)**을 선택하여 새 데이터 집합을 만듭니다.
+2. 도구 모음에서 **+** **(1)** 를 선택하고 **통합 데이터 집합(2)** 을 선택하여 새 데이터 집합을 만듭니다.
 
     ![새 데이터 집합 만들기 화면의 스크린샷](media/new-dataset.png "New Dataset")
 
-3. 목록에서 **Azure Cosmos DB(SQL API)****(1)**를 선택하고 **계속(2)**을 선택합니다.
+3. 목록에서 **Azure Cosmos DB(SQL API)** **(1)** 를 선택하고 **계속(2)** 을 선택합니다.
 
     ![Azure Cosmos DB SQL API 옵션이 강조 표시되어 있는 그래픽](media/new-cosmos-db-dataset.png "Integration dataset")
 
-4. 다음 특성으로 데이터 집합을 구성하고 **확인(4)**을 선택합니다.
+4. 다음 특성으로 데이터 집합을 구성하고 **확인(4)** 을 선택합니다.
 
-    - **이름**: `asal400_customerprofile_cosmosdb`**(1)**를 입력합니다.
-    - **연결된 서비스**: Azure Cosmos DB 연결된 서비스**(2)**를 선택합니다.
-    - **컬렉션**: `OnlineUserProfile01`**(3)**을 선택합니다.
+    - **이름**: `asal400_customerprofile_cosmosdb`**(1)** 를 입력합니다.
+    - **연결된 서비스**: Azure Cosmos DB 연결된 서비스**(2)** 를 선택합니다.
+    - **컬렉션**: `OnlineUserProfile01`**(3)** 을 선택합니다.
 
     ![새 Azure Cosmos DB 데이터 집합](media/create-cosmos-db-dataset.png "New Cosmos DB dataset")
 
@@ -126,7 +126,7 @@ Azure Synapse Link는 Cosmos DB의 트랜잭션 처리 및 기본 제공 분석 
 
     ![Azure Cosmos DB 계정이 강조 표시되어 있는 그래픽](media/resource-group-cosmos.png "Azure Cosmos DB account")
 
-3. 왼쪽 메뉴에서 **기능****(1)**을 선택한 다음 **Azure Synapse Link(2)**를 선택합니다.
+3. 왼쪽 메뉴에서 **기능** **(1)**을 선택한 다음 **Azure Synapse Link(2)** 를 선택합니다.
 
     ![기능 블레이드가 표시되어 있는 그래픽](media/cosmos-db-features.png "Features")
 
@@ -158,7 +158,7 @@ Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있
 
     ![단추가 강조 표시되어 있는 그래픽](media/new-container-button.png "New Container")
 
-3. **데이터베이스 ID**에 대해 **기존 항목 사용**을 선택한 다음 **`CustomerProfile`(1)**을 선택합니다. **컨테이너 ID(2)**에 **`UserProfileHTAP`**를 입력하고 **파티션 키(3)**에 **`/userId`**를 입력합니다. **처리량**에 대해** 자동 크기 조정(4)**을 선택한 다음 **최대 RU/s** 값**(5)**으로 **`4000`**을 입력합니다. 마지막으로 **분석 저장소**를 **켜짐(6)**으로 설정하고 **확인**을 선택합니다.
+3. **데이터베이스 ID**에 대해 **기존 항목 사용**을 선택한 다음 **`CustomerProfile`(1)** 을 선택합니다. **컨테이너 ID(2)** 에 **`UserProfileHTAP`** 를 입력하고 **파티션 키(3)** 에 **`/userId`** 를 입력합니다. **처리량**에 대해 **자동 크기 조정(4)** 을 선택한 다음 **최대 RU/s** 값 **(5)** 으로 **`4000`** 을 입력합니다. 마지막으로 고급을 확장하고 **분석 저장소**를 **켜짐(6)** 으로 설정한 다음 **확인**을 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](media/new-container.png "New container")
 
@@ -166,11 +166,11 @@ Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있
 
     새 컨테이너에 복사할 데이터를 간략히 살펴보겠습니다.
 
-4. **CustomerProfile** 데이터베이스 아래에 있는 `OnlineUserProfile01` 컨테이너를 확장한 다음** 항목(1)**을 선택합니다. 문서 중 하나**(2)**를 선택하고 그 내용을 확인**(3)**합니다. 문서는 JSON 형식으로 저장됩니다.
+4. **CustomerProfile** 데이터베이스 아래에 있는 `OnlineUserProfile01` 컨테이너를 확장한 다음 **항목(1)** 을 선택합니다. 문서 중 하나 **(2)** 를 선택하고 그 내용을 확인 **(3)** 합니다. 문서는 JSON 형식으로 저장됩니다.
 
     ![컨테이너 항목이 표시되어 있는 그래픽](media/existing-items.png "Container items")
 
-5. 왼쪽 메뉴에서 **키**를 선택**(1)**한 다음 **기본 키** 값**(2)**를 복사하여 나중에 참조할 수 있도록 메모장이나 유사한 텍스트 편집기에 저장합니다. 왼쪽 위에서 Azure Cosmos DB **계정 이름**을 복사**(3)**한 다음 마찬가지로 나중에 참조할 수 있도록 메모장이나 유사한 텍스트 편집기에 저장합니다.
+5. 왼쪽 메뉴에서 **키**를 선택 **(1)** 한 다음 **기본 키** 값 **(2)** 를 복사하여 나중에 참조할 수 있도록 메모장이나 유사한 텍스트 편집기에 저장합니다. 왼쪽 위에서 Azure Cosmos DB **계정 이름**을 복사 **(3)** 한 다음 마찬가지로 나중에 참조할 수 있도록 메모장이나 유사한 텍스트 편집기에 저장합니다.
 
     ![기본 키가 강조 표시되어 있는 그래픽](media/cosmos-keys.png "Keys")
 
@@ -184,27 +184,27 @@ Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있
 
     ![통합 메뉴 항목이 강조 표시되어 있는 그래픽](media/integrate-hub.png "Integrate hub")
 
-2. **+(1)**, **파이프라인(2)**을 차례로 선택합니다.
+2. **+(1)**, **파이프라인(2)** 을 차례로 선택합니다.
 
     ![새 파이프라인 링크가 강조 표시되어 있는 그래픽](media/new-pipeline.png "New pipeline")
 
-3. 활동 아래에서 `이동 및 변환` 그룹을 확장한 다음 **데이터 복사** 활동을 캔버스**(1)**로 끕니다. 속성 블레이드에서 **이름**을 **`Copy Cosmos DB Container`**로 설정합니다**(2)**.
+3. 활동 아래에서 `이동 및 변환` 그룹을 확장한 다음 **데이터 복사** 활동을 캔버스 **(1)** 로 끕니다. 속성 블레이드에서 **이름**을 **`Copy Cosmos DB Container`** 로 설정합니다 **(2)**.
 
     ![새 복사 활동이 표시되어 있는 그래픽](media/add-copy-pipeline.png "Add copy activity")
 
-4. 캔버스에 추가한 새 복사 활동을 선택하고 **원본** 탭**(1)**을 선택합니다. 목록에서 **`asal400_customerprofile_cosmosdb`** 원본 데이터 집합**(2)**을 선택합니다.
+4. 캔버스에 추가한 새 복사 활동을 선택하고 **원본** 탭 **(1)** 을 선택합니다. 목록에서 **`asal400_customerprofile_cosmosdb`** 원본 데이터 집합 **(2)** 을 선택합니다.
 
     ![원본이 선택되어 있는 그래픽](media/copy-source.png "Source")
 
-5. **싱크** 탭**(1)**을 선택하고 **+ 새로 만들기(2)**를 선택합니다.
+5. **싱크** 탭 **(1)** 을 선택하고 **+ 새로 만들기(2)** 를 선택합니다.
 
     ![싱크가 선택되어 있는 그래픽](media/copy-sink.png "Sink")
 
-6. **Azure Cosmos DB(SQL API)** 데이터 집합 형식**(1)**을 선택하고 **계속(2)**을 선택합니다.
+6. **Azure Cosmos DB(SQL API)** 데이터 집합 형식 **(1)** 을 선택하고 **계속(2)** 을 선택합니다.
 
     ![Azure Cosmos DB가 선택되어 있는 그래픽](media/dataset-type.png "New dataset")
 
-7. **이름**으로 **`cosmos_db_htap`(1)**를 입력합니다. **`asacosmosdb01`(2)** **연결된 서비스**를 선택합니다. **`UserProfileHTAP`(3)** **컬렉션**을 선택합니다. **스키마 가져오기(4)** 아래에서 **연결/저장소에서**를 선택하고 **확인(5)**을 선택합니다.
+7. **이름**으로 **`cosmos_db_htap`(1)** 를 입력합니다. **`asacosmosdb01`(2)** **연결된 서비스**를 선택합니다. **`UserProfileHTAP`(3)** **컬렉션**을 선택합니다. **스키마 가져오기(4)** 아래에서 **연결/저장소에서**를 선택하고 **확인(5)** 을 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](media/dataset-properties.png "Set properties")
 
@@ -216,7 +216,7 @@ Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있
 
     ![모두 게시가 표시되어 있는 그래픽](media/publish-all-1.png "Publish")
 
-10. 파이프라인 캔버스 위쪽에서 **트리거 추가(1)**와 **지금 트리거(2)**를 차례로 선택합니다. **확인**을 선택하여 실행을 트리거합니다.
+10. 파이프라인 캔버스 위쪽에서 **트리거 추가(1)** 와 **지금 트리거(2)** 를 차례로 선택합니다. **확인**을 선택하여 실행을 트리거합니다.
 
     ![트리거 메뉴가 표시되어 있는 그래픽](media/pipeline-trigger.png "Trigger now")
 
@@ -224,7 +224,7 @@ Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있
 
     ![모니터 허브가 표시되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-12. **파이프라인 실행(1)**을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다**(2)**. **새로 고침(3)**을 몇 번 선택해야 할 수도 있습니다.
+12. **파이프라인 실행(1)** 을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다 **(2)**. **새로 고침(3)** 을 몇 번 선택해야 할 수도 있습니다.
 
     ![정상적으로 완료된 파이프라인 실행이 표시된 스크린샷](media/pipeline-run-status.png "Pipeline runs")
 
@@ -242,7 +242,7 @@ Tailwind Traders는 각 사용자에게서 확인된 선호 제품 목록과 리
 
     ![데이터 허브](media/data-hub.png "Data hub")
 
-2. **연결됨** 탭**(1)**을 선택하고 **Azure Cosmos DB** 섹션을 확장한 다음 **asacosmosdb01(CustomerProfile)** 연결된 서비스**(2)**를 확장합니다. **UserProfileHTAP** 컨테이너**(3)**를 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 제스처**(4)**를 선택한 다음 **데이터 프레임에 로드(5)**를 선택합니다.
+2. **연결됨** 탭 **(1)* *을 선택하고 **Azure Cosmos DB** 섹션을 확장한 다음 **asacosmosdb01(CustomerProfile)** 연결된 서비스 **(2)** 를 확장합니다. **UserProfileHTAP** 컨테이너 **(3)** 를 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 제스처 **(4)** 를 선택한 다음 **데이터 프레임에 로드(5)** 를 선택합니다.
 
     ![새 Notebook 제스처가 강조 표시되어 있는 그래픽](media/new-notebook.png "New notebook")
 
@@ -252,17 +252,17 @@ Tailwind Traders는 각 사용자에게서 확인된 선호 제품 목록과 리
 
     ![연결 대상 드롭다운 목록이 강조 표시되어 있는 그래픽](media/notebook-attach.png "Attach the Spark pool")
 
-4. **모두 실행(1)**을 선택합니다.
+4. **모두 실행(1)** 을 선택합니다.
 
     ![셀 1 출력이 포함된 새 Notebook이 표시되어 있는 그래픽](media/notebook-cell1.png "Cell 1")
 
     > Spark 세션을 처음으로 시작하려면 몇 분 정도 걸립니다.
 
-    셀 1 내에 생성된 코드에서는 `spark.read` 형식이 **`cosmos.olap`(2)**로 설정되어 있습니다. 이 형식은 컨테이너의 분석 저장소를 사용하도록 Synapse Link에 명령합니다. 분석 저장소가 아닌 트랜잭션 저장소에 연결하거나 데이터를 변경 피드에서 읽거나 컨테이너에 쓰려는 경우에는 `cosmos.oltp`를 대신 사용하면 됩니다.
+    셀 1 내에 생성된 코드에서는 `spark.read` 형식이 **`cosmos.olap`(2)** 로 설정되어 있습니다. 이 형식은 컨테이너의 분석 저장소를 사용하도록 Synapse Link에 명령합니다. 분석 저장소가 아닌 트랜잭션 저장소에 연결하거나 데이터를 변경 피드에서 읽거나 컨테이너에 쓰려는 경우에는 `cosmos.oltp`를 대신 사용하면 됩니다.
 
     > **참고:** 분석 저장소에 데이터를 쓸 수는 없으며 분석 저장소의 데이터 읽기만 가능합니다. 컨테이너에 데이터를 로드하려면 트랜잭션 저장소에 연결해야 합니다.
 
-    첫 번째 `option`은 Azure Cosmos DB 연결된 서비스**(3)**의 이름을 구성합니다. 두 번째 `option`은 읽으려는 데이터가 있는 Azure Cosmos DB 컨테이너**(4)**를 정의합니다.
+    첫 번째 `option`은 Azure Cosmos DB 연결된 서비스 **(3)** 의 이름을 구성합니다. 두 번째 `option`은 읽으려는 데이터가 있는 Azure Cosmos DB 컨테이너 **(4)** 를 정의합니다.
 
 5. 실행한 셀 아래쪽의 **+** 단추를 선택하고 **</> 코드 셀**을 선택합니다. 그러면 첫 번째 코드 셀 아래에 새 코드 셀이 추가됩니다.
 
@@ -357,11 +357,11 @@ Tailwind Traders는 T-SQL을 사용하여 Azure Cosmos DB 분석 저장소를 �
 
     ![개발 허브](media/develop-hub.png "Develop hub")
 
-2. **+(1)**, **SQL 스크립트(2)**를 차례로 선택합니다.
+2. **+(1)**, **SQL 스크립트(2)** 를 차례로 선택합니다.
 
     ![SQL 스크립트 단추가 강조 표시되어 있는 그래픽](media/new-script.png "SQL script")
 
-3. 스크립트가 열리면 오른쪽에 **속성** 창**(1)**이 표시됩니다. **이름(2)**으로 **`User Profile HTAP`**를 입력하고 **속성** 단추를 선택하여 창을 숨깁니다**(1)**.
+3. 스크립트가 열리면 오른쪽에 **속성** 창 **(1)** 이 표시됩니다. **이름(2)** 으로 **`User Profile HTAP`** 를 입력하고 **속성** 단추를 선택하여 창을 숨깁니다 **(1)**.
 
     ![속성 창이 표시되어 있는 그래픽](media/new-script-properties.png "Properties")
 
@@ -369,7 +369,7 @@ Tailwind Traders는 T-SQL을 사용하여 Azure Cosmos DB 분석 저장소를 �
 
     ![서버리스 SQL 풀이 선택되어 있는 그래픽](media/built-in-htap.png "Built-in")
 
-5. 다음 SQL 쿼리를 붙여넣습니다. OPENROWSET 문에서 **`YOUR_ACCOUNT_NAME`**은 사용자의 Azure Cosmos DB 계정 이름으로 바꾸고 **`YOUR_ACCOUNT_KEY`**는 위의 5단계에서 컨테이너를 만든 후에 복사한 Azure Cosmos DB 기본 키 값으로 바꿉니다.
+5. 다음 SQL 쿼리를 붙여넣습니다. OPENROWSET 문에서 **`YOUR_ACCOUNT_NAME`** 은 사용자의 Azure Cosmos DB 계정 이름으로 바꾸고 **`YOUR_ACCOUNT_KEY`** 는 위의 5단계에서 컨테이너를 만든 후에 복사한 Azure Cosmos DB 기본 키 값으로 바꿉니다.
 
     ```sql
     USE master
@@ -426,7 +426,7 @@ Tailwind Traders는 T-SQL을 사용하여 Azure Cosmos DB 분석 저장소를 �
 
     ![데이터 허브](media/data-hub.png "Data hub")
 
-7. **작업 영역** 탭**(1)**을 선택하고 데이터베이스 그룹을 확장합니다. **Profiles** SQL 주문형 데이터베이스**(2)**를 확장합니다. 목록에 이 데이터베이스가 표시되지 않으면 데이터베이스 목록을 새로 고칩니다. 보기를 확장하고 **`UserProfileHTAP`** 보기**(3)**를 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(4)**, **상위 100개 행 선택(5)**을 차례로 선택합니다.
+7. **작업 영역** 탭 **(1)** 을 선택하고 데이터베이스 그룹을 확장합니다. **Profiles** SQL 주문형 데이터베이스 **(2)** 를 확장합니다. 목록에 이 데이터베이스가 표시되지 않으면 데이터베이스 목록을 새로 고칩니다. 보기를 확장하고 **`UserProfileHTAP`** 보기 **(3)** 를 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(4)**, **상위 100개 행 선택(5)** 을 차례로 선택합니다.
 
     ![상위 100개 행 선택 쿼리 옵션이 강조 표시되어 있는 그래픽](media/new-select-query.png "New select query")
 

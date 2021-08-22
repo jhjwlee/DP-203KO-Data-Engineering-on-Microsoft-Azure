@@ -31,11 +31,11 @@ Tailwind Trader의 데이터 엔지니어는 데이터 레이크 탐색, 데이�
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
 
 이 랩을 진행하려면 새 Azure Active Directory 보안 그룹을 만들고 해당 그룹에 구성원을 할당할 권한이 있어야 합니다.
 
-이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)** 에 나와 있는 작업을 완료**하세요.
+이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md) 에 나와 있는 작업을 완료** 하세요.
 
 다음 모듈에서도 이 모듈과 같은 환경을 사용합니다.
 
@@ -66,7 +66,7 @@ Azure Synapse Analytics에서는 SQL 또는 Apache Spark for Synapse 중 한 가
 
     ![데이터 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-2. **연결됨** 탭**(1)** 을 선택하고 **Azure Data Lake Storage Gen2** 를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정 **(2)** 을 확장하고 **`wwi-02`** 컨테이너 **(3)** 를 선택합니다. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더 **(4)** 로 이동합니다. `sale-small-20161231-snappy.parquet` 파일 **(5)** 을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(6)**, **상위 100개 행 선택(7)** 을 차례로 선택합니다.
+2. **연결됨** 탭 **(1)** 을 선택하고 **Azure Data Lake Storage Gen2** 를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정 **(2)** 을 확장하고 **`wwi-02`** 컨테이너 **(3)** 를 선택합니다. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더 **(4)** 로 이동합니다. `sale-small-20161231-snappy.parquet` 파일 **(5)** 을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(6)**, **상위 100개 행 선택(7)** 을 차례로 선택합니다.
 
     ![데이터 허브가 표시되어 있고 옵션이 강조 표시되어 있는 그래픽](media/data-hub-parquet-select-rows.png "Select TOP 100 rows")
 
@@ -119,15 +119,15 @@ Parquet 파일을 쿼리할 때마다 `OPENROWSET` 및 루트 2019 폴더가 포
 
     ![데이터 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-2. **연결됨** 탭**(1)** 을 선택하고 **Azure Data Lake Storage Gen2**를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정 **(2)** 을 확장하고 **`wwi-02`** 컨테이너 **(3)** 를 선택합니다. `sale-small/Year=2019/Quarter=Q1/Month=1/Day=20190101` 폴더**(4)**로 이동합니다. `sale-small-20190101-snappy.parquet` 파일 **(5)** 을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(6)**, **외부 테이블 만들기(7)** 를 차례로 선택합니다.
+2. **연결됨** 탭 **(1)** 을 선택하고 **Azure Data Lake Storage Gen2**를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정 **(2)** 을 확장하고 **`wwi-02`** 컨테이너 **(3)** 를 선택합니다. `sale-small/Year=2019/Quarter=Q1/Month=1/Day=20190101` 폴더 **(4)** 로 이동합니다. `sale-small-20190101-snappy.parquet` 파일 **(5)** 을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(6)**, **외부 테이블 만들기(7)** 를 차례로 선택합니다.
 
     ![외부 테이블 만들기 링크가 강조 표시되어 있는 그래픽](media/create-external-table.png "Create external table")
 
-3. **SQP 풀(1)** 에서 **`Built-in`**이 선택되어 있는지 확인합니다. **데이터베이스 선택**에서 **+새로 만들기**를 선택하고 `demo`**(2)** 를 입력합니다. **외부 테이블 이름**으로는 `All2019Sales`**(3)** 를 입력합니다. **외부 테이블 만들기**에서 **SQL 스크립트 사용(4)** 을 선택한 다음 **만들기(5)** 를 선택합니다.
+3. **SQP 풀(1)** 에서 **`Built-in`** 이 선택되어 있는지 확인합니다. **데이터베이스 선택**에서 **+ 새로 만들기** 를 선택하고 `demo` **(2)** 를 입력합니다. **외부 테이블 이름**으로는 `All2019Sales`**(3)** 를 입력합니다. **외부 테이블 만들기**에서 **SQL 스크립트 사용(4)** 을 선택한 다음 **만들기(5)** 를 선택합니다.
 
     ![외부 테이블 만들기 양식이 표시되어 있는 그래픽](media/create-external-table-form.png "Create external table")
 
-    > **참고**: 이 스크립트가 서버리스 SQL 풀(`Built-in`)에 연결되며**(1)** 데이터베이스가 `demo`**(2)** 로 설정되어 있는지 확인해야 합니다.
+    > **참고**: 이 스크립트가 서버리스 SQL 풀(`Built-in`)에 연결되며 **(1)** 데이터베이스가 `demo` **(2)** 로 설정되어 있는지 확인해야 합니다.
 
     ![기본 제공 풀 및 demo 데이터베이스가 선택되어 있는 스크린샷](media/built-in-and-demo.png "Script toolbar")
 
@@ -140,7 +140,7 @@ Parquet 파일을 쿼리할 때마다 `OPENROWSET` 및 루트 2019 폴더가 포
 
     ![SQL 스크립트가 표시되어 있는 그래픽](media/create-external-table-script.png "Create external table script")
 
-4. `CREATE EXTERNAL TABLE` 문의 `LOCATION` 값을 **`sale-small/Year=2019/*/*/*/*.parquet`**으로 바꿉니다.
+4. `CREATE EXTERNAL TABLE` 문의 `LOCATION` 값을 **`sale-small/Year=2019/*/*/*/*.parquet`** 으로 바꿉니다.
 
     ![Location 값이 강조 표시되어 있는 그래픽](media/create-external-table-location.png "Create external table")
 
@@ -339,7 +339,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 1. Synapse Studio를 열어 두고 다른 브라우저 탭에서 Azure Portal(<https://portal.azure.com>)로 다시 전환합니다.
 
-2. Azure 메뉴**(1)**를 선택하고 **Azure Active Directory(2)**를 선택합니다.
+2. Azure 메뉴 **(1)** 를 선택하고 **Azure Active Directory(2)** 를 선택합니다.
 
     ![메뉴 항목이 강조 표시되어 있는 그래픽](media/azure-ad-menu.png "Azure Active Directory")
 
@@ -359,7 +359,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![새 그룹 단추](media/new-group.png "New group")
 
-7. 그룹 유형에서 `Security`을 선택합니다. **그룹 이름**으로 `tailwind-readers-<suffix>` 를 입력하고(여기서 `<suffix>`는 사용자 이니셜+숫자 2개 이상과 같은 고유 값) **만들기**를 선택합니다.
+7. **그룹 유형**에서 `Security`을 선택합니다. **그룹 이름**으로 `tailwind-readers-<suffix>` 를 입력하고(여기서 `<suffix>`는 사용자 이니셜+숫자 2개 이상과 같은 고유 값) **만들기**를 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](media/new-group-readers.png "New Group")
 
@@ -367,7 +367,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![새 그룹 단추](media/new-group.png "New group")
 
-9. 그룹 유형에서 `Security`을 선택합니다. **그룹 이름**으로 `tailwind-current-writers-<suffix>` 를 입력하고(여기서 `<suffix>`는 사용자 이니셜+숫자 2개 이상과 같은 고유 값) **만들기**를 선택합니다.
+9. **그룹 유형**에서 `Security`을 선택합니다. **그룹 이름**으로 `tailwind-current-writers-<suffix>` 를 입력하고(여기서 `<suffix>`는 사용자 이니셜+숫자 2개 이상과 같은 고유 값) **만들기**를 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](media/new-group-current-writers.png "New Group")
 
@@ -375,7 +375,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![새 그룹 단추](media/new-group.png "New group")
 
-11. 그룹 유형에서 `Security`을 선택합니다. **그룹 이름**으로 `tailwind-2019-writers-<suffix>`를 입력하고(여기서 `<suffix>`는 사용자 이니셜+숫자 2개 이상과 같은 고유 값) **만들기**를 선택합니다.
+11. **그룹 유형**에서 `Security`을 선택합니다. **그룹 이름**으로 `tailwind-2019-writers-<suffix>`를 입력하고(여기서 `<suffix>`는 사용자 이니셜+숫자 2개 이상과 같은 고유 값) **만들기**를 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](media/new-group-2019-writers.png "New Group")
 
@@ -385,7 +385,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 1. 새로 만든 **`tailwind-readers-<suffix>`** 그룹을 엽니다.
 
-2. 왼쪽에서 **구성원(1)**을 선택하고 **+ 구성원 추가(2)**를 선택합니다..
+2. 왼쪽에서 **구성원(1)** 을 선택하고 **+ 구성원 추가(2)** 를 선택합니다..
 
     ![그룹이 표시되어 있고 구성원 추가가 강조 표시되어 있는 그래픽](media/tailwind-readers.png "tailwind-readers group")
 
@@ -395,7 +395,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 4. **`tailwind-2019-writers-<suffix>`** 그룹을 엽니다.
 
-5. 왼쪽에서 **구성원(1)**을 선택하고 **+ 구성원 추가(2)**를 선택합니다..
+5. 왼쪽에서 **구성원(1)** 을 선택하고 **+ 구성원 추가(2)** 를 선택합니다..
 
     ![그룹이 표시되어 있고 구성원 추가가 강조 표시되어 있는 그래픽](media/tailwind-2019-writers.png "tailwind-2019-writers group")
 
@@ -417,7 +417,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![스토리지 계정이 선택되어 있는 그래픽](media/resource-group-storage-account.png "Resource group")
 
-3. 왼쪽 메뉴에서 **액세스 제어(IAM)**를 선택합니다.
+3. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 
     ![액세스 제어가 선택되어 있는 그래픽](media/storage-access-control.png "Access Control")
 
@@ -429,7 +429,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![역할 할당 추가가 강조 표시되어 있는 그래픽](media/add-role-assignment.png "Add role assignment")
 
-6. **역할**에서 **`Storage Blob 데이터 읽기 권한자`**를 선택합니다. **`tailwind-readers`**를 검색하여 결과에서 `tailwind-readers-<suffix>`를 선택하고 **저장**을 선택합니다.
+6. **역할**에서 **`Storage Blob Data Reader`** 를 선택합니다. **`tailwind-readers`** 를 검색하여 결과에서 `tailwind-readers-<suffix>`를 선택하고 **저장**을 선택합니다.
 
     ![설명의 양식이 표시되어 있는 그래픽](media/add-tailwind-readers.png "Add role assignment")
 
@@ -439,25 +439,25 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![역할 할당 추가가 강조 표시되어 있는 그래픽](media/add-role-assignment.png "Add role assignment")
 
-8. **역할**에서 **`Storage Blob 데이터 소유자`**를 선택합니다. **`tailwind`**를 검색하여 결과에서 **`tailwind-history-owners-<suffix>`**를 선택하고 **저장**을 선택합니다.
+8. **역할**에서 **`Storage Blob Data Owner`** 를 선택합니다. **`tailwind`** 를 검색하여 결과에서 **`tailwind-history-owners-<suffix>`** 를 선택하고 **저장**을 선택합니다.
 
     ![설명의 양식이 표시되어 있는 그래픽](media/add-tailwind-history-owners.png "Add role assignment")
 
-    이제 데이터 레이크가 포함된 Azure Storage 계정의 Azure Storage 기본 제공 RBAC 역할 `Storage Blob 데이터 소유자`에게 `tailwind-history-owners-<suffix>` 보안 그룹이 할당되었습니다. 따라서 이 역할에 추가된 Azure AD 사용자와 보안 주체가 작년의 모든 데이터를 수정할 수 있습니다.
+    이제 데이터 레이크가 포함된 Azure Storage 계정의 Azure Storage 기본 제공 RBAC 역할 `Storage Blob Data Owner`에게 `tailwind-history-owners-<suffix>` 보안 그룹이 할당되었습니다. 따라서 이 역할에 추가된 Azure AD 사용자와 보안 주체가 작년의 모든 데이터를 수정할 수 있습니다.
 
     Tailwind Traders는 모든 기록 데이터 수정 권한이 있는 사용자 보안 주체를 `tailwind-history-owners-<suffix>` 보안 그룹에 추가해야 합니다.
 
-9. 스토리지 계정의 **액세스 제어(IAM)** 목록에서 **Storage Blob 데이터 소유자** 역할**(1)** 아래에 표시된 사용자의 Azure 사용자 계정을 선택한 다음 **제거(2)**를 선택합니다.
+9. 스토리지 계정의 **액세스 제어(IAM)** 목록에서 **Storage Blob 데이터 소유자** 역할 **(1)** 아래에 표시된 사용자의 Azure 사용자 계정을 선택한 다음 **제거(2)** 를 선택합니다.
 
     ![액세스 제어 설정이 표시되어 있는 그래픽](media/storage-access-control-updated.png "Access Control updated")
 
-    `tailwind-history-owners-<suffix>` 그룹은 **Storage Blob 데이터 소유자** 그룹**(3)**에 할당되었으며 `tailwind-readers-<suffix>`는 **Storage Blob 데이터 읽기 권한자** 그룹**(2)**에 할당되었습니다.
+    `tailwind-history-owners-<suffix>` 그룹은 **Storage Blob 데이터 소유자** 그룹 **(3)** 에 할당되었으며 `tailwind-readers-<suffix>`는 **Storage Blob 데이터 읽기 권한자** 그룹 **(4)** 에 할당되었습니다.
 
     > **참고**: 모든 새 역할 할당을 확인하려면 리소스 그룹으로 다시 이동했다가 이 화면으로 돌아와야 할 수도 있습니다.
 
 ### 작업 4: 데이터 레이크 보안 구성 - ACL(액세스 제어 목록)
 
-1. 왼쪽 메뉴에서 **Storage Explorer(미리 보기)**를 선택합니다**(1)**. 컨테이너를 확장하고 **wwi-02** 컨테이너**(2)**를 선택합니다. **sale-small** 폴더**(3)**를 열고 **YEAR=2019** 폴더**(4)**를 마우스 오른쪽 단추로 클릭한 다음 **액세스 관리**** ****(5)**를 선택합니다.
+1. 왼쪽 메뉴에서 **Storage Explorer(미리 보기)** 를 선택합니다 **(1)**. 컨테이너를 확장하고 **wwi-02** 컨테이너 **(2)** 를 선택합니다. **sale-small** 폴더 **(3)** 를 열고 **YEAR=2019** 폴더 **(4)** 를 마우스 오른쪽 단추로 클릭한 다음 **액세스 관리 (5)** 를 선택합니다.
 
     ![2019 폴더가 강조 표시되어 있고 액세스 관리가 선택되어 있는 그래픽](media/manage-access-2019.png "Storage Explorer")
 
@@ -465,7 +465,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![개체 ID 값을 필드에 붙여넣은 화면의 스크린샷](media/manage-access-2019-object-id.png "Manage Access")
 
-3. 이제 액세스 관리 대화 상자**(1)**에서 `tailwind-2019-writers-<suffix>` 그룹이 선택됩니다. **액세스** 및 **기본값** 체크박스를 선택하고 각 액세스 권한에서 **읽기**, **쓰기**, **실행** 체크박스를 선택한 다음**(2)** **저장**을 선택합니다.
+3. 이제 액세스 관리 대화 상자 **(1)** 에서 `tailwind-2019-writers-<suffix>` 그룹이 선택됩니다. **액세스** 및 **기본값** 체크박스를 선택하고 각 액세스 권한에서 **읽기**, **쓰기**, **실행** 체크박스를 선택한 다음 **(2)** **저장**을 선택합니다.
 
     ![설명에 해당하는 권한이 구성되어 있는 그래픽](media/manage-access-2019-permissions.png "Manage Access")
 
@@ -477,7 +477,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     *액세스* ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
 
-    *기본 *ACL은 디렉터리에 생성된 모든 자식 항목의 액세스 ACL을 결정하는 디렉터리와 연결된 ACL 템플릿입니다. 파일에는 기본 ACL이 없습니다.
+    *기본* ACL은 디렉터리에 생성된 모든 자식 항목의 액세스 ACL을 결정하는 디렉터리와 연결된 ACL 템플릿입니다. 파일에는 기본 ACL이 없습니다.
 
     액세스 ACL 및 기본 ACL의 구조는 모두 동일합니다.
 
@@ -487,11 +487,11 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![데이터 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-2. **연결됨** 탭**(1)**을 선택하고 **Azure Data Lake Storage Gen2**를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정**(2)**을 확장하고 **`wwi-02`** 컨테이너**(3)**를 선택합니다. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더**(4)**로 이동합니다. `sale-small-20161231-snappy.parquet` 파일**(5)**을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(6)**, **상위 100개 행 선택(7)**을 차례로 선택합니다.
+2. **연결됨** 탭 **(1)** 을 선택하고 **Azure Data Lake Storage Gen2**를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정 **(2)** 을 확장하고 **`wwi-02`** 컨테이너 **(3)** 를 선택합니다. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더 **(4)** 로 이동합니다. `sale-small-20161231-snappy.parquet` 파일 **(5)** 을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(6)**, **상위 100개 행 선택(7)** 을 차례로 선택합니다.
 
     ![데이터 허브가 표시되어 있고 옵션이 강조 표시되어 있는 그래픽](media/data-hub-parquet-select-rows.png "Select TOP 100 rows")
 
-3. 쿼리 창 위쪽의 `연결 대상` 드롭다운 목록에서 **기본 제공**이 선택되어 있는지 확인**(1)**하고 쿼리**(2)**를 실행합니다. 서버리스 SQL 풀 엔드포인트에서 데이터가 로드되어 일반 관계형 데이터베이스의 데이터처럼 처리됩니다.
+3. 쿼리 창 위쪽의 `Connect to` 드롭다운 목록에서 **기본 제공**이 선택되어 있는지 확인 **(1)** 하고 쿼리 **(2)** 를 실행합니다. 서버리스 SQL 풀 엔드포인트에서 데이터가 로드되어 일반 관계형 데이터베이스의 데이터처럼 처리됩니다.
 
     ![기본 제공 연결이 강조 표시되어 있는 그래픽](media/built-in-selected.png "Built-in SQL pool")
 
@@ -505,7 +505,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     결과를 확인해 보겠습니다.
 
-4. 이번에도 **데이터** 허브에서 **연결됨** 탭**(1)**을 선택하고 **Azure Data Lake Storage Gen2**를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정**(2)**을 확장하고 **`wwi-02`** 컨테이너**(3)**를 선택합니다. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더**(4)**로 이동합니다. `sale-small-20161231-snappy.parquet` 파일**(5)**을 마우스 오른쪽 단추로 클릭하고 **새 Notebook(6)**, **데이터 프레임에 로드(7)**를 차례로 선택합니다.
+4. 이번에도 **데이터** 허브에서 **연결됨** 탭 **(1)** 을 선택하고 **Azure Data Lake Storage Gen2**를 확장합니다. `asaworkspaceXX` 기본 ADLS Gen2 계정 **(2)** 을 확장하고 **`wwi-02`** 컨테이너 **(3)** 를 선택합니다. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더 **(4)** 로 이동합니다. `sale-small-20161231-snappy.parquet` 파일 **(5)** 을 마우스 오른쪽 단추로 클릭하고 **새 Notebook(6)**, **데이터 프레임에 로드(7)** 를 차례로 선택합니다.
 
     ![데이터 허브가 표시되어 있고 옵션이 강조 표시되어 있는 그래픽](media/data-hub-parquet-new-notebook.png "New notebook")
 
@@ -513,11 +513,11 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![Spark 풀이 강조 표시되어 있는 그래픽](media/notebook-attach-spark-pool.png "Attach Spark pool")
 
-6. Notebook에서 **+**를 선택하고 셀 1 아래의 **</> 코드 셀**을 선택하여 새 코드 셀을 추가합니다.
+6. Notebook에서 **+** 를 선택하고 셀 1 아래의 **</> 코드 셀**을 선택하여 새 코드 셀을 추가합니다.
 
     ![새 코드 셀 단추가 강조 표시되어 있는 그래픽](media/new-code-cell.png "New code cell")
 
-7. 새 셀에 다음 코드를 입력한 후 **셀 1의 Parquet 경로를 복사**한 다음 해당 값을 붙여넣어 `REPLACE_WITH_PATH`**(1)**를 바꿉니다. 파일 이름 끝에 `-test`를 추가하여 Parquet 파일 이름을 바꿔야 합니다**(2)**.
+7. 새 셀에 다음 코드를 입력한 후 **셀 1의 Parquet 경로를 복사**한 다음 해당 값을 붙여넣어 `REPLACE_WITH_PATH` **(1)** 를 바꿉니다. 파일 이름 끝에 `-test`를 추가하여 Parquet 파일 이름을 바꿔야 합니다 **(2)**.
 
     ```python
     df.write.parquet('REPLACE_WITH_PATH')
@@ -525,7 +525,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![새 셀이 포함된 Notebook이 표시되어 있는 그래픽](media/new-cell.png "New cell")
 
-8. 도구 모음에서 **모두 실행**을 선택하여 두 셀을 모두 실행합니다. 몇 분 후에 Spark 풀이 시작되고 셀이 실행되면 셀 1의 출력에 파일 데이터가 표시됩니다**(1)**. 하지만 셀 2의 출력에는 **403 오류**가 표시됩니다**(2)**.
+8. 도구 모음에서 **모두 실행**을 선택하여 두 셀을 모두 실행합니다. 몇 분 후에 Spark 풀이 시작되고 셀이 실행되면 셀 1의 출력에 파일 데이터가 표시됩니다 **(1)**. 하지만 셀 2의 출력에는 **403 오류**가 표시됩니다 **(2)**.
 
     ![셀 2 출력에 오류가 표시되어 있는 그래픽](media/notebook-error.png "Notebook error")
 
@@ -533,7 +533,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 9. Notebook을 열어 두고 다른 탭에서 Azure Portal(<https://portal.azure.com>)로 다시 전환합니다.
 
-10. Azure 메뉴**(1)**를 선택하고 **Azure Active Directory(2)**를 선택합니다.
+10. Azure 메뉴 **(1)** 를 선택하고 **Azure Active Directory(2)** 를 선택합니다.
 
     ![메뉴 항목이 강조 표시되어 있는 그래픽](media/azure-ad-menu.png "Azure Active Directory")
 
@@ -541,28 +541,28 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![그룹이 강조 표시되어 있는 그래픽](media/aad-groups-link.png "Azure Active Directory")
 
-12. 검색 상자에 **`tailwind`**를 입력하고 결과에서 **`tailwind-history-owners-<suffix>`**를 선택합니다**(2)**.
+12. 검색 상자에 **`tailwind`** 를 입력하고 **(1)** 결과에서 **`tailwind-history-owners-<suffix>`** 를 선택합니다 **(2)**.
 
     ![tailwind 그룹이 표시되어 있는 그래픽](media/tailwind-groups.png "All groups")
 
-13. 왼쪽에서 **구성원(1)**을 선택하고 **+ 구성원 추가(2)**를 선택합니다..
+13. 왼쪽에서 **구성원(1)** 을 선택하고 **+ 구성원 추가(2)** 를 선택합니다..
 
     ![그룹이 표시되어 있고 구성원 추가가 강조 표시되어 있는 그래픽](media/tailwind-history-owners.png "tailwind-history-owners group")
 
-14. 랩 진행을 위해 로그인한 사용자 계정을 추가하고 선택을 선택합니다.
+14. 랩 진행을 위해 로그인한 사용자 계정을 추가하고 **선택**을 선택합니다.
 
     ![양식이 표시되어 있는 그래픽](media/add-members.png "Add members")
 
-15. Synapse Studio에서 열려 있는 Synapse Notebook으로 다시 전환하여 셀 2를 한 번 더 **실행**합니다**(1)**. 몇 분 후에 **Succeeded(2)** 상태가 표시됩니다.
+15. Synapse Studio에서 열려 있는 Synapse Notebook으로 다시 전환하여 셀 2를 한 번 더 **실행**합니다 **(1)**. 몇 분 후에 **Succeeded(2)** 상태가 표시됩니다.
 
     ![셀 2가 정상적으로 실행된 상태 화면 스크린샷](media/notebook-succeeded.png "Notebook")
 
     `tailwind-history-owners-<suffix>` 그룹에 사용자 계정을 추가했으므로 이번에는 셀 2가 정상적으로 실행되었습니다. 즉, 계정에 **Storage Blob 데이터 소유자** 역할이 할당된 것입니다.
 
-    > **참고**: 이번에도 같은 오류가 발생하면 Notebook에서 **Spart 세션을 중지**하고 **모두 게시**, 게시를 차례로 선택합니다. 변경 내용을 게시한 후 페이지 오른쪽 위의 사용자 프로필을 선택하고 **로그아웃**을 선택합니다. 정상적으로 로그아웃되면 **브라우저 탭을 닫고** Synapse Studio(<https://web.azuresynapse.net/>)를 다시 시작한 후 Notebook을 다시 열고 셀을 다시 실행합니다. 인증 변경 내용이 적용되려면 보안 토큰을 새로 고쳐야 하기 때문입니다.
+    > **참고**: 이번에도 같은 오류가 발생하면 Notebook에서 **Spark 세션을 중지**하고 **모두 게시**, 게시를 차례로 선택합니다. 변경 내용을 게시한 후 페이지 오른쪽 위의 사용자 프로필을 선택하고 **로그아웃**을 선택합니다. 정상적으로 로그아웃되면 **브라우저 탭을 닫고** Synapse Studio(<https://web.azuresynapse.net/>)를 다시 시작한 후 Notebook을 다시 열고 셀을 다시 실행합니다. 인증 변경 내용이 적용되려면 보안 토큰을 새로 고쳐야 하기 때문입니다.
 
     이제 데이터 레이크에 파일이 작성되었는지 확인해 보겠습니다.
 
-16. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더로 다시 이동합니다. Notebook에서 작성한 새 `sale-small-20161231-snappy-test.parquet` 파일의 폴더가 표시됩니다**(1)**. 해당 폴더가 표시되지 않으면 도구 모음에서 **자세히**를 선택**(2)**하고 **새로 고침(3)**을 선택합니다.
+16. `sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231` 폴더로 다시 이동합니다. Notebook에서 작성한 새 `sale-small-20161231-snappy-test.parquet` 파일의 폴더가 표시됩니다 **(1)**. 해당 폴더가 표시되지 않으면 도구 모음에서 **자세히**를 선택 **(2)** 하고 **새로 고침(3)** 을 선택합니다.
 
     ![테스트 Parquet 파일이 표시되어 있는 그래픽](media/test-parquet-file.png "Test parquet file")

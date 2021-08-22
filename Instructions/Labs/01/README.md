@@ -33,7 +33,7 @@
 
 ### 실습 랩 시작 전 준비 사항
 
-> **참고:** `Before the hands-on lab` 단계는 호스트형 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
+> **참고:** `Before the hands-on lab` 단계는 호스트형 랩 환경이 **아닌** 자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
 
 이 랩의 연습을 진행하기 전에 사용 가능한 클러스터가 있는 Azure Databricks 작업 영역에 액세스할 수 있는지 확인하세요. 작업 영역을 구성하려면 아래 작업을 수행합니다.
 
@@ -76,7 +76,7 @@ Notebook에서는 단일 파이프라인으로 스트리밍 및 일괄 처리를
 
 ### 실습 랩 시작 전 준비 사항
 
-> **참고:** `Before the hands-on lab` 단계는 호스트형 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
+> **참고:** `Before the hands-on lab` 단계는 호스트형 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
 
 이 랩의 연습을 진행하기 전에 Azure Synapse Analytics 작업 영역을 올바르게 구성했는지 확인하세요. 작업 영역을 구성하려면 아래 작업을 수행합니다.
 
@@ -96,7 +96,7 @@ Notebook에서는 단일 파이프라인으로 스트리밍 및 일괄 처리를
 
 #### 작업 1: Hyperspace를 사용하여 데이터 레이크 스토리지 인덱싱
 
-Azure Data Lake Gen 2에서 데이터를 로드할 때 리소스를 가장 많이 사용하는 작업 중 하나는 데이터 검색입니다. Apache Spark 사용자는 [Hyperspace](https://github.com/microsoft/hyperspace)의 기능을 사용해 CSV, JSON, Parquet 파일 등의 데이터 집합에서 인덱스를 만든 다음 쿼리 및 워크로드 가속화에 해당 인덱스를 사용할 수 있습니다.
+Azure Data Lake Gen 2에서 데이터를 로드할 때 리소스를 가장 많이 사용하는 작업 중 하나는 데이터 검색입니다. Apache Spark 사용자는 [Hyperspace](https://github.com/microsoft/hyperspace)의 기능을 사용해 CSV, JSON, Parquet 파일 등의 데이터 세트에서 인덱스를 만든 다음 발생 가능한 쿼리 및 워크로드 가속화에 해당 인덱스를 사용할 수 있습니다.
 
 Hyperspace를 사용하면 보관된 데이터 파일에서 스캔한 레코드의 인덱스를 만들 수 있습니다. 인덱스를 만들고 나면 인덱스에 해당하는 항목이 Hyperspace 메타데이터에 추가됩니다. 그러면 나중에 Apache Spark의 최적화 프로그램이 쿼리를 처리할 때 이 메타데이터를 사용하여 적절한 인덱스를 찾고 사용하게 됩니다. 기본 데이터가 변경되면 기존 인덱스를 새로 고쳐 변경 내용을 캡처할 수 있습니다.
 
@@ -112,11 +112,11 @@ Hyperspace를 사용하면 보관된 데이터 파일에서 스캔한 레코드�
 
     ![새 Notebook 메뉴 항목이 강조 표시되어 있는 그래픽](media/new-notebook.png "New Notebook")
 
-4. Notebook 이름으로 **Hyperspace**를 입력하고**(1)** 위쪽의 **속성** 단추**(2)**를 선택하여 속성 창을 숨깁니다.
+4. Notebook 이름으로 **Hyperspace**를 입력하고 **(1)** 위쪽의 **속성** 단추 **(2)** 를 선택하여 속성 창을 숨깁니다.
 
     ![Notebook 속성이 표시되어 있는 그래픽](media/notebook-properties.png "Properties")
 
-5. Notebook을 Spark 클러스터에 연결하고 언어가 **PySpark(Python)**로 설정되어 있는지 확인합니다.
+5. Notebook을 Spark 클러스터에 연결하고 언어가 **PySpark(Python)** 로 설정되어 있는지 확인합니다.
 
     ![클러스터가 선택되어 있고 언어가 설정되어 있는 그래픽](media/notebook-attach-cluster.png "Attach cluster")
 
@@ -149,7 +149,7 @@ Hyperspace를 사용하면 보관된 데이터 파일에서 스캔한 레코드�
 
         ![데이터 허브가 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-    2. **연결됨** 탭**(1)** 을 선택하고 Azure Data Lake Storage Gen2 그룹을 확장한 다음 작업 영역 이름 옆의 기본 ADLS Gen2 이름**(2)** 을 적어 둡니다.
+    2. **연결됨** 탭 **(1)** 을 선택하고 Azure Data Lake Storage Gen2 그룹을 확장한 다음 작업 영역 이름 옆의 기본 ADLS Gen2 이름 **(2)** 을 적어 둡니다.
 
         ![기본 ADLS Gen2 이름이 표시되어 있는 그래픽](media/adlsgen2-name.png "ADLS Gen2 name")
 

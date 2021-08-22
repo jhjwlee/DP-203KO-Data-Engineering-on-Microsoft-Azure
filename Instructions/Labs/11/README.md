@@ -31,10 +31,12 @@
   - [연습 5 - 광범위한 로깅 방지](#exercise-5---avoid-extensive-logging)
     - [작업 1 - 최소한으로 로깅되는 작업 관련 규칙 살펴보기](#task-1---explore-rules-for-minimally-logged-operations)
     - [작업 2 - 삭제 작업 최적화](#task-2---optimizing-a-delete-operation)
+  - [연습 6: 정리](#exercise-6-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `랩 설정 및 필수 구성 요소` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)에 나와 있는 작업을 완료**하세요.
 
@@ -61,7 +63,7 @@
 
     ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다**(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](media/resume-dedicated-sql-pool.png "Resume")
 
@@ -81,7 +83,7 @@
 
     ![개발 허브가 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-3. **개발** 메뉴에서 **+** 단추**(1)**를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)**를 선택합니다.
+3. **개발** 메뉴에서 **+** 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -185,7 +187,7 @@
         T.TransactionItemsCountBucket
     ```
 
-    `결과` 창에서 `차트` 뷰로 전환하여 뷰를 다음과 같이 구성합니다(오른쪽에 설정된 옵션 참조).
+    `Results` 창에서 `Chart` 뷰로 전환하여 뷰를 다음과 같이 구성합니다(오른쪽에 설정된 옵션 참조).
 
     ![고객별 거래 항목 수의 분포가 표시된 그래픽](./media/lab4_transaction_items_count_distribution.png)
 
@@ -571,11 +573,9 @@ FROM
 
 3. 결과를 분석합니다.
 
-    ![선택한 데이터 형식이 테이블 스토리지에 주는 영향이 표시되어 있는 그래픽](./media/lab4_data_type_selection.png)
-
     행 수가 적은 경우(약 3억 4천만 개) `BIGINT` 열 유형의 공간 사용량이 `SMALLINT` 및 `TINYINT` 열 유형과 다소 달라집니다.
     
-    행 29억 개를 로드한 후에 같은 쿼리를 실행하면 공간 사용량의 차이가 더욱 명확하게 나타납니다. 여기서 확인할 수 있는 두 가지 중요한 결론은 다음과 같습니다.
+    이 랩 외부에서 한 실험을 보면 행 29억 개를 로드한 후에 같은 쿼리를 실행하면 공간 사용량의 차이가 더욱 명확하게 나타납니다. 실험에서 얻은 중요한 결론 두 가지는 다음과 같습니다.
 
     - `HEAP` 테이블에서는 `SMALLINT`(`ProductId`의 경우) 및 `TINYINT`(`QUANTITY`의 경우)가 아닌 `BIGINT`를 사용하면 공간 사용량이 거의 1GB(0.8941GB)나 감소합니다. 테이블에 열 2개와 적당량의 행(29억 개)만 포함하더라도 공간 사용량이 이 정도나 달라지는 것입니다.
     - 테이블이 압축되어 공간 사용량 차이가 다소 상쇄되는 `CLUSTERED COLUMNSTORE` 테이블에서도 12.7MB의 공간 사용량 차이를 확인할 수 있습니다.
@@ -1015,7 +1015,7 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
         CustomerId >= 900000
     ```
 
-    이 쿼리의 실행은 약 90초 내에 완료됩니다. 이제 `Sale_Heap` 테이블을 삭제하고 `Sale_Heap_v2`의 이름을 `Sale_Heap`으로 바꾸면 프로세스가 완료됩니다.
+    이 쿼리의 실행은 약 90초 내에 완료됩니다. 원래 `Sale_Hash 테이블을 먼저 삭제하고 `Sale_Hash_v2`의 이름을 `Sale_Hash`로 바꾸면 프로세스가 완료됩니다.
 
 3. 다음 쿼리를 실행하여 기존의 삭제 방식을 사용한 이전 작업과 비교해 봅니다.
 
@@ -1029,3 +1029,23 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
     >**참고**
     >
     >이 쿼리는 실행하는 데 시간이 오래 걸릴 수 있습니다(12분 이상). 쿼리 실행 시간이 이전 CTAS 쿼리 실행 시간보다 훨씬 길어지면 쿼리를 취소할 수 있습니다(CTAS 기반 방식의 이점은 이미 확인했으므로 쿼리 실행을 완료하지 않아도 됨).
+
+## 연습 6: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

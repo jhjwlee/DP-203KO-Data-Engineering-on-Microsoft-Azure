@@ -31,10 +31,12 @@
     - [연습 1: 파이프라인 만들기, 트리거 및 모니터링](#exercise-1-create-trigger-and-monitor-pipeline)
       - [작업 1: 파이프라인 만들기](#task-1-create-pipeline)
       - [작업 2: 사용자 프로필 데이터 파이프라인 트리거, 모니터링 및 분석](#task-2-trigger-monitor-and-analyze-the-user-profile-data-pipeline)
+    - [연습 2: 정리](#exercise-2-cleanup)
+      - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)에 나와 있는 작업을 완료**하세요.
 
@@ -61,7 +63,7 @@
 
     ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다**(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](media/resume-dedicated-sql-pool.png "Resume")
 
@@ -98,7 +100,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![개발 메뉴 항목이 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-2. **개발** 메뉴에서 **+** 단추**(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
+2. **개발** 메뉴에서 **+** 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -163,11 +165,11 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![관리 메뉴 항목이 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)**를 선택하고 **계속**을 선택합니다.
+2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)** 를 선택하고 **계속**을 선택합니다.
 
     ![관리, 새로 만들기, Azure Cosmos DB 연결된 서비스 옵션이 강조 표시되어 있는 그래픽](media/create-cosmos-db-linked-service-step1.png "New linked service")
 
-3. 연결된 서비스의 이름을 `asacosmosdb01`**(1)** 로 지정하고 **Cosmos DB 계정 이름** (`asacosmosdbSUFFIX`)를 선택한 후에 **데이터베이스 이름** 값을 `CustomerProfile` **(2)** 로 설정합니다. **연결 테스트**를 선택하여 서비스에 정상적으로 연결되는지 확인 **(3)** 한 다음 **만들기(4)** 를 선택합니다.
+3. 연결된 서비스의 이름을 `asacosmosdb01` **(1)** 로 지정하고 **Cosmos DB 계정 이름** (`asacosmosdbSUFFIX`)를 선택한 후에 **데이터베이스 이름** 값을 `CustomerProfile` **(2)** 로 설정합니다. **연결 테스트**를 선택하여 서비스에 정상적으로 연결되는지 확인 **(3)** 한 다음 **만들기(4)** 를 선택합니다.
 
     ![새 Azure Cosmos DB 연결된 서비스](media/create-cosmos-db-linked-service.png "New linked service")
 
@@ -183,18 +185,18 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![데이터 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-2. 도구 모음에서 **+(1)**를 선택하고 **통합 데이터 집합(2)**을 선택하여 새 데이터 집합을 만듭니다.
+2. 도구 모음에서 **+(1)** 를 선택하고 **통합 데이터 집합(2)** 을 선택하여 새 데이터 집합을 만듭니다.
 
     ![새 데이터 집합 만들기 화면의 스크린샷](media/new-dataset.png "New Dataset")
 
-3. 목록에서 **Azure Cosmos DB(SQL API)****(1)**를 선택하고 **계속(2)**을 선택합니다.
+3. 목록에서 **Azure Cosmos DB(SQL API)** **(1)** 를 선택하고 **계속(2)** 을 선택합니다.
 
     ![Azure Cosmos DB SQL API 옵션이 강조 표시되어 있는 그래픽](media/new-cosmos-db-dataset.png "Integration dataset")
 
-4. 다음 특성으로 데이터 집합을 구성하고 **확인(4)**을 선택합니다.
+4. 다음 특성으로 데이터 집합을 구성하고 **확인(4)** 을 선택합니다.
 
     - **이름**: `asal400_customerprofile_cosmosdb`**(1)** 를 입력합니다.
-    - **연결된 서비스**: Azure Cosmos DB 연결된 서비스**(2)** 를 선택합니다.
+    - **연결된 서비스**: Azure Cosmos DB 연결된 서비스 **(2)** 를 선택합니다.
     - **컬렉션**: `OnlineUserProfile01`**(3)** 을 선택합니다.
 
     ![새 Azure Cosmos DB 데이터 집합](media/create-cosmos-db-dataset.png "New Cosmos DB dataset")
@@ -207,24 +209,24 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![Azure Cosmos DB 데이터 미리 보기가 표시되어 있는 그래픽](media/cosmos-db-dataset-preview-data.png "Preview data")
 
-7. 도구 모음에서 **+** **(1)**를 선택하고 **통합 데이터 집합(2)** 을 선택하여 새 데이터 집합을 만듭니다.
+7. 도구 모음에서 **+** **(1)** 를 선택하고 **통합 데이터 집합(2)** 을 선택하여 새 데이터 집합을 만듭니다.
 
     ![새 데이터 집합 만들기 화면의 스크린샷](media/new-dataset.png "New Dataset")
 
-8. 목록에서 **Azure Data Lake Storage Gen2** **(1)**를 선택하고 **계속(2)** 을 선택합니다.
+8. 목록에서 **Azure Data Lake Storage Gen2** **(1)** 를 선택하고 **계속(2)** 을 선택합니다.
 
     ![ADLS Gen2 옵션이 강조 표시되어 있는 그래픽](media/new-adls-dataset.png "Integration dataset")
 
-9. **JSON** 형식**(1)** 을 선택하고 **계속(2)** 을 선택합니다.
+9. **JSON** 형식 **(1)** 을 선택하고 **계속(2)** 을 선택합니다.
 
     ![JSON 형식이 선택되어 있는 화면의 스크린샷](media/json-format.png "Select format")
 
 10. 다음 특성으로 데이터 집합을 구성하고 **확인(5)** 을 선택합니다.
 
     - **이름**: `asal400_ecommerce_userprofiles_source`**(1)** 를 입력합니다.
-    - **연결된 서비스**: 이미 있는 `asadatalakeXX` 연결된 서비스**(2)** 를 선택합니다.
-    - **파일 경로**: `wwi-02/online-user-profiles-02` 경로**(3)** 로 이동합니다.
-    - **스키마 가져오기**: `From connection/store`**(4)**를 선택합니다.
+    - **연결된 서비스**: 이미 있는 `asadatalakeXX` 연결된 서비스 **(2)** 를 선택합니다.
+    - **파일 경로**: `wwi-02/online-user-profiles-02` 경로 **(3)** 로 이동합니다.
+    - **스키마 가져오기**: `From connection/store`**(4)** 를 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](media/new-adls-dataset-form.png "Set properties")
 
@@ -241,11 +243,11 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
     - **이름**: `asal400_wwi_campaign_analytics_asa`**(1)** 를 입력합니다.
     - **연결된 서비스**: `SqlPool01` 서비스 **(2)** 를 선택합니다.
     - **테이블 이름**: `wwi.CampaignAnalytics` **(3)** 를 선택합니다.
-    - **스키마 가져오기**: `연결/저장소에서` **(4)** 를 선택합니다.
+    - **스키마 가져오기**: `From connection/store` **(4)** 를 선택합니다.
 
     ![설명의 구성이 입력된 새 데이터 집합 양식이 표시되어 있는 그래픽](media/new-dataset-campaignanalytics.png "New dataset")
 
-14. 도구 모음에서 **+** **(1)**를 선택하고 **통합 데이터 집합(2)** 을 선택하여 새 데이터 집합을 만듭니다.
+14. 도구 모음에서 **+** **(1)** 를 선택하고 **통합 데이터 집합(2)** 을 선택하여 새 데이터 집합을 만듭니다.
 
     ![새 데이터 집합 만들기 화면의 스크린샷](media/new-dataset.png "New Dataset")
 
@@ -289,10 +291,10 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 5. 다음 특성으로 데이터 집합을 구성하고 **확인(6)** 을 선택합니다.
 
     - **이름**: `asal400_campaign_analytics_source` **(1)** 를 입력합니다.
-    - **연결된 서비스**: `asadatalakeSUFFIX` 연결된 서비스* *(2)** 를 선택합니다.
-    - **파일 경로**: `wi-02/campaign-analytics/campaignanalytics.csv` 경로 **(3)** 로 이동합니다.
-    - **첫 번째 행을 머리글로 사용**: `unchecked`**(4)**한 상태로 유지합니다. **헤더를 건너뛰는** 이유는, 헤더의 열 수와 데이터 행의 열 수가 일치하지 않기 때문입니다.
-    - **스키마 가져오기**: `From connection/store`**(5)**를 선택합니다.
+    - **연결된 서비스**: `asadatalakeSUFFIX` 연결된 서비스 **(2)** 를 선택합니다.
+    - **파일 경로**: `wwi-02/campaign-analytics/campaignanalytics.csv` 경로 **(3)** 로 이동합니다.
+    - **첫 번째 행을 머리글로 사용**: `unchecked`**(4)** 한 상태로 유지합니다. **헤더를 건너뛰는** 이유는, 헤더의 열 수와 데이터 행의 열 수가 일치하지 않기 때문입니다.
+    - **스키마 가져오기**: `From connection/store`**(5)** 를 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](media/new-adls-dataset-form-delimited.png "Set properties")
 
@@ -405,7 +407,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![설명에 해당하는 Select 설정이 표시되어 있는 그래픽](media/data-flow-campaign-analysis-select-settings.png "Select settings")
 
-11. `MapCampaignAnalytics` 원본 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열 **스키마 한정자를 선택합니다.
+11. `MapCampaignAnalytics` 원본 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열**스키마 한정자를 선택합니다.
 
     ![새 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](media/data-flow-campaign-analysis-new-derived.png "New Derived Column")
 
@@ -437,7 +439,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![설명에 해당하는 Select 설정이 표시되어 있는 그래픽](media/data-flow-campaign-analysis-select-settings2.png "Select settings")
 
-15. `SelectCampaignAnalyticsColumns` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **싱크 **스키마 한정자를 선택합니다.
+15. `SelectCampaignAnalyticsColumns` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **싱크**스키마 한정자를 선택합니다.
 
     ![새 싱크 대상이 강조 표시되어 있는 그래픽](media/data-flow-campaign-analysis-new-sink.png "New sink")
 
@@ -479,7 +481,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![새 파이프라인 상황에 맞는 메뉴 항목이 선택되어 있는 그래픽](media/new-pipeline.png "New pipeline")
 
-3. 새 파이프라인 **속성** 블레이드의 **일반 **설정에서 **이름**을 `Write Campaign Analytics to ASA`로 입력합니다.
+3. 새 파이프라인 **속성** 블레이드의 **일반**설정에서 **이름**을 `Write Campaign Analytics to ASA`로 입력합니다.
 
 4. 활동 목록 내에서 **이동 및 변환**을 확장하고 **데이터 흐름** 활동을 파이프라인 캔버스로 끕니다.
 
@@ -503,7 +505,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![트리거 추가 단추가 강조 표시되어 있는 그래픽](media/pipeline-trigger.png "Pipeline trigger")
 
-2. `파이프라인 실행` 블레이드에서 **확인**을 선택하여 파이프라인 실행을 시작합니다.
+2. `Pipeline run` 블레이드에서 **확인**을 선택하여 파이프라인 실행을 시작합니다.
 
     ![파이프라인 실행 블레이드가 표시되어 있는 그래픽](media/pipeline-trigger-run.png "Pipeline run")
 
@@ -606,7 +608,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![설명에 해당하는 원본 옵션이 구성되어 있는 그래픽](media/data-flow-user-profiles-source-options.png "Source options")
 
-8. `EcommerceUserProfiles` 원본 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열 **스키마 한정자를 선택합니다.
+8. `EcommerceUserProfiles` 원본 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열**스키마 한정자를 선택합니다.
 
     ![+ 기호와 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-derived-column.png "New Derived Column")
 
@@ -622,7 +624,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![설명에 해당하는 파생 열 설정이 구성되어 있는 그래픽](media/data-flow-user-profiles-derived-column-settings.png "Derived column's settings")
 
-10. `userId` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **평면화 **스키마 한정자를 선택합니다.
+10. `userId` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **평면화**스키마 한정자를 선택합니다.
 
     ![+ 기호와 평면화 스키마 한정자가 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-flatten.png "New Flatten schema modifier")
 
@@ -662,7 +664,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![userId 부분이 확인된 데이터 흐름용 스크립트가 표시되어 있고, 추가한 속성 이름이 강조 표시되어 있는 그래픽](media/appendpropertynames_script.png "Data flow script")
 
-12. `UserTopProducts` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열 **스키마 한정자를 선택합니다.
+12. `UserTopProducts` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열**스키마 한정자를 선택합니다.
 
     ![+ 기호와 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-derived-column2.png "New Derived Column")
 
@@ -679,7 +681,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![설명에 해당하는 파생 열 설정이 구성되어 있는 그래픽](media/data-flow-user-profiles-derived-column2-settings.png "Derived column's settings")
 
-    > **참고**: 파생 열 설정에 열을 추가하려면 첫 번째 오른쪽의 **+**를 선택하고 **열 추가**를 선택합니다.
+    > **참고**: 파생 열 설정에 열을 추가하려면 첫 번째 오른쪽의 **+** 를 선택하고 **열 추가**를 선택합니다.
 
     ![열 추가 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-flow-add-derived-column.png "Add derived column")
 
@@ -690,7 +692,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 15. **원본 설정**에서 다음 항목을 구성합니다.
 
     - **출력 스트림 이름**: `UserProfiles`를 입력합니다.
-    - **원본 유형**: `데이터 집합`을 선택합니다.
+    - **원본 유형**: `Dataset`을 선택합니다.
     - **데이터 집합**: `asal400_customerprofile_cosmosdb`를 선택합니다.
 
     ![설명에 해당하는 원본 설정이 구성되어 있는 그래픽](media/data-flow-user-profiles-source2-settings.png "Source settings")
@@ -720,7 +722,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![데이터 미리 보기 탭과 파일 콘텐츠 샘플이 표시되어 있는 스크린샷](media/data-flow-user-profiles-data-preview2.png "Data preview")
 
-19. `UserProfiles` 원본 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **평면화 **스키마 한정자를 선택합니다.
+19. `UserProfiles` 원본 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **평면화**스키마 한정자를 선택합니다.
 
     ![+ 기호와 평면화 스키마 한정자가 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-flatten2.png "New Flatten schema modifier")
 
@@ -744,7 +746,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![데이터 미리 보기 탭과 파일 콘텐츠 샘플이 표시되어 있는 스크린샷](media/data-flow-user-profiles-flatten2-data-preview.png "Data preview")
 
-21. 이제 두 데이터 원본을 조인합니다. `DeriveProductColumns` 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **조인 **옵션을 선택합니다.
+21. 이제 두 데이터 원본을 조인합니다. `DeriveProductColumns` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **조인**옵션을 선택합니다.
 
     ![+ 기호와 새 조인 메뉴 항목이 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-join.png "New Join")
 
@@ -753,7 +755,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
     - **출력 스트림 이름**: `JoinTopProductsWithPreferredProducts`를 입력합니다.
     - **왼쪽 스트림**: `DeriveProductColumns`를 선택합니다.
     - **오른쪽 스트림**: `UserPreferredProducts`를 선택합니다.
-    - **조인 유형**: `완전 외부`를 선택합니다.
+    - **조인 유형**: `Full outer`를 선택합니다.
     - **조인 조건**: 다음 정보를 지정합니다.
 
         | 왼쪽: DeriveProductColumns의 열 | 오른쪽: UserPreferredProducts의 열 |
@@ -783,7 +785,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![데이터 미리 보기가 표시되어 있고 오른쪽에 preferredProductId 열의 통계가 원형 차트로 표시되어 있는 화면의 스크린샷](media/data-flow-user-profiles-join-preview.png "Data preview")
 
-25. `JoinTopProductsWithPreferredProducts` 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **파생 열 **스키마 한정자를 선택합니다.
+25. `JoinTopProductsWithPreferredProducts` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열**스키마 한정자를 선택합니다.
 
     ![+ 기호와 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-derived-column3.png "New Derived Column")
 
@@ -810,17 +812,17 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![데이터 미리 보기가 표시되어 있는 그래픽](media/data-flow-user-profiles-derived-column3-preview.png "Data preview")
 
-27. `DerivedColumnsForMerge` 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **필터 **스키마 한정자를 선택합니다.
+27. `DerivedColumnsForMerge` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **필터**스키마 한정자를 선택합니다.
 
     ![새 필터 대상이 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-filter.png "New filter")
 
     여기서는 `ProductId`가 null인 모든 레코드를 제거하기 위해 필터 단계를 추가합니다. 이 데이터 집합에서는 잘못된 레코드 비율이 낮으므로 `UserTopProductPurchases` 전용 SQL 풀 테이블에 null `ProductId` 값을 로드하면 오류가 발생합니다.
 
-28. **필터 기준** 식을 **`!isNull(productId)`**로 설정합니다.
+28. **필터 기준** 식을 **`!isNull(productId)`** 로 설정합니다.
 
     ![필터 설정이 표시되어 있는 그래픽](media/data-flow-user-profiles-new-filter-settings.png "Filter settings")
 
-29. `Filter1` 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **싱크 **스키마 한정자를 선택합니다.
+29. `Filter1` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **싱크**스키마 한정자를 선택합니다.
 
     ![새 싱크 대상이 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-sink.png "New sink")
 
@@ -830,7 +832,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
     - **들어오는 스트림**: `Filter1`을 선택합니다.
     - **싱크 유형**: `Dataset` 을 선택합니다.
     - **데이터 집합**: UserTopProductPurchases SQL 테이블 `asal400_wwi_usertopproductpurchases_asa`를 선택합니다.
-    - **옵션**: `Allow schema drift`을 선택하고 ``Validate schema` 는 선택을 취소합니다.
+    - **옵션**: `Allow schema drift`을 선택하고 `Validate schema` 는 선택을 취소합니다.
 
     ![싱크 설정이 표시되어 있는 그래픽](media/data-flow-user-profiles-new-sink-settings.png "Sink settings")
 
@@ -857,7 +859,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![설명에 해당하는 매핑 설정이 구성되어 있는 그래픽](media/data-flow-user-profiles-new-sink-settings-mapping.png "Mapping")
 
-33. `Filter1` 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **싱크 **스키마 한정자를 선택하여 두 번째 싱크를 추가합니다.
+33. `Filter1` 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **싱크**스키마 한정자를 선택하여 두 번째 싱크를 추가합니다.
 
     ![새 싱크 대상이 강조 표시되어 있는 그래픽](media/data-flow-user-profiles-new-sink2.png "New sink")
 
@@ -866,7 +868,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
     - **출력 스트림 이름**: `DataLake`를 입력합니다.
     - **들어오는 스트림**: `Filter1`을 선택합니다.
     - **싱크 유형**: `Inline` 을 선택합니다.
-    - **인라인 데이터 집합 형식**: ``Delta`를 선택합니다.
+    - **인라인 데이터 집합 형식**: `Delta`를 선택합니다.
     - **연결된 서비스**: 기본 작업 영역 데이터 레이크 스토리지 계정(예: `asaworkspaceinaday84-WorspaceDefaultStorage`)을 선택합니다.
     - **옵션**: `Allow schema drift`을 선택하고 `Validate schema`는 선택을 취소합니다.
 
@@ -949,7 +951,7 @@ Tailwind Traders는 Synapse 파이프라인에서도 기존에 사용해 왔던 
 
     ![설명에 따라 일반 탭에서 이름을 설정한 그래픽](media/pipeline-data-flow-general.png "Name on the General tab")
 
-7. **설정** 탭**(1)** 을 선택합니다. **데이터 흐름(2)** 으로 `write_user_profile_to_asa`를 선택하고 **실행 대상(Azure IR)(3)**에서 `AutoResolveIntegrationRuntime`이 선택되어 있는지 확인합니다. `General purpose` **컴퓨팅 형식(4)** 을 선택하고 **코어 수(5)** 로는 `8(코어 8개 이상)`을 선택합니다.
+7. **설정** 탭 **(1)** 을 선택합니다. **데이터 흐름(2)** 으로 `write_user_profile_to_asa`를 선택하고 **실행 대상(Azure IR)(3)** 에서 `AutoResolveIntegrationRuntime`이 선택되어 있는지 확인합니다. `General purpose` **컴퓨팅 형식(4)** 을 선택하고 **코어 수(5)** 로는 `8 (+ 8 cores)`을 선택합니다.
 
     ![설명에 해당하는 설정이 구성되어 있는 그래픽](media/data-flow-activity-settings1.png "Settings")
 
@@ -974,7 +976,7 @@ Tailwind Traders에서는 성능 튜닝 및 문제 해결을 위해 모든 파�
 
 그래서 Tailwind Traders를 대상으로 파이프라인 실행 수동 트리거, 모니터링 및 분석 방법을 시연하기로 했습니다.
 
-1. 파이프라인 위쪽에서 **트리거 추가(1)**와 **지금 트리거(2)**를 차례로 선택합니다.
+1. 파이프라인 위쪽에서 **트리거 추가(1)** 와 **지금 트리거(2)** 를 차례로 선택합니다.
 
     ![파이프라인 트리거 옵션이 강조 표시되어 있는 그래픽](media/pipeline-user-profiles-trigger.png "Trigger now")
 
@@ -986,7 +988,7 @@ Tailwind Traders에서는 성능 튜닝 및 문제 해결을 위해 모든 파�
 
     ![모니터 허브 메뉴 항목이 선택되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-4. **파이프라인 실행(1)**을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다**(2)**. 보기를 새로 고쳐야 할 수도 있습니다**(3)**.
+4. **파이프라인 실행(1)** 을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다 **(2)**. 보기를 새로 고쳐야 할 수도 있습니다 **(3)**.
 
     > 쿼리가 실행되는 동안 나머지 랩 지침을 확인하여 해당 내용을 숙지하세요.
 
@@ -1000,10 +1002,30 @@ Tailwind Traders에서는 성능 튜닝 및 문제 해결을 위해 모든 파�
 
     ![데이터 흐름 세부 정보 아이콘이 강조 표시되어 있는 그래픽](media/pipeline-user-profiles-activity-runs.png "Activity runs")
 
-7. 데이터 흐름 세부 정보에는 데이터 흐름 단계 및 처리 세부 정보가 표시됩니다. 이 예제에서 SQL 풀 싱크**(1)** 처리 시간은 약 **44초**, 데이터 레이크 싱크**(2)** **처리 시간은 약 12초**였습니다. 두 싱크의 Filter1 출력에서는 약 **1백만 개의 행(3)**이 반환되었습니다. 완료하는 데 시간이 가장 오래 걸린 활동을 확인할 수 있습니다. 전체 파이프라인 실행 시간 중 클러스터 시작 시간이 **2분 30초(4)** 이상이었습니다.
+7. 데이터 흐름 세부 정보에는 데이터 흐름 단계 및 처리 세부 정보가 표시됩니다. 이 예제에서 SQL 풀 싱크 **(1)** 처리 시간은 약 **44초**, 데이터 레이크 싱크 **(2)** **처리 시간은 약 12초**였습니다. 두 싱크의 Filter1 출력에서는 약 **1백만 개의 행(3)** 이 반환되었습니다. 완료하는 데 시간이 가장 오래 걸린 활동을 확인할 수 있습니다. 전체 파이프라인 실행 시간 중 클러스터 시작 시간이 **2분 30초(4)** 이상이었습니다.
 
     ![데이터 흐름 세부 정보가 표시되어 있는 그래픽](media/pipeline-user-profiles-data-flow-details.png "Data flow details")
 
-8. `UserTopProductPurchasesASA` 싱크 **(1)** 를 선택하여 세부 정보를 확인합니다. 계산된 행 수는 **1,622,203개**였으며 **(2)** 총 파티션 수는 30개입니다. SQL 테이블에 데이터를 쓰기 전에 ADLS Gen2에서 데이터를 준비**(3)**하는 데 걸린 시간은 약 **8초**였습니다. 총 싱크 처리 시간은 약 **44초(4)**였습니다. 그리고 다른 파티션보다 훨씬 큰 **핫 파티션(5)**도 확인되었습니다. 이 파이프라인의 성능을 높여야 하는 경우 데이터 분할을 다시 평가해 병렬 데이터 로드와 필터링을 더욱 원활하게 진행할 수 있도록 파티션을 더 균일하게 분산할 수 있습니다. 준비를 사용하지 않도록 설정하여 처리 시간이 달라지는지를 확인할 수도 있습니다. 마지막으로, 전용 SQL 풀 크기도 싱크로 데이터를 수집하는 데 걸리는 시간에 영향을 줍니다.
+8. `UserTopProductPurchasesASA` 싱크 **(1)** 를 선택하여 세부 정보를 확인합니다. 계산된 행 수는 **1,622,203개**였으며 **(2)** 총 파티션 수는 30개입니다. SQL 테이블에 데이터를 쓰기 전에 ADLS Gen2에서 데이터를 준비 **(3)** 하는 데 걸린 시간은 약 **8초**였습니다. 총 싱크 처리 시간은 약 **44초(4)** 였습니다. 그리고 다른 파티션보다 훨씬 큰 **핫 파티션(5)** 도 확인되었습니다. 이 파이프라인의 성능을 높여야 하는 경우 데이터 분할을 다시 평가해 병렬 데이터 로드와 필터링을 더욱 원활하게 진행할 수 있도록 파티션을 더 균일하게 분산할 수 있습니다. 준비를 사용하지 않도록 설정하여 처리 시간이 달라지는지를 확인할 수도 있습니다. 마지막으로, 전용 SQL 풀 크기도 싱크로 데이터를 수집하는 데 걸리는 시간에 영향을 줍니다.
 
     ![싱크 세부 정보가 표시되어 있는 그래픽](media/pipeline-user-profiles-data-flow-sink-details.png "Sink details")
+
+### 연습 2: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+#### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

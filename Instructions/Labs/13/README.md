@@ -27,6 +27,8 @@
     - [작업 1 - 열 수준 보안](#task-1---column-level-security)
     - [작업 2 - 행 수준 보안](#task-2---row-level-security)
     - [작업 3 - 동적 데이터 마스킹](#task-3---dynamic-data-masking)
+  - [연습 4: 정리](#exercise-4-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
   - [참조](#reference)
   - [관련 자료](#other-resources)
 
@@ -194,7 +196,7 @@ Azure Key Vault가 연결된 서비스로 설정되어 있으므로 새 연결�
 
 8. **웹1** 웹 활동을 선택하고 **설정** 탭을 선택합니다. 다음과 같이 양식을 작성합니다.
 
-    1. **URL**: 위의 4단계에서 복사한 Key Vault 비밀 식별자 값을 붙여넣은 후 이 값의 끝에 `?api-version=7.0`을 **추가**합니다. 업데이트된 비밀 식별자 값의 예는 `https://asakeyvaultNNNNN.vault.azure.net/secrets/PipelineSecret/f808d4fa99d84861872010f6c8d25c68?api-version=7.0`과 같습니다.
+    1. **URL**: 위의 4단계에서 복사한 Key Vault 비밀 식별자 값을 붙여넣은 후 이 값의 끝에 `?api-version=7.1`을 **추가**합니다. 업데이트된 비밀 식별자 값의 예는 `https://asakeyvaultNNNNN.vault.azure.net/secrets/PipelineSecret/f808d4fa99d84861872010f6c8d25c68?api-version=7.1`과 같습니다.
   
     2. **방법**: **가져오기**를 선택합니다.
 
@@ -307,6 +309,26 @@ TDE(투명한 데이터 암호화)는 데이터베이스, 로그 파일, 백업 
    ![Synapse Studio 도구 모음이 표시되어 있고 실행 단추가 강조 강조 표시되어 있는 그래픽.](media/lab5_synapsestudioqueryruntoolbarmenu.png)
 
 5. 이제 스크립트 탭을 닫아도 됩니다. 메시지가 표시되면 **변경 내용 모두 취소**를 선택합니다.
+
+## 연습 4: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")
 
 ## 참조
 

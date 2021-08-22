@@ -25,10 +25,12 @@
     - [작업 1: Azure Synapse용 Apache Spark를 사용하여 JSON 데이터 쿼리 및 변환](#task-1-query-and-transform-json-data-with-apache-spark-for-azure-synapse)
   - [연습 4: Azure Synapse Analytics에서 SQL 및 Spark 풀 통합](#exercise-4-integrating-sql-and-spark-pools-in-azure-synapse-analytics)
     - [작업 1: Notebook 업데이트](#task-1-update-notebook)
+  - [연습 5: 정리](#exercise-5-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `랩 설정 및 필수 구성 요소` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)에 나와 있는 작업을 완료**하세요.
 
@@ -55,7 +57,7 @@
 
     ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다**(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](media/resume-dedicated-sql-pool.png "Resume")
 
@@ -81,7 +83,7 @@ Azure Synapse Studio에서는 여러 가지 방법으로 데이터를 탐색할 
 
     > 데이터 허브에서는 작업 영역에 프로비전된 SQL 풀 데이터베이스 및 SQL 서버리스 데이터베이스는 물론 스토리지 계정과 기타 연결된 서비스 등의 외부 데이터 원본에도 액세스할 수 있습니다.
 
-2. 여기서는 작업 영역 기본 데이터 레이크에 저장된 파일에 액세스할 것이므로 데이터 허브 내에서 **연결됨 **탭을 선택합니다.
+2. 여기서는 작업 영역 기본 데이터 레이크에 저장된 파일에 액세스할 것이므로 데이터 허브 내에서 **연결됨**탭을 선택합니다.
 
     ![데이터 허브 내의 연결됨 탭이 강조 표시되어 있는 그래픽](media/data-hub-linked-services.png "Data hub Linked services")
 
@@ -159,7 +161,7 @@ Synapse Studio의 **미리 보기** 기능을 사용하면 파일을 빠르게 �
 
     ![OPENROWSET 함수 실행 시의 기본 결과가 포함된 결과 창이 표시되어 있는 그래픽. C1~C11 열 머리글이 강조 표시되어 있습니다.](media/sale-20170501-csv-sql-select-top-100-results.png "Query results")
 
-    > 결과에서는 열 머리글이 포함된 첫 번째 행이 데이터 행으로 렌더링되었으며 열에는 이름 `C1` - `C11`이 할당되어 있음을 확인할 수 있습니다. `OPENROWSET` 함수의 `FIRSTROW` 매개 변수를 사용하면 데이터로 표시할 파일의 첫 번째 행 수를 지정할 수 있습니다. 기본값은 1이므로 파일에 머리글 행이 포함되어 있다면 값을 2로 설정하여 열 머리글을 건너뛸 수 있습니다. 그런 다음 `WITH` 절을 사용하여 파일과 연결된 스키마를 지정할 수 있습니다.
+    > 결과에서는 열 머리글이 포함된 첫 번째 행이 데이터 행으로 렌더링되었으며 열에는 이름 `C1` - `C11`이 할당되어 있음을 확인할 수 있습니다. `OPENROWSET` 함수의 FIRSTROW 매개 변수를 사용하면 데이터로 표시할 파일의 첫 번째 행 수를 지정할 수 있습니다. 기본값은 1이므로 파일에 머리글 행이 포함되어 있다면 값을 2로 설정하여 열 머리글을 건너뛸 수 있습니다. 그런 다음 `WITH` 절을 사용하여 파일과 연결된 스키마를 지정할 수 있습니다.
 
 5. 머리글 행을 건너뛰도록 쿼리를 수정해 보겠습니다. 쿼리 창에서 `PARSER_VERSION='2.0'` 바로 다음에 아래 코드 조각을 삽입합니다.
 
@@ -225,7 +227,7 @@ Synapse Studio의 **미리 보기** 기능을 사용하면 파일을 빠르게 �
 
 10. **미리 보기** 기능을 사용하는 과정에서 `sale-20170502.csv`의 형식이 잘못되었음을 확인했습니다. T-SQL을 사용하여 이 파일의 데이터에 대해 자세히 알아볼 수 있는지를 살펴보겠습니다. `wwi-02` 탭으로 돌아와 `sale-20170502.csv` 파일을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트** > **상위 100개 행 선택**을 선택합니다.
 
-    ![wwi-02 탭이 강조 표시되어 있고 sale-20180502.csv의 상황에 맞는 메뉴가 표시되어 있는 그래픽. 상황에 맞는 메뉴에서 새 SQL 스크립트 > 상위 100개 행 선택이 강조 표시되어 있습니다.](media/sale-20170502-csv-context-menu-new-sql-script.png "File context menu")
+    ![wwi-02 탭이 강조 표시되어 있고 sale-20170502.csv의 상황에 맞는 메뉴가 표시되어 있는 그래픽. 상황에 맞는 메뉴에서 새 SQL 스크립트 > 상위 100개 행 선택이 강조 표시되어 있습니다.](media/sale-20170502-csv-context-menu-new-sql-script.png "File context menu")
 
 11. 앞에서와 같이 도구 모음에서 **실행**을 선택하여 쿼리를 실행합니다.
 
@@ -269,7 +271,7 @@ Synapse Studio의 **미리 보기** 기능을 사용하면 파일을 빠르게 �
 
 2. <https://solliancepublicdata.blob.core.windows.net/notebooks/Lab%202%20-%20Explore%20with%20Spark.ipynb>에서 이 연습용 Jupyter Notebook을 다운로드합니다. `Lab 2 - Explore with Spark.ipynb` 파일이 다운로드됩니다.
 
-    링크를 클릭하면 새 브라우저 창이 열리고 파일 내용이 표시됩니다. 파일 메뉴에서 **다른 이름으로 저장**을 선택합니다. 브라우저에서는 이 파일이 기본적으로 텍스트 파일로 저장됩니다. 해당 옵션이 있으면 `Save as type` 을 **모든 파일 (*.*)**로 설정합니다. 파일 이름은 `.ipynb`로 끝나야 합니다.
+    링크를 클릭하면 새 브라우저 창이 열리고 파일 내용이 표시됩니다. 파일 메뉴에서 **다른 이름으로 저장**을 선택합니다. 브라우저에서는 이 파일이 기본적으로 텍스트 파일로 저장됩니다. 해당 옵션이 있으면 `Save as type` 을 **모든 파일 (*.*)** 로 설정합니다. 파일 이름은 `.ipynb`로 끝나야 합니다.
 
     ![다른 이름으로 저장 대화 상자의 스크린샷](media/file-save-as.png "Save As")
 
@@ -301,13 +303,13 @@ Tailwind Traders에는 데이터 레이크에 저장된 Parquet 파일이 있습
 
     ![데이터 허브가 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-3. **연결됨** 탭**(1)**을 선택하고 `Azure Data Lake Storage Gen2` 그룹을 확장한 다음 기본 데이터 레이크 스토리지 계정을 확장합니다(*계정 이름은 여기에 나와 있는 것과 다를 수 있습니다. 목록의 첫 번째 스토리지 계정을 확장하면 됩니다*). **wwi-02** 컨테이너**(2)**를 선택하고 `sale-small/Year=2010/Quarter=Q4/Month=12/Day=20101231` 폴더**(3)**로 이동합니다. Parquet 파일**(4)**을 마우스 오른쪽 단추로 클릭하고 **새 Notebook(5)**, **데이터 프레임에 로드(6)**를 차례로 선택합니다.
+3. **연결됨** 탭 **(1)** 을 선택하고 `Azure Data Lake Storage Gen2` 그룹을 확장한 다음 기본 데이터 레이크 스토리지 계정을 확장합니다(*계정 이름은 여기에 나와 있는 것과 다를 수 있습니다. 목록의 첫 번째 스토리지 계정을 확장하면 됩니다*). **wwi-02** 컨테이너 **(2)** 를 선택하고 `sale-small/Year=2010/Quarter=Q4/Month=12/Day=20101231` 폴더 **(3)** 로 이동합니다. Parquet 파일**(4)**을 마우스 오른쪽 단추로 클릭하고 **새 Notebook(5)**, **데이터 프레임에 로드(6)** 를 차례로 선택합니다.
 
     ![설명에 해당하는 Parquet 파일이 표시되어 있는 그래픽](media/2010-sale-parquet-new-notebook.png "New notebook")
 
-    그러면 Spark 데이터 프레임에 데이터를 로드하고 헤더와 함께 100개의 행을 표시하는 PySpark 코드가 있는 Notebook이 생성됩니다.
+    그러면 Spark 데이터 프레임에 데이터를 로드하고 헤더와 함께 10개의 행을 표시하는 PySpark 코드가 있는 Notebook이 생성됩니다.
 
-4. Spark 풀이 Notebook에 연결되어 있는지 확인합니다.
+4. Spark 풀이 Notebook에 연결되어 있는지 확인합니다. 먼저 datalake의 이름에 대한 변수를 만들어야 하기 때문에 **이 단계에서는 셀을 실행하지 마세요**.
 
     ![Spark 풀이 강조 표시되어 있는 그래픽](media/2010-sale-parquet-notebook-sparkpool.png "Notebook")
 
@@ -345,7 +347,7 @@ Tailwind Traders에는 데이터 레이크에 저장된 Parquet 파일이 있습
 
     ![단추가 강조 표시되어 있는 그래픽](media/2010-sale-parquet-chart-options-button.png "View options")
 
-9. 키를 **`ProductId`**로, 값을 **`TotalAmount`(1)**로 설정하고 **적용(2)**을 선택합니다.
+9. 키를 **`ProductId`** 로, 값을 **`TotalAmount`(1)** 로 설정하고 **적용(2)** 을 선택합니다.
 
     ![설명에 해당하는 옵션이 구성되어 있는 그래픽](media/2010-sale-parquet-chart-options.png "View options")
 
@@ -353,7 +355,7 @@ Tailwind Traders에는 데이터 레이크에 저장된 Parquet 파일이 있습
 
     ![구성된 차트가 표시되어 있는 그래픽](media/2010-sale-parquet-chart.png "Chart view")
 
-11. **+**를 선택하고 차트 아래에서 **</> 코드 셀**을 선택하여 차트 아래에 새 셀을 만듭니다.
+11. **+** 를 선택하고 차트 아래에서 **</> 코드 셀**을 선택하여 차트 아래에 새 셀을 만듭니다.
 
     ![차트 아래에 코드 추가 단추가 강조 표시되어 있는 그래픽](media/chart-add-code.png "Add code")
 
@@ -400,7 +402,7 @@ Tailwind Traders에는 데이터 레이크에 저장된 Parquet 파일이 있습
 
     > 스키마에 정의된 집계 함수 및 유형을 사용하여 쿼리를 성공적으로 실행하기 위해 필요한 Python 라이브러리를 가져옵니다.
 
-    출력에는 위의 차트에 표시된 것과 동일한 데이터가 표시됩니다. 단, 이번에는 `sum` 및 `avg` 집계**(1)**가 사용됩니다. 그리고 **`alias`** 메서드**(2)**를 사용하여 열 이름을 변경합니다.
+    출력에는 위의 차트에 표시된 것과 동일한 데이터가 표시됩니다. 단, 이번에는 `sum` 및 `avg` 집계 **(1)** 가 사용됩니다. 그리고 **`alias`** 메서드 **(2)** 를 사용하여 열 이름을 변경합니다.
 
     ![집계 출력이 표시되어 있는 그래픽](media/2010-sale-parquet-aggregates.png "Aggregates output")
 
@@ -614,7 +616,7 @@ Synapse Notebook을 사용하여 JSON 파일에서 데이터 변환을 탐색하
     display(groupedTopPurchases.limit(100))
     ```
 
-    여기서도 `visitorId`를 기준으로 결과를 그룹화했지만, 이번에는 **`agg`** 메서드에서 `itemsPurchasedLast12Months` 열에 **`sum`**을 사용했습니다. 그리고 `sum`에서 사용할 수 있도록 `select` 문에 `itemsPurchasedLast12Months` 열을 포함했습니다.
+    여기서도 `visitorId`를 기준으로 결과를 그룹화했지만, 이번에는 **`agg`** 메서드에서 `itemsPurchasedLast12Months` 열에 **`sum`** 을 사용했습니다. 그리고 `sum`에서 사용할 수 있도록 `select` 문에 `itemsPurchasedLast12Months` 열을 포함했습니다.
 
     ![쿼리 출력이 표시되어 있는 그래픽](media/spark-grouped-top-purchases-total-items.png "Grouped top total items output")
 
@@ -652,11 +654,11 @@ Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 데이터 원�
 
     셀에서 실행이 완료되면 테이블이 만들어졌는지 확인하기 위해 SQL 테이블 목록을 살펴봅시다.
 
-3. **Notebook을 열어 두고** **데이터 **허브로 이동합니다(아직 데이터 허브를 선택하지 않은 경우).
+3. **Notebook을 열어 두고** **데이터**허브로 이동합니다(아직 데이터 허브를 선택하지 않은 경우).
 
     ![데이터 허브가 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-4. **작업 영역** 탭 **(1)** 을 선택하고 SQL 데이터베이스를 확장한 다음, 테이블 **(2)* 에서 **줄임표(...)** 를 선택하고 **새로 고침(3)** 을 선택합니다. **`wwi.TopPurchases`** 테이블과 열 **(4)** 을 확장합니다.
+4. **작업 영역** 탭 **(1)** 을 선택하고 SQL 데이터베이스를 확장한 다음, 테이블 **(2)** 에서 **줄임표(...)** 를 선택하고 **새로 고침(3)** 을 선택합니다. **`wwi.TopPurchases`** 테이블과 열 **(4)** 을 확장합니다.
 
     ![테이블이 표시되어 있는 그래픽](media/toppurchases-table.png "TopPurchases table")
 
@@ -721,14 +723,34 @@ Apache Spark 풀-Synapse SQL 커넥터는 Apache Spark에 대한 데이터 원�
     display(inner_join_agg.limit(100))
     ```
 
-    이 쿼리에서는 `CustomerId` 및 `ProductId`가 일치하도록 설정하는 방식을 통해 `dfsales` 및 `dfTopPurchasesFromSql` 데이터 프레임을 조인했습니다. 이 조인에서 2019년 12월 영업 Parquet 데이터**(1)**가 `TopPurchases` SQL 테이블과 결합되었습니다.
+    이 쿼리에서는 `CustomerId` 및 `ProductId`가 일치하도록 설정하는 방식을 통해 `dfsales` 및 `dfTopPurchasesFromSql` 데이터 프레임을 조인했습니다. 이 조인에서 2019년 12월 영업 Parquet 데이터 **(1)** 가 `TopPurchases` SQL 테이블과 결합되었습니다.
 
-    그리고 `CustomerId` 및 `ProductId` 필드를 기준으로 결과를 그룹화했습니다. `ProductId` 필드 이름은 모호하기 때문에(두 데이터 프레임에 해당 이름이 모두 포함되어 있음) `TopPurchases` 데이터 프레임**(2)**에 있는 필드를 가리키도록 `ProductId` 이름을 정규화해야 했습니다.
+    그리고 `CustomerId` 및 `ProductId` 필드를 기준으로 결과를 그룹화했습니다. `ProductId` 필드 이름은 모호하기 때문에(두 데이터 프레임에 해당 이름이 모두 포함되어 있음) `TopPurchases` 데이터 프레임 **(2)** 에 있는 필드를 가리키도록 `ProductId` 이름을 정규화해야 했습니다.
 
-    그런 다음 12월 각 제품에 지출된 총 금액, 12월 총 제품 항목 수, 지난 12개월 동안 구매한 총 제품 항목 수**(3)** 를 합산한 집계를 만들었습니다.
+    그런 다음 12월 각 제품에 지출된 총 금액, 12월 총 제품 항목 수, 지난 12개월 동안 구매한 총 제품 항목 수 **(3)** 를 합산한 집계를 만들었습니다.
 
     마지막으로, 조인 및 집계된 데이터를 테이블 보기에 표시했습니다.
 
     > **참고**: 테이블 보기에서 열 머리글을 임의로 클릭하여 결과 집합을 정렬합니다.
 
     ![셀 내용과 출력이 표시되어 있는 그래픽](media/join-output.png "Join output")
+
+## 연습 5: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

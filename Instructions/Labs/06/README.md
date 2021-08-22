@@ -25,11 +25,11 @@
     - [연습 3: Display Function Notebook 완료](#exercise-3-complete-the-display-function-notebook)
     - [연습 4: Distinct Articles exercise Notebook 완료](#exercise-4-complete-the-distinct-articles-exercise-notebook)
   - [랩 2 - 데이터 프레임 고급 메서드 사용](#lab-2---working-with-dataframes-advanced-methods)
-    - [연습 2: 랩 Notebook 완료](#exercise-2-complete-the-lab-notebook)
+    - [연습 1: 랩 Notebook 실행 및 완료](#exercise-1-run-and-complete-the-lab-notebook)
       - [작업 1: Databricks 보관 파일 복제](#task-1-clone-the-databricks-archive-1)
       - [작업 2: Date and Time Manipulation Notebook 완료](#task-2-complete-the-date-and-time-manipulation-notebook)
-    - [연습 3: Use Aggregate Functions Notebook 완료](#exercise-3-complete-the-use-aggregate-functions-notebook)
-    - [연습 4: De-Duping Data exercise Notebook 완료](#exercise-4-complete-the-de-duping-data-exercise-notebook)
+    - [연습 2: Use Aggregate Functions Notebook 완료](#exercise-2-complete-the-use-aggregate-functions-notebook)
+    - [연습 3: De-Duping Data exercise Notebook 완료](#exercise-3-complete-the-de-duping-data-exercise-notebook)
 
 ## 랩 1 - 데이터 프레임 사용
 
@@ -37,7 +37,7 @@
 
 ### 실습 랩 시작 전 준비 사항
 
-> **참고:** `실습 랩 시작 전 준비 사항` 단계는 호스트형 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
+> **참고:** `Before the hands-on lab` 단계는 호스트형 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
 
 이 랩의 연습을 진행하기 전에 사용 가능한 클러스터가 있는 Azure Databricks 작업 영역에 액세스할 수 있는지 확인하세요. 작업 영역을 구성하려면 아래 작업을 수행합니다.
 
@@ -129,7 +129,7 @@ Notebook이 완료되면 이 화면으로 돌아와서 다음 랩을 계속 진�
 
 이 랩에서는 이전 랩에서 살펴본 Azure Databricks 데이터 프레임 관련 개념을 추가로 살펴봅니다. 구체적으로는 데이터 엔지니어가 데이터 프레임을 사용하여 데이터 읽기, 쓰기, 변환을 수행할 때 사용할 수 있는 몇 가지 고급 메서드를 살펴봅니다.
 
-### 연습 2: 랩 Notebook 완료
+### 연습 1: 랩 Notebook 실행 및 완료
 
 #### 작업 1: Databricks 보관 파일 복제
 
@@ -159,7 +159,7 @@ Notebook 내에서 다음을 수행합니다.
 
 Notebook이 완료되면 이 화면으로 돌아와서 다음 단계를 계속 진행하세요.
 
-### 연습 3: Use Aggregate Functions Notebook 완료
+### 연습 2: Use Aggregate Functions Notebook 완료
 
 Azure Databricks 작업 영역의 사용자 폴더에서 가져온 **07-Dataframe-Advanced-Methods** 폴더를 엽니다.
 
@@ -169,7 +169,7 @@ Notebook에서 다양한 집계 함수를 알아봅니다.
 
 Notebook이 완료되면 이 화면으로 돌아와서 다음 단계를 계속 진행하세요.
 
-### 연습 4: De-Duping Data exercise Notebook 완료
+### 연습 3: De-Duping Data exercise Notebook 완료
 
 Azure Databricks 작업 영역의 사용자 폴더에서 가져온 **07-Dataframe-Advanced-Methods** 폴더를 엽니다.
 

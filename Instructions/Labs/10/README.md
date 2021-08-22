@@ -39,10 +39,12 @@
     - [작업 3: 통계 만들기 및 업데이트](#task-3-create-and-update-statistics)
     - [작업 4: 인덱스 만들기 및 업데이트](#task-4-create-and-update-indexes)
     - [작업 5: 순서가 지정된 클러스터형 columnstore 인덱스](#task-5-ordered-clustered-columnstore-indexes)
+  - [연습 5: 정리](#exercise-5-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 이 모듈의 **[랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/04/README.md)에 나와 있는 작업을 완료**하세요.
 
@@ -69,7 +71,7 @@
 
     ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
 
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다**(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](media/resume-dedicated-sql-pool.png "Resume")
 
@@ -91,7 +93,7 @@
 
     ![개발 허브가 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-3. **개발** 메뉴에서 **+** 단추**(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
+3. **개발** 메뉴에서 + 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -172,7 +174,7 @@
     GO
 
     COPY INTO Category 
-    FROM 'https://solliancepublicdata.blob.core.windows.net/cdp/csv/Category.csv'
+    FROM 'https://solliancepublicdata.blob.core.windows.net/dataengineering/dp-203/books/Category.csv'
     WITH (
         FILE_TYPE = 'CSV',
         FIRSTROW = 2
@@ -180,7 +182,7 @@
     GO
 
     COPY INTO Books 
-    FROM 'https://solliancepublicdata.blob.core.windows.net/cdp/csv/Books.csv'
+    FROM 'https://solliancepublicdata.blob.core.windows.net/dataengineering/dp-203/books/Books.csv'
     WITH (
         FILE_TYPE = 'CSV',
         FIRSTROW = 2
@@ -188,7 +190,7 @@
     GO
 
     COPY INTO BookConsumption 
-    FROM 'https://solliancepublicdata.blob.core.windows.net/cdp/csv/BookConsumption.csv'
+    FROM 'https://solliancepublicdata.blob.core.windows.net/dataengineering/dp-203/books/BookConsumption.csv'
     WITH (
         FILE_TYPE = 'CSV',
         FIRSTROW = 2
@@ -196,7 +198,7 @@
     GO
 
     COPY INTO BookList 
-    FROM 'https://solliancepublicdata.blob.core.windows.net/cdp/csv/BookList.csv'
+    FROM 'https://solliancepublicdata.blob.core.windows.net/dataengineering/dp-203/books/BookList.csv'
     WITH (
         FILE_TYPE = 'CSV',
         FIRSTROW = 2
@@ -224,7 +226,7 @@ Tailwind Traders에서는 고가의 커서, 하위 쿼리 및 현재 사용 중�
 
     ![개발 허브가 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-2. **개발** 메뉴에서 **+** 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
+2. **개발** 메뉴에서 + 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -249,13 +251,13 @@ Tailwind Traders에서는 고가의 커서, 하위 쿼리 및 현재 사용 중�
 
     ![쿼리 도구 모음에서 실행 단추가 강조 표시되어 있는 그래픽](media/synapse-studio-query-toolbar-run.png "Run")
 
-    `PARTITION BY`를 `OVER` 절**(1)**과 함께 사용할 때는 쿼리 결과 집합을 파티션으로 나눕니다. 창 함수는 각 파티션에 별도로 적용되므로 각 파티션에 대해 계산이 다시 시작됩니다.
+    `PARTITION BY`를 `OVER` 절 **(1)** 과 함께 사용할 때는 쿼리 결과 집합을 파티션으로 나눕니다. 창 함수는 각 파티션에 별도로 적용되므로 각 파티션에 대해 계산이 다시 시작됩니다.
 
     ![스크립트 출력이 나와 있는 그래픽](media/over-partition.png "SQL script")
 
-    앞에서 실행한 스크립트에서는 OVER 절에 ROW_NUMBER 함수**(1)**를 사용하여 파티션 내 각 행의 행 번호를 표시합니다. 이 스크립트의 파티션은 `Region` 열입니다. OVER 절에 지정된 ORDER BY 절**(2)**은 `Quantity` 열을 기준으로 하여 각 파티션의 행을 정렬합니다. SELECT 문의 ORDER BY 절은 전체 쿼리 결과 집합이 반환되는 순서를 결정합니다.
+    앞에서 실행한 스크립트에서는 OVER 절에 ROW_NUMBER 함수 **(1)** 를 사용하여 파티션 내 각 행의 행 번호를 표시합니다. 이 스크립트의 파티션은 `Region` 열입니다. OVER 절에 지정된 ORDER BY 절 **(2)** 은 `Quantity` 열을 기준으로 하여 각 파티션의 행을 정렬합니다. SELECT 문의 ORDER BY 절은 전체 쿼리 결과 집합이 반환되는 순서를 결정합니다.
 
-    **Row Number** 개수**(3)**가 **다른 지역(4)**부터 다시 시작될 때까지 결과 뷰를 **아래로 스크롤**합니다. 파티션이 `Region`으로 설정되어 있으므로 지역이 변경되면 `ROW_NUMBER`가 다시 설정됩니다. 요약하자면, 이 스크립트에서는 지역을 기준으로 결과 집합을 분할했으며 해당 지역의 행 수를 기준으로 결과 집합을 확인했습니다.
+    **Row Number** 개수 **(3)** 가 **다른 지역(4)** 부터 다시 시작될 때까지 결과 뷰를 **아래로 스크롤**합니다. 파티션이 `Region`으로 설정되어 있으므로 지역이 변경되면 `ROW_NUMBER`가 다시 설정됩니다. 요약하자면, 이 스크립트에서는 지역을 기준으로 결과 집합을 분할했으며 해당 지역의 행 수를 기준으로 결과 집합을 확인했습니다.
 
 #### 작업 2.2: 집계 함수
 
@@ -318,11 +320,11 @@ Tailwind Traders는 온라인 상점에서 가져온 책 판매 데이터를 보
 
     ![백분위수 결과가 표시되어 있습니다.](media/percentile.png "Percentile")
 
-    이 쿼리에서는 **PERCENTILE_CONT(1)** 및 **PERCENTILE_DISC(2)**를 사용하여 각 책 범주의 다운로드 수 중앙값을 확인합니다. 이러한 함수는 같은 값을 반환하지 않을 수 있습니다. PERCENTILE_CONT는 데이터 집합에 있거나 없을 수 있는 적절한 값을 보간하는 반면, PERCENTILE_DISC는 항상 데이터 집합에서 실제 값을 반환합니다. 자세히 설명하자면 PERCENTILE_DISC는 전체 행 집합에 정렬된 값 또는 행 집합의 고유 파티션 내에 정렬된 값의 특정 백분위수를 계산합니다.
+    이 쿼리에서는 **PERCENTILE_CONT(1)** 및 **PERCENTILE_DISC(2)** 를 사용하여 각 책 범주의 다운로드 수 중앙값을 확인합니다. 이러한 함수는 같은 값을 반환하지 않을 수 있습니다. PERCENTILE_CONT는 데이터 집합에 있거나 없을 수 있는 적절한 값을 보간하는 반면, PERCENTILE_DISC는 항상 데이터 집합에서 실제 값을 반환합니다. 자세히 설명하자면 PERCENTILE_DISC는 전체 행 집합에 정렬된 값 또는 행 집합의 고유 파티션 내에 정렬된 값의 특정 백분위수를 계산합니다.
 
     > **백분위수 함수(1 및 2)** 에 전달된 값 `0.5`는 다운로드 수의 50번째 백분위수, 즉 중앙값을 계산합니다.
 
-    **WITHIN GROUP** 식**(3)** 은 정렬하여 백분위수를 계산할 값의 목록을 지정합니다. ORDER BY 식 하나만 사용할 수 있으며 기본 정렬 순서는 오름차순입니다.
+    **WITHIN GROUP** 식 **(3)** 은 정렬하여 백분위수를 계산할 값의 목록을 지정합니다. ORDER BY 식 하나만 사용할 수 있으며 기본 정렬 순서는 오름차순입니다.
 
     **OVER** 절 **(4)** 은 FROM 절의 결과 집합을 파티션으로 나눕니다. 여기서 파티션은 `Category`입니다. 백분위수 함수는 해당 파티션에 적용됩니다.
 
@@ -385,7 +387,7 @@ Tailwind Traders는 국가별로 다운로드 수가 가장 적은 책을 찾고
 
     이 쿼리에서는 `FIRST_VALUE` 분석 함수를 사용하여 `Country` 파티션 **(1)** 에 대한 **`ROWS UNBOUNDED PRECEDING`** 절에서 표시된 것처럼 다운로드 수가 가장 적은 책 제목을 검색합니다. `UNBOUNDED PRECEDING` 옵션은 창의 시작점을 파티션의 첫 번째 행으로 설정하여 해당 파티션에 속하는 국가에서 다운로드 수가 가장 적은 책 제목을 알려 줍니다.
 
-    결과 집합에서 다운로드 수를 기준으로 오름차순으로 정렬된 국가별 책 목록을 스크롤할 수 있습니다. 이 결과에서는 독일의 경우 `Harry Potter - The Ultimate Quiz Book`(다운로드 수가 가장 많은 `Harry Potter - The Ultimate Quiz`와 혼동하기 쉬우므로 주의해야 함)이, 스웨덴의 경우에는 `Burn for Me`의 다운로드 수가 가장 적음을 확인할 수 있습니다**(2)**.
+    결과 집합에서 다운로드 수를 기준으로 오름차순으로 정렬된 국가별 책 목록을 스크롤할 수 있습니다. 독일의 경우를 보면 `Fallen Kitten of the Sword - The Ultimate Quiz`가 가장 많이 다운로드되었고 스웨덴 **(2)** 에서는 `Notebooks for Burning`이 가장 적게 다운로드되었습니다.
 
 ### 작업 3: HyperLogLog 함수를 사용한 근사 실행
 
@@ -445,7 +447,7 @@ Tailwind Traders에서 CEO가 실행하는 쿼리의 중요도를 다른 쿼리�
 
     ![개발 허브가 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-2. **개발** 메뉴에서 **+** 단추**(1)**를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)**를 선택합니다.
+2. **개발** 메뉴에서 **+** 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -477,7 +479,7 @@ Tailwind Traders에서 CEO가 실행하는 쿼리의 중요도를 다른 쿼리�
 
     ![통합 허브가 강조 표시되어 있는 그래픽](media/integrate-hub.png "Integrate hub")
 
-7. **Lab 08 - Execute Data Analyst and CEO Queries** 파이프라인**(1)**을 선택합니다. 그러면 `asa.sql.workload01` 및 `asa.sql.workload02` 쿼리가 실행/트리거됩니다. **트리거 추가(2)**와 **지금 트리거(3)**를 차례로 선택합니다. 표시되는 대화 상자에서 **확인**을 선택합니다.
+7. **Lab 08 - Execute Data Analyst and CEO Queries** 파이프라인 **(1)** 을 선택합니다. 그러면 `asa.sql.workload01` 및 `asa.sql.workload02` 쿼리가 실행/트리거됩니다. **트리거 추가(2)** 와 **지금 트리거(3)** 를 차례로 선택합니다. 표시되는 대화 상자에서 **확인**을 선택합니다.
 
     ![트리거 추가 및 지금 트리거 메뉴 항목이 강조 표시되어 있는 그래픽](media/trigger-data-analyst-and-ceo-queries-pipeline.png "Add trigger")
 
@@ -505,7 +507,7 @@ Tailwind Traders에서 CEO가 실행하는 쿼리의 중요도를 다른 쿼리�
 
     모든 쿼리의 **Importance** 수준은 **normal**로 설정되어 있습니다.
 
-10. 이제 **워크로드 중요도 **기능을 구현하여 `asa.sql.workload01` 사용자 쿼리에 우선 순위를 지정하겠습니다. 쿼리 창에서 스크립트를 다음과 같이 바꿉니다.
+10. 이제 **워크로드 중요도**기능을 구현하여 `asa.sql.workload01` 사용자 쿼리에 우선 순위를 지정하겠습니다. 쿼리 창에서 스크립트를 다음과 같이 바꿉니다.
 
     ```sql
     IF EXISTS (SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'CEO')
@@ -549,7 +551,7 @@ Tailwind Traders에서 CEO가 실행하는 쿼리의 중요도를 다른 쿼리�
 
     ![모니터 허브가 강조 표시되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-16. **파이프라인 실행(1)**을 선택한 다음 현재 실행 중이며 **진행 중(3)**으로 표시된 각 랩 08 파이프라인에서 **재귀 취소(2)**를 선택합니다. 이렇게 하면 나머지 작업 속도를 높일 수 있습니다.
+16. **파이프라인 실행(1)** 을 선택한 다음 현재 실행 중이며 **진행 중(3)** 으로 표시된 각 랩 08 파이프라인에서 **재귀 취소(2)** 를 선택합니다. 이렇게 하면 나머지 작업 속도를 높일 수 있습니다.
 
     ![재귀 취소 옵션이 나와 있는 그래픽](media/cancel-recursive.png "Pipeline runs - Cancel recursive")
 
@@ -623,7 +625,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
 
     ![통합 허브가 강조 표시되어 있는 그래픽](media/integrate-hub.png "Integrate hub")
 
-8. **Lab 08 - Execute Business Analyst Queries** 파이프라인**(1)**을 선택합니다. 그러면 `asa.sql.workload02` 쿼리가 실행/트리거됩니다. **트리거 추가(2)**와 **지금 트리거(3)**를 차례로 선택합니다. 표시되는 대화 상자에서 **확인**을 선택합니다.
+8. **Lab 08 - Execute Business Analyst Queries** 파이프라인 **(1)** 을 선택합니다. 그러면 `asa.sql.workload02` 쿼리가 실행/트리거됩니다. **트리거 추가(2)** 와 **지금 트리거(3)** 를 차례로 선택합니다. 표시되는 대화 상자에서 **확인**을 선택합니다.
 
     ![트리거 추가 및 지금 트리거 메뉴 항목이 강조 표시되어 있는 그래픽](media/trigger-business-analyst-queries-pipeline.png "Add trigger")
 
@@ -648,13 +650,13 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
 
     ![각 세션이 중요도 below_normal로 실행되었음이 표시된 스크립트 결과](media/sql-result-below-normal.png "SQL script")
 
-    즉, 실행 중인 스크립트는 Importance 수준이 **below_normal(2)**인 `asa.sql.workload02` 사용자**(1)**가 실행한 것입니다. CEO 쿼리보다 낮은 중요도로 실행되도록 비즈니스 분석가 쿼리를 성공적으로 구성했습니다. 또한 `CEODreamDemo` 워크로드 분류자가 정상적으로 작동함도 확인할 수 있습니다.
+    즉, 실행 중인 스크립트는 Importance 수준이 **below_normal(2)** 인 `asa.sql.workload02` 사용자 **(1)** 가 실행한 것입니다. CEO 쿼리보다 낮은 중요도로 실행되도록 비즈니스 분석가 쿼리를 성공적으로 구성했습니다. 또한 `CEODreamDemo` 워크로드 분류자가 정상적으로 작동함도 확인할 수 있습니다.
 
 11. **모니터** 허브를 선택합니다.
 
     ![모니터 허브가 강조 표시되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-12. **파이프라인 실행(1)**을 선택한 다음 현재 실행 중이며 **진행 중(3)**으로 표시된 각 랩 08 파이프라인에서 **재귀 취소(2)**를 선택합니다. 이렇게 하면 나머지 작업 속도를 높일 수 있습니다.
+12. **파이프라인 실행(1)** 을 선택한 다음 현재 실행 중이며 **진행 중(3)** 으로 표시된 각 랩 08 파이프라인에서 **재귀 취소(2)** 를 선택합니다. 이렇게 하면 나머지 작업 속도를 높일 수 있습니다.
 
     ![재귀 취소 옵션이 나와 있는 그래픽](media/cancel-recursive-ba.png "Pipeline runs - Cancel recursive")
 
@@ -696,7 +698,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
 
     ![개발 허브가 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-2. **개발** 메뉴에서 **+** 단추**(1)**를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)**를 선택합니다.
+2. **개발** 메뉴에서 **+** 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -763,7 +765,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
 
     ![데이터 허브가 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-9. **SQLPool01** 데이터베이스와 해당 테이블 목록을 확장합니다. **`wwi_poc.Sale`(1)**을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(2)**를 선택한 다음 **CREATE(3)**를 선택합니다.
+9. **SQLPool01** 데이터베이스와 해당 테이블 목록을 확장합니다. **`wwi_poc.Sale`(1)** 을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트(2)** 를 선택한 다음 **CREATE(3)** 를 선택합니다.
 
     ![Sale 테이블에서 CREATE 스크립트가 강조 표시되어 있는 그래픽](media/sale-heap-create.png "Create script")
 
@@ -820,7 +822,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
     ) T
     ```
 
-    `EXPLAIN WITH_RECOMMENDATIONS` 절은 Azure Synapse Analytics SQL 문을 실제로 실행하지는 않고 해당 문의 쿼리 계획을 반환합니다. EXPLAIN을 사용하여 데이터 이동이 필요한 작업을 미리 보고 쿼리 작업의 예상 비용을 표시합니다. 기본적으로는 XML 형식 실행 계획이 반환됩니다. 이 계획은 CSV, JSON 등의 다른 형식으로 내보낼 수 있습니다. 도구 모음에서 `쿼리 계획`을 선택하면 **안 됩니다**. 이렇게 하면 쿼리 계획을 다운로드하여 SQL Server Management Studio에서 여는 과정이 진행되기 때문입니다.
+    `EXPLAIN WITH_RECOMMENDATIONS` 절은 Azure Synapse Analytics SQL 문을 실제로 실행하지는 않고 해당 문의 쿼리 계획을 반환합니다. EXPLAIN을 사용하여 데이터 이동이 필요한 작업을 미리 보고 쿼리 작업의 예상 비용을 표시합니다. 기본적으로는 XML 형식 실행 계획이 반환됩니다. 이 계획은 CSV, JSON 등의 다른 형식으로 내보낼 수 있습니다. 도구 모음에서 `Query Plan`을 선택하면 **안 됩니다**. 이렇게 하면 쿼리 계획을 다운로드하여 SQL Server Management Studio에서 여는 과정이 진행되기 때문입니다.
 
     쿼리를 실행하면 다음과 같은 결과가 반환됩니다.
 
@@ -894,7 +896,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
     ---|---|---
     1 | RND_ID | 만들 개체를 식별하는 ID입니다. 여기서 만들 개체는 `TEMP_ID_76` 내부 테이블입니다.
     2 | ON | 작업을 수행할 위치(노드 또는 배포)입니다. 값이 `AllDistributions`이면 SQL 풀의 60개 배포 각각에서 작업이 수행됩니다. 즉, SQL 작업(`<sql_operations>`로 지정됨)이 수행되어 `TEMP_ID_76` 테이블이 작성됩니다.
-    3 | SHUFFLE_MOVE | 순서 섞기 열 목록에는 `CustomerId`(`<suffle_columns>`를 통해 지정됨) 열 하나만 포함되어 있습니다. 값은 해시 소유 배포로 분산되어 로컬의 `TEMP_ID_76` 테이블에 저장됩니다. 이 작업에서는 예상 행 수 41265.25(`<operation_cost>`를 통해 지정됨)가 출력됩니다. 동일 섹션에서 확인할 수 있는 평균 결과 행 크기는 13바이트입니다.
+    3 | SHUFFLE_MOVE | 순서 섞기 열 목록에는 `CustomerId`(`<shuffle_columns>`를 통해 지정됨) 열 하나만 포함되어 있습니다. 값은 해시 소유 배포로 분산되어 로컬의 `TEMP_ID_76` 테이블에 저장됩니다. 이 작업에서는 예상 행 수 41265.25(`<operation_cost>`를 통해 지정됨)가 출력됩니다. 동일 섹션에서 확인할 수 있는 평균 결과 행 크기는 13바이트입니다.
     4 | RETURN | 내부 임시 테이블 `TEMP_ID_76`을 쿼리하여 순서 섞기 작업에서 생성된 데이터를 모든 배포에서 수집합니다(`<location>` 참조).
     5 | ON | 모든 배포에서 `TEMP_ID_76`이 삭제됩니다.
 
@@ -976,7 +978,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
 
     ![개발 허브가 강조 표시되어 있는 그래픽](media/develop-hub.png "Develop hub")
 
-2. **개발** 메뉴에서 **+** 단추**(1)**를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)**를 선택합니다.
+2. **개발** 메뉴에서 **+** 단추 **(1)** 를 선택하고 컨텍스트 메뉴에서 **SQL 스크립트(2)** 를 선택합니다.
 
     ![SQL 스크립트 컨텍스트 메뉴 항목이 강조 표시되어 있는 그래픽](media/synapse-studio-new-sql-script.png "New SQL script")
 
@@ -1154,13 +1156,13 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
     >
     > 이러한 쿼리는 전용 SQL 풀에서 이미 실행된 상태이므로 스크립트를 실행하지는 **마세요**.
 
-여기서는 두 가지 분할 전략, 즉 월 기준 분할 구성표와 분기 기준 분할 구성표**(3)**.가 사용되었습니다.
+여기서는 두 가지 분할 전략, 즉 월 기준 분할 구성표와 분기 기준 분할 구성표 **(3)**.가 사용되었습니다.
 
 ![설명에 해당하는 쿼리가 강조 표시되어 있는 그래픽](media/partition-ctas.png "Partition CTAS queries")
 
 #### 작업 4.1: 테이블 배포
 
-앞에서 살펴본 것처럼, 분할된 테이블 2개는 해시 분산 테이블**(1)**입니다. 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.
+앞에서 살펴본 것처럼, 분할된 테이블 2개는 해시 분산 테이블 **(1)** 입니다. 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.
 
 분산 유형은 다음과 같습니다.
 
@@ -1181,7 +1183,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
 
 #### 작업 4.2: 인덱스
 
-쿼리의 분할된 테이블 2개는 **클러스터형 columnstore 인덱스(2)**를 사용하여 구성되어 있습니다. 전용 SQL 풀에서는 다음과 같은 여러 인덱스 유형을 사용할 수 있습니다.
+쿼리의 분할된 테이블 2개는 **클러스터형 columnstore 인덱스(2)** 를 사용하여 구성되어 있습니다. 전용 SQL 풀에서는 다음과 같은 여러 인덱스 유형을 사용할 수 있습니다.
 
 - **클러스터형 columnstore 인덱스(기본 주 인덱스)**: 데이터 압축 수준이 가장 높으며 전반적인 쿼리 성능도 가장 우수합니다.
 - **클러스터형 인덱스(주 인덱스)**: 열 하나~몇 개를 조회할 때 우수한 성능을 제공합니다.
@@ -1198,18 +1200,18 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
 
 #### 작업 4.3: 분할
 
-이 쿼리에서도 2개 테이블을 다른 방식으로 분할합니다**(3)**. 그러면 성능 차이를 평가하여 장기적으로 가장 효율적인 분할 전략을 결정할 수 있습니다. 최종 전략은 Tailwind Traders 데이터에 적용되는 다양한 요인에 따라 달라집니다. 가령 쿼리 성능 최적화를 위해 두 테이블을 모두 유지할 수도 있습니다. 하지만 이 경우 데이터 관리를 위한 데이터 저장 및 유지 관리 요구 사항은 두 배로 가중됩니다.
+이 쿼리에서도 2개 테이블을 다른 방식으로 분할합니다 **(3)**. 그러면 성능 차이를 평가하여 장기적으로 가장 효율적인 분할 전략을 결정할 수 있습니다. 최종 전략은 Tailwind Traders 데이터에 적용되는 다양한 요인에 따라 달라집니다. 가령 쿼리 성능 최적화를 위해 두 테이블을 모두 유지할 수도 있습니다. 하지만 이 경우 데이터 관리를 위한 데이터 저장 및 유지 관리 요구 사항은 두 배로 가중됩니다.
 
 분할은 모든 테이블 유형에서 지원됩니다.
 
-이 쿼리에서 사용하는 **RANGE RIGHT** 옵션**(3)**은 시간 파티션용입니다. 그리고 RANGE LEFT는 숫자 파티션용입니다.
+이 쿼리에서 사용하는 **RANGE RIGHT** 옵션 **(3)** 은 시간 파티션용입니다. 그리고 RANGE LEFT는 숫자 파티션용입니다.
 
 테이블을 분할하는 경우의 주요 이점은 다음과 같습니다.
 
 - 쿼리 범위를 데이터 하위 집합으로 제한하여 데이터 로드 및 쿼리 성능과 효율성을 높일 수 있습니다.
 - 파티션 키를 기준으로 데이터를 필터링하면 불필요한 검사와 I/O(입/출력 작업)를 방지할 수 있는 경우 쿼리 성능을 대폭 개선할 수 있습니다.
 
-여기서는 적절한 크기를 적용하여 쿼리를 실행해 보기 위해 각기 다른 파티션 전략**(3)**을 사용해 테이블 2개를 만들었습니다.
+여기서는 적절한 크기를 적용하여 쿼리를 실행해 보기 위해 각기 다른 파티션 전략 **(3)** 을 사용해 테이블 2개를 만들었습니다.
 
 분할을 사용하면 성능을 개선할수는 있지만, 파티션이 너무 많은 테이블을 만들면 성능이 저하되는 경우도 있습니다. 특히 앞에서 만든 클러스터형 columnstore 테이블의 경우에는 성능 저하 현상이 더욱 명확하게 나타납니다. 분할이 도움이 되려면 분할을 사용하는 시기 및 만들려는 파티션 수를 이해하는 것이 중요합니다. '너무 많은 파티션'이 어느 정도인지를 규정하는 명확한 규칙은 없습니다. 즉, 데이터의 형식과 동시에 로드하는 파티션 수에 따라 파티션 수가 너무 많은지 여부가 달라집니다. 성공적인 파티션 구성표에는 일반적으로 수천 개가 아닌 수십 개에서 수백 개의 파티션이 있습니다.
 
@@ -1484,7 +1486,7 @@ Tailwind Trader에서는 많은 사용자가 다운스트림 보고서를 사용
 
     ![False로 설정된 결과 집합 캐싱](media/result-set-caching-disabled.png "SQL query result")
 
-3. 쿼리 창에서 데이터베이스를 **master(1)**로 변경하고 스크립트**(2)**를 다음 코드로 바꿔 결과 집합 캐싱을 활성화합니다.
+3. 쿼리 창에서 데이터베이스를 **master(1)** 로 변경하고 스크립트 **(2)** 를 다음 코드로 바꿔 결과 집합 캐싱을 활성화합니다.
 
     ```sql
     ALTER DATABASE SQLPool01
@@ -1643,7 +1645,7 @@ Tailwind Trader에서는 많은 사용자가 다운스트림 보고서를 사용
 
     ![쿼리 도구 모음에서 실행 단추가 강조 표시되어 있는 그래픽](media/synapse-studio-query-toolbar-run.png "Run")
 
-    위 스크립트의 결과인 **`SET RESULT_SET_CACHING OFF`**는 캐시 적중 테스트 결과에 표시됩니다(캐시 적중 시 `result_cache_hit` 열에서 `1`이, 캐시 누락 시 `0`이 반환되며 결과 집합 캐싱이 사용되지 않은 이유를 나타내는 *음수 값*이 함께 반환됨).
+    위 스크립트의 결과인 **`SET RESULT_SET_CACHING OFF`** 는 캐시 적중 테스트 결과에 표시됩니다(캐시 적중 시 `result_cache_hit` 열에서 `1`이, 캐시 누락 시 `0`이 반환되며 결과 집합 캐싱이 사용되지 않은 이유를 나타내는 *음수 값*이 함께 반환됨).
 
     ![결과 캐시가 설정 및 해제된 상태가 나와 있는 그래픽](media/result-set-cache-off.png "Result cache on/off results")
 
@@ -1671,7 +1673,7 @@ Tailwind Trader에서는 많은 사용자가 다운스트림 보고서를 사용
 
     ![쿼리 도구 모음에서 실행 단추가 강조 표시되어 있는 그래픽](media/synapse-studio-query-toolbar-run.png "Run")
 
-16. 쿼리 창에서 데이터베이스를 **master(1)**로 변경하고 스크립트**(2)**를 다음 코드로 바꿔 결과 집합 캐싱을 사용하지 않도록 설정합니다.
+16. 쿼리 창에서 데이터베이스를 **master(1)** 로 변경하고 스크립트 **(2)** 를 다음 코드로 바꿔 결과 집합 캐싱을 사용하지 않도록 설정합니다.
 
     ```sql
     ALTER DATABASE SQLPool01
@@ -1981,3 +1983,23 @@ Tailwind Trader에서는 많은 사용자가 다운스트림 보고서를 사용
     결과를 살펴보면 겹치는 세그먼트가 훨씬 적어졌음을 확인할 수 있습니다.
 
     ![순서가 지정된 CCI를 사용하는 각 분산의 CCI 세그먼트 구조](./media/lab3_ordered_cci_2.png)
+
+## 연습 5: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

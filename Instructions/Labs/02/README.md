@@ -13,32 +13,34 @@
   - [랩 세부 정보](#lab-details)
     - [랩 설정 및 필수 구성 요소](#lab-setup-and-pre-requisites)
   - [연습 0: 전용 SQL 풀 시작](#exercise-0-start-the-dedicated-sql-pool)
-    - [연습 1: 별모양 스키마 구현](#exercise-1-implementing-a-star-schema)
-      - [작업 1: SQL 데이터베이스에서 별모양 스키마 만들기](#task-1-create-star-schema-in-sql-database)
-    - [연습 2: 눈송이 스키마 구현](#exercise-2-implementing-a-snowflake-schema)
-      - [작업 1: SQL 데이터베이스에서 제품 눈송이 스키마 만들기](#task-1-create-product-snowflake-schema-in-sql-database)
-      - [작업 2: SQL 데이터베이스에서 재판매인 눈송이 스키마 만들기](#task-2-create-reseller-snowflake-schema-in-sql-database)
-    - [연습 3: 시간 차원 테이블 구현](#exercise-3-implementing-a-time-dimension-table)
-      - [작업 1: 시간 차원 테이블 만들기](#task-1-create-time-dimension-table)
-      - [작업 2: 시간 차원 테이블에 데이터 입력](#task-2-populate-the-time-dimension-table)
-      - [작업 3: 다른 테이블에 데이터 로드](#task-3-load-data-into-other-tables)
-      - [작업 4: 데이터 쿼리](#task-4-query-data)
-    - [연습 4: Synapse Analytics에서 별모양 스키마 구현](#exercise-4-implementing-a-star-schema-in-synapse-analytics)
-      - [작업 1: Synapse 전용 SQL에서 별모양 스키마 만들기](#task-1-create-star-schema-in-synapse-dedicated-sql)
-      - [작업 2: Synapse 테이블에 데이터 로드](#task-2-load-data-into-synapse-tables)
-      - [작업 3: Synapse에서 데이터 쿼리](#task-3-query-data-from-synapse)
-    - [연습 5: 매핑 데이터 흐름을 사용하여 느린 변경 차원 업데이트](#exercise-5-updating-slowly-changing-dimensions-with-mapping-data-flows)
-      - [작업 1: Azure SQL Database 연결된 서비스 만들기](#task-1-create-the-azure-sql-database-linked-service)
-      - [작업 2: 매핑 데이터 흐름 만들기](#task-2-create-a-mapping-data-flow)
-      - [작업 3: 파이프라인 만들기 및 데이터 흐름 실행](#task-3-create-a-pipeline-and-run-the-data-flow)
-      - [작업 4: 삽입된 데이터 확인](#task-4-view-inserted-data)
-      - [작업 5: 원본 고객 레코드 업데이트](#task-5-update-a-source-customer-record)
-      - [작업 6: 매핑 데이터 흐름 다시 실행](#task-6-re-run-mapping-data-flow)
-      - [작업 7: 업데이트된 레코드 확인](#task-7-verify-record-updated)
+  - [연습 1: 별모양 스키마 구현](#exercise-1-implementing-a-star-schema)
+    - [작업 1: SQL 데이터베이스에서 별모양 스키마 만들기](#task-1-create-star-schema-in-sql-database)
+  - [연습 2: 눈송이 스키마 구현](#exercise-2-implementing-a-snowflake-schema)
+    - [작업 1: SQL 데이터베이스에서 제품 눈송이 스키마 만들기](#task-1-create-product-snowflake-schema-in-sql-database)
+    - [작업 2: SQL 데이터베이스에서 재판매인 눈송이 스키마 만들기](#task-2-create-reseller-snowflake-schema-in-sql-database)
+  - [연습 3: 시간 차원 테이블 구현](#exercise-3-implementing-a-time-dimension-table)
+    - [작업 1: 시간 차원 테이블 만들기](#task-1-create-time-dimension-table)
+    - [작업 2: 시간 차원 테이블에 데이터 입력](#task-2-populate-the-time-dimension-table)
+    - [작업 3: 다른 테이블에 데이터 로드](#task-3-load-data-into-other-tables)
+    - [작업 4: 데이터 쿼리](#task-4-query-data)
+  - [연습 4: Synapse Analytics에서 별모양 스키마 구현](#exercise-4-implementing-a-star-schema-in-synapse-analytics)
+    - [작업 1: Synapse 전용 SQL에서 별모양 스키마 만들기](#task-1-create-star-schema-in-synapse-dedicated-sql)
+    - [작업 2: Synapse 테이블에 데이터 로드](#task-2-load-data-into-synapse-tables)
+    - [작업 3: Synapse에서 데이터 쿼리](#task-3-query-data-from-synapse)
+  - [연습 5: 매핑 데이터 흐름을 사용하여 느린 변경 차원 업데이트](#exercise-5-updating-slowly-changing-dimensions-with-mapping-data-flows)
+    - [작업 1: Azure SQL Database 연결된 서비스 만들기](#task-1-create-the-azure-sql-database-linked-service)
+    - [작업 2: 매핑 데이터 흐름 만들기](#task-2-create-a-mapping-data-flow)
+    - [작업 3: 파이프라인 만들기 및 데이터 흐름 실행](#task-3-create-a-pipeline-and-run-the-data-flow)
+    - [작업 4: 삽입된 데이터 확인](#task-4-view-inserted-data)
+    - [작업 5: 원본 고객 레코드 업데이트](#task-5-update-a-source-customer-record)
+    - [작업 6: 매핑 데이터 흐름 다시 실행](#task-6-re-run-mapping-data-flow)
+    - [작업 7: 업데이트된 레코드 확인](#task-7-verify-record-updated)
+  - [연습 6: 정리](#exercise-6-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
 
 ### 랩 설정 및 필수 구성 요소
 
-> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트된 랩 환경이 **아닌**자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트된 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 1. 이 모듈의 [랩 설정 지침](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/blob/main/setup/02/README.md)에 나와 있는 작업을 아직 진행하지 않았으면 진행합니다.
 
@@ -64,7 +66,7 @@
 
 > 전용 SQL 풀이 다시 시작되는 동안 **다음 연습을 계속 진행**합니다.
 
-### 연습 1: 별모양 스키마 구현
+## 연습 1: 별모양 스키마 구현
 
 별모양 스키마는 관계형 데이터 웨어하우스에 널리 채택되고 있는 완성도가 높은 모델링 방식입니다. 별모양 스키마를 사용하려면 모델러가 모델 테이블을 차원 또는 팩트로 분류해야 합니다.
 
@@ -80,7 +82,7 @@
 
 ![예제 별모양 스키마](media/star-schema.png "Star schema")
 
-#### 작업 1: SQL 데이터베이스에서 별모양 스키마 만들기
+### 작업 1: SQL 데이터베이스에서 별모양 스키마 만들기
 
 이 작업에서는 외래 키 제약 조건을 사용하여 SQL 데이터베이스에서 별모양 스키마를 만듭니다. 첫 단계에서는 기본 차원과 팩트 테이블을 만듭니다.
 
@@ -105,7 +107,7 @@
     - **서버**: SourceDB 서버 이름 값을 여기에 붙여넣습니다.
     - **인증 유형**: `SQL Login`을 선택합니다.
     - **사용자 이름**: `sqladmin`을 입력합니다.
-    - **암호**: 랩 환경을 배포할 때 입력한 암호를 입력합니다.
+    - **암호**: 랩 환경 배포 시 제공한 또는 호스트된 랩 환경의 일부로 제공된 암호를 입력합니다.
     - **암호 저장**: 선택합니다.
     - **데이터베이스**: `SourceDB`를 선택합니다.
 
@@ -340,7 +342,7 @@
 
     ![관계 키와 함께 표시된 별모양 스키마](media/star-schema-relationships.png "Star schema with relationships")
 
-### 연습 2: 눈송이 스키마 구현
+## 연습 2: 눈송이 스키마 구현
 
 **눈송이 스키마**는 단일 비즈니스 엔터티용으로 일반화된 테이블 집합입니다. 제품을 범주와 하위 범주로 분류하는 Adventure Works의 경우를 예로 들어 보겠습니다. Adventure Works에서는 범주와 제품이 하위 범주에 할당됩니다. Adventure Works 관계형 데이터 웨어하우스에서는 제품 차원이 일반화되어 `DimProductCategory`, `DimProductSubcategory`, `DimProduct`의 3개 관련 테이블에 저장됩니다.
 
@@ -348,7 +350,7 @@
 
 ![샘플 눈송이 스키마](media/snowflake-schema.png "Snowflake schema")
 
-#### 작업 1: SQL 데이터베이스에서 제품 눈송이 스키마 만들기
+### 작업 1: SQL 데이터베이스에서 제품 눈송이 스키마 만들기
 
 이 작업에서는 `DimProductCategory` 및 `DimProductSubcategory`의 새 차원 테이블 2개를 추가합니다. 그런 다음 이 두 테이블과 `DimProduct` 테이블 간의 관계를 작성하여 일반화된 제품 차원, 즉 눈송이 차원을 만듭니다. 그러면 별모양 스키마가 업데이트되어 일반화된 제품 차원이 포함되므로 해당 스키마가 눈송이 스키마로 변환됩니다.
 
@@ -443,7 +445,7 @@
 
     ![눈송이 스키마가 나와 있는 그래픽](media/snowflake-schema-completed.png "Snowflake schema")
 
-#### 작업 2: SQL 데이터베이스에서 재판매인 눈송이 스키마 만들기
+### 작업 2: SQL 데이터베이스에서 재판매인 눈송이 스키마 만들기
 
 이 작업에서는 `DimCustomer` 및 `DimGeography`의 새 차원 테이블 2개를 추가합니다. 그런 다음 이 두 테이블과 `DimReseller` 테이블 간의 관계를 작성하여 일반화된 재판매인 차원, 즉 눈송이 차원을 만듭니다.
 
@@ -552,7 +554,7 @@
 
     ![완성된 눈송이 스키마](media/snowflake-schema-final.png "Snowflake schema")
 
-### 연습 3: 시간 차원 테이블 구현
+## 연습 3: 시간 차원 테이블 구현
 
 시간 차원 테이블은 가장 흔히 사용되는 차원 테이블 중 하나입니다. 대개 `Year` > `Quarter` > `Month` > `Day`과 같은 시간 계층 구조가 포함되는 이 테이블 유형을 사용하면 시간 분석 및 보고용으로 일관된 세분성을 적용할 수 있습니다.
 
@@ -574,7 +576,7 @@
 | FiscalYear | `int` |
 | FiscalQuarter | `int` |
 
-#### 작업 1: 시간 차원 테이블 만들기
+### 작업 1: 시간 차원 테이블 만들기
 
 이 작업에서는 시간 차원 테이블을 추가하고 `FactRetailerSales` 테이블에 대한 외래 키 관계를 만듭니다.
 
@@ -631,7 +633,7 @@
 
     ![눈송이 스키마에서 시간 차원 테이블이 강조 표시되어 있는 그래픽](media/snowflake-schema-time-dimension.png "Time dimension added to snowflake schema")
 
-#### 작업 2: 시간 차원 테이블에 데이터 입력
+### 작업 2: 시간 차원 테이블에 데이터 입력
 
 다양한 방식 중 하나를 선택하여 시간 차원 테이블에 데이터를 입력할 수 있습니다. 예를 들어 날짜/시간 함수를 사용하는 T-SQL 스크립트 또는 Microsoft Excel 함수를 사용하거나, 플랫 파일에서 데이터를 가져오거나, BI(비즈니스 인텔리전스) 도구를 사용하여 데이터를 자동 생성할 수 있습니다. 이 작업에서는 T-SQL을 사용하여 시간 차원 테이블에 데이터를 입력하고 데이터 입력 과정에서 데이터 생성 방법을 비교합니다.
 
@@ -732,7 +734,7 @@
 
     > 이 환경에서는 CTE 쿼리를 실행하는 데 **1초**가 채 걸리지 않았습니다.
 
-#### 작업 3: 다른 테이블에 데이터 로드
+### 작업 3: 다른 테이블에 데이터 로드
 
 이 작업에서는 공용 데이터 원본의 데이터가 포함된 차원 테이블과 팩트 테이블을 로드합니다.
 
@@ -858,7 +860,7 @@
     GO
     ```
 
-#### 작업 4: 데이터 쿼리
+### 작업 4: 데이터 쿼리
 
 1. 다음 쿼리를 붙여넣은 다음 **실행**하여 재판매인, 제품, 월 세분성을 적용해 눈송이 스키마에서 재판매인 판매 데이터를 검색합니다.
 
@@ -951,7 +953,7 @@
 
     > 이처럼 **시간 차원 테이블**을 사용하면 특정 날짜 부분 및 논리적 날짜(예: 회계 연도)를 기준으로 데이터를 더 쉽게 필터링할 수 있으며, 날짜 함수를 바로 계산할 때보다 성능도 더욱 우수합니다.
 
-### 연습 4: Synapse Analytics에서 별모양 스키마 구현
+## 연습 4: Synapse Analytics에서 별모양 스키마 구현
 
 데이터 집합이 큰 경우에는 SQL Server가 아닌 Azure Synapse에서 데이터 웨어하우스를 구현할 수 있습니다. Synapse 전용 SQL 풀에서 데이터를 모델링할 때의 모범 사례는 별모양 스키마 모델입니다. Synapse Analytics와 SQL 데이터베이스에서 테이블을 만드는 방식은 약간 다르지만, 적용되는 데이터 모델링 원칙은 동일합니다.
 
@@ -967,7 +969,7 @@ Synapse Analytics는 MPP([대규모 병렬 처리](https://docs.microsoft.com/az
 
 이 연습에서 사용하는 차원 테이블의 경우에는 테이블당 저장되는 데이터의 양이 복제 분산 사용 기준 범위 내에 포함됩니다.
 
-#### 작업 1: Synapse 전용 SQL에서 별모양 스키마 만들기
+### 작업 1: Synapse 전용 SQL에서 별모양 스키마 만들기
 
 이 작업에서는 Azure Synapse 전용 풀에서 별모양 스키마를 만듭니다. 첫 단계에서는 기본 차원과 팩트 테이블을 만듭니다.
 
@@ -985,7 +987,7 @@ Synapse Analytics는 MPP([대규모 병렬 처리](https://docs.microsoft.com/az
 
     ![데이터 허브](media/data-hub.png "Data hub")
 
-5. **작업 영역** 탭**(1)** 을 선택하고 데이터베이스를 확장한 다음 **SQLPool01(2)** 을 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)** 를 차례로 선택합니다.
+5. **작업 영역** 탭 **(1)** 을 선택하고 데이터베이스를 확장한 다음 **SQLPool01(2)** 을 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)** 를 차례로 선택합니다.
 
     ![새 SQL 스크립트를 만들 수 있는 상황에 맞는 메뉴가 제공되는 데이터 허브가 표시된 그래픽](media/new-sql-script.png "New SQL script")
 
@@ -1212,7 +1214,7 @@ Synapse Analytics는 MPP([대규모 병렬 처리](https://docs.microsoft.com/az
     `Run`은 스크립트 창 왼쪽 위에 있습니다.
     ![스크립트와 실행 단추가 모두 강조 표시되어 있는 그래픽](media/synapse-create-table-script.png "Create table script")
 
-#### 작업 2: Synapse 테이블에 데이터 로드
+### 작업 2: Synapse 테이블에 데이터 로드
 
 이 작업에서는 공용 데이터 원본의 데이터가 포함된 Synapse 차원 테이블과 팩트 테이블을 로드합니다. 두 가지 방법을 통해 T-SQL을 사용하여 Azure Storage 파일에서 이 데이터를 로드할 수 있습니다. 즉, COPY 명령을 사용할 수도 있고 Polybase를 사용해 외부 테이블에서 데이터를 선택할 수도 있습니다. 이 작업에서는 Azure Storage에서 분리된 데이터를 로드하는 데 사용할 수 있는 유동적이며 간단한 구문인 COPY를 사용합니다. 원본이 프라이빗 스토리지 계정이라면 CREDENTIAL 옵션을 포함하여 데이터 읽기 권한을 COPY에 부여해야 합니다. 그러나 이 예제에서는 이러한 권한을 부여할 필요가 없습니다.
 
@@ -1290,7 +1292,7 @@ Synapse Analytics는 MPP([대규모 병렬 처리](https://docs.microsoft.com/az
     GO
     ```
 
-#### 작업 3: Synapse에서 데이터 쿼리
+### 작업 3: Synapse에서 데이터 쿼리
 
 1. 다음 쿼리를 붙여넣은 다음 **실행**하여 재판매인, 제품, 월 세분성을 적용해 Synapse 별모양 스키마에서 재판매인 판매 데이터를 검색합니다.
 
@@ -1369,7 +1371,7 @@ Synapse Analytics는 MPP([대규모 병렬 처리](https://docs.microsoft.com/az
 
     > 이처럼 **시간 차원 테이블**을 사용하면 특정 날짜 부분 및 논리적 날짜(예: 회계 연도)를 기준으로 데이터를 더 쉽게 필터링할 수 있으며, 날짜 함수를 바로 계산할 때보다 성능도 더욱 우수합니다.
 
-### 연습 5: 매핑 데이터 흐름을 사용하여 느린 변경 차원 업데이트
+## 연습 5: 매핑 데이터 흐름을 사용하여 느린 변경 차원 업데이트
 
 SCD(**느린 변경 차원**)는 장기적으로 차원 멤버 변경을 적절하게 관리하는 차원입니다. 비즈니스 엔터티 값이 시간이 경과하면서 임시로 변경되면 SCD가 적용됩니다. 느린 변경 차원의 대표적인 예로는 고객 차원(구체적으로는 이메일 주소 및 전화 번호와 같은 연락처 세부 정보 열)을 들 수 있습니다. 반면 주가와 같이 특성이 자주 변경되는 차원은 빠른 변경 차원으로 간주됩니다. 이 두 가지 차원을 사용할 때 공통적으로 적용되는 디자인 방식은, 빠른 변경 특성 값을 팩트 테이블 측정값에 저장하는 것입니다.
 
@@ -1389,7 +1391,7 @@ SCD(**느린 변경 차원**)는 장기적으로 차원 멤버 변경을 적절�
 
 이 연습에서는 Azure SQL Database를 원본으로, Synapse 전용 SQL 풀을 대상으로 사용하여 유형 1 SCD를 만듭니다.
 
-#### 작업 1: Azure SQL Database 연결된 서비스 만들기
+### 작업 1: Azure SQL Database 연결된 서비스 만들기
 
 Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대한 연결을 관리할 수 있습니다. 이 연습에서는 `DimCustomer` 차원 테이블의 데이터 원본으로 사용되는 Azure SQL Database용 연결된 서비스를 만듭니다.
 
@@ -1413,14 +1415,14 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
     - **서버 이름**: Azure SQL Server `dp203sqlSUFFIX`를 선택합니다(SUFFIX는 사용자의 고유한 접미사).
     - **데이터베이스 이름**: `SourceDB`를 선택합니다.
     - **인증 유형**: `SQL authentication`을 선택합니다.
-    - 사용자 이름: `sqladmin`을 입력합니다.
+    - **사용자 이름**: `sqladmin`을 입력합니다.
     - **암호**: 환경 설정 중에 입력한 암호를 입력합니다. 호스트형 랩 환경을 사용 중이라면 강사가 제공한(랩 시작 부분에서 사용한) 암호를 입력합니다.
 
     ![설명에 따라 작성한 양식의 그래픽](media/new-linked-service-sql-form.png "New linked service form")
 
 5. **만들기**를 선택합니다.
 
-#### 작업 2: 매핑 데이터 흐름 만들기
+### 작업 2: 매핑 데이터 흐름 만들기
 
 매핑 데이터 흐름은 코드 없는 환경을 통해 시각적으로 데이터 변환 방식을 지정할 수 있는 파이프라인 작업입니다. 이 기능을 사용하면 데이터 정리, 변형, 집계, 변환, 조인, 데이터 복사 작업 등을 수행할 수 있습니다.
 
@@ -1434,7 +1436,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![+ 단추와 데이터 흐름 메뉴 항목이 강조 표시되어 있는 그래픽](media/new-data-flow.png "New data flow")
 
-3. 새 데이터 흐름의 속성 창 **이름** 필드 **(1)** 에 `UpdateCustomerDimension`을 입력하고 **속성** 단추**(2)** 를 선택하여 속성 창을 숨깁니다.
+3. 새 데이터 흐름의 속성 창 **이름** 필드 **(1)** 에 `UpdateCustomerDimension`을 입력하고 **속성** 단추 **(2)** 를 선택하여 속성 창을 숨깁니다.
 
     ![데이터 흐름 속성 창이 표시되어 있는 그래픽](media/data-flow-properties.png "Properties")
 
@@ -1480,7 +1482,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![원본 설정에서 새 데이터 집합이 선택되어 있는 그래픽](media/data-flow-source-dataset.png "Source settings: Dataset selected")
 
-12. 캔버스의 `SourceDB` 원본 오른쪽에 있는 **+**를 선택하고 **파생 열**을 선택합니다.
+12. 캔버스의 `SourceDB` 원본 오른쪽에 있는 **+** 를 선택하고 **파생 열**을 선택합니다.
 
     ![+ 단추와 파생 열 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/data-flow-new-derived-column.png "New Derived Column")
 
@@ -1552,7 +1554,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![값 필드가 강조 표시되어 있는 그래픽](media/dimcustomer-dataset.png "DimCustomer dataset")
 
-26. 데이터 흐름으로 다시 전환합니다. `DimCustomer` 데이터 집합을 닫지 *마세요*. 캔버스의 `CreateCustomerHash` 파생 열 오른쪽에 있는 **+**를 선택하고 **Exists**를 선택합니다.
+26. 데이터 흐름으로 다시 전환합니다. `DimCustomer` 데이터 집합을 닫지 *마세요*. 캔버스의 `CreateCustomerHash` 파생 열 오른쪽에 있는 **+** 를 선택하고 **Exists**를 선택합니다.
 
     ![+ 단추와 Exists 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/data-flow-new-exists.png "New Exists")
 
@@ -1570,7 +1572,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![설명에 따라 구성한 양식의 그래픽](media/data-flow-exists-form.png "Exists settings")
 
-28. 캔버스의 `Exists` 오른쪽에 있는 **+**를 선택하고 **조회**를 선택합니다.
+28. 캔버스의 `Exists` 오른쪽에 있는 **+** 를 선택하고 **조회**를 선택합니다.
 
     ![+ 단추와 조회 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/data-flow-new-lookup.png "New Lookup")
 
@@ -1589,7 +1591,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![설명에 따라 구성한 양식의 그래픽](media/data-flow-lookup-form.png "Lookup settings")
 
-30. 캔버스의 `LookupCustomerID` 오른쪽에 있는 **+**를 선택하고 **파생 열**을 선택합니다.
+30. 캔버스의 `LookupCustomerID` 오른쪽에 있는 **+** 를 선택하고 **파생 열**을 선택합니다.
 
     ![+ 단추와 파생 열 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/data-flow-new-derived-column2.png "New Derived Column")
 
@@ -1608,7 +1610,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     > **참고**: 두 번째 열을 삽입하려면 열 목록 위의 **+ 추가**를 선택하고 **열 추가**를 선택합니다.
 
-32. 캔버스의 `SetDates` 파생 열 단계 오른쪽에 있는 **+**를 선택하고 **행 변경**을 선택합니다.
+32. 캔버스의 `SetDates` 파생 열 단계 오른쪽에 있는 **+** 를 선택하고 **행 변경**을 선택합니다.
 
     ![+ 단추와 행 변경 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/data-flow-new-alter-row.png "New Alter Row")
 
@@ -1624,7 +1626,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![설명에 따라 구성한 양식의 그래픽](media/data-flow-alter-row-settings.png "Alter row settings")
 
-34. 캔버스의 `AllowUpserts` 행 변경 단계 오른쪽에 있는 **+**를 선택하고 **싱크**를 선택합니다.
+34. 캔버스의 `AllowUpserts` 행 변경 단계 오른쪽에 있는 **+** 를 선택하고 **싱크**를 선택합니다.
 
     ![+ 단추와 싱크 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/data-flow-new-sink.png "New Sink")
 
@@ -1675,7 +1677,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![게시 단추가 강조 표시되어 있는 그래픽](media/publish-all.png "Publish all")
 
-#### 작업 3: 파이프라인 만들기 및 데이터 흐름 실행
+### 작업 3: 파이프라인 만들기 및 데이터 흐름 실행
 
 이 작업에서는 매핑 데이터 흐름 실행을 위한 새 Synapse 통합 파이프라인을 만든 다음 해당 파이프라인을 실행하여 고객 레코드를 upsert합니다.
 
@@ -1687,7 +1689,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![새 파이프라인 메뉴 옵션이 강조 표시되어 있는 그래픽](media/new-pipeline.png "New pipeline")
 
-3. 새 파이프라인의 속성 창 **이름** 필드 **(1)** 에 `RunUpdateCustomerDimension`을 입력하고 **속성** 단추* *(2)** 를 선택하여 속성 창을 숨깁니다.
+3. 새 파이프라인의 속성 창 **이름** 필드 **(1)** 에 `RunUpdateCustomerDimension`을 입력하고 **속성** 단추 **(2)** 를 선택하여 속성 창을 숨깁니다.
 
     ![파이프라인 속성 창이 표시되어 있는 그래픽](media/pipeline-properties.png "Properties")
 
@@ -1711,25 +1713,21 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![트리거 추가 단추와 지금 트리거 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/pipeline-trigger.png "Pipeline trigger")
 
-8. `Pipeline run` 대화 상자에서 **확인**을 선택하여 파이프라인을 트리거합니다.
-
-    ![확인 단추가 강조 표시되어 있는 그래픽](media/pipeline-run.png "Pipeline run")
-
-9. **모니터** 허브로 이동합니다.
+8. **모니터** 허브로 이동합니다.
 
     ![모니터 허브가 표시되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-10. 왼쪽 메뉴**(1)** 에서 **파이프라인 실행**을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다 **(2)**. 파이프라인 실행이 완료될 때까지 **새로 고침(3)**을 여러 번 선택해야 할 수도 있습니다.
+9. 왼쪽 메뉴 **(1)** 에서 **파이프라인 실행**을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다 **(2)**. 파이프라인 실행이 완료될 때까지 **새로 고침(3)** 을 여러 번 선택해야 할 수도 있습니다.
 
     ![정상적으로 완료된 파이프라인 실행의 스크린샷](media/pipeline-runs.png "Pipeline runs")
 
-#### 작업 4: 삽입된 데이터 확인
+### 작업 4: 삽입된 데이터 확인
 
 1. **데이터** 허브로 이동합니다.
 
     ![데이터 허브](media/data-hub.png "Data hub")
 
-2. **작업 영역** 탭**(1)**을 선택하고 데이터베이스를 확장한 다음 **SQLPool01(2)**을 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)**를 차례로 선택합니다.
+2. **작업 영역** 탭 **(1)** 을 선택하고 데이터베이스를 확장한 다음 **SQLPool01(2)** 을 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)** 를 차례로 선택합니다.
 
     ![새 SQL 스크립트를 만들 수 있는 상황에 맞는 메뉴가 제공되는 데이터 허브가 표시된 그래픽](media/new-sql-script.png "New SQL script")
 
@@ -1741,7 +1739,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![스크립트와 고객 테이블 출력이 표시되어 있는 그래픽](media/first-customer-script-run.png "Customer list output")
 
-#### 작업 5: 원본 고객 레코드 업데이트
+### 작업 5: 원본 고객 레코드 업데이트
 
 1. Azure Data Studio를 엽니다. Azure Data Studio가 아직 열려 있으면 Studio로 다시 전환합니다.
 
@@ -1770,7 +1768,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![고객 성이 Smith로 바뀐 출력이 표시되어 있는 그래픽](media/customer-record-updated.png "Customer record updated")
 
-#### 작업 6: 매핑 데이터 흐름 다시 실행
+### 작업 6: 매핑 데이터 흐름 다시 실행
 
 1. Synapse Studio로 다시 전환합니다.
 
@@ -1786,7 +1784,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![트리거 추가 단추와 지금 트리거 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/pipeline-trigger.png "Pipeline trigger")
 
-5. `Pipeline run` 대화 상자에서 확인을 선택하여 파이프라인을 트리거합니다.
+5. `Pipeline run` 대화 상자에서 **확인**을 선택하여 파이프라인을 트리거합니다.
 
     ![확인 단추가 강조 표시되어 있는 그래픽](media/pipeline-run.png "Pipeline run")
 
@@ -1794,17 +1792,17 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![모니터 허브가 표시되어 있는 그래픽](media/monitor-hub.png "Monitor hub")
 
-7. 왼쪽 메뉴(1)에서 파이프라인 실행을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다(2). 파이프라인 실행이 완료될 때까지 **새로 고침(3)**을 여러 번 선택해야 할 수도 있습니다.
+7. 왼쪽 메뉴 **(1)** 에서 **파이프라인 실행**을 선택하고 파이프라인 실행이 정상적으로 완료될 때까지 기다립니다 **(2)**. 파이프라인 실행이 완료될 때까지 **새로 고침(3)** 을 여러 번 선택해야 할 수도 있습니다.
 
     ![정상적으로 완료된 파이프라인 실행의 스크린샷](media/pipeline-runs2.png "Pipeline runs")
 
-#### 작업 7: 업데이트된 레코드 확인
+### 작업 7: 업데이트된 레코드 확인
 
 1. **데이터** 허브로 이동합니다.
 
     ![데이터 허브](media/data-hub.png "Data hub")
 
-2. **작업 영역** 탭**(1)**을 선택하고 데이터베이스를 확장한 다음 **SQLPool01(2)**을 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)**를 차례로 선택합니다.
+2. **작업 영역** 탭 **(1)** 을 선택하고 데이터베이스를 확장한 다음 **SQLPool01(2)** 을 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)** 를 차례로 선택합니다.
 
     ![새 SQL 스크립트를 만들 수 있는 상황에 맞는 메뉴가 제공되는 데이터 허브가 표시된 그래픽](media/new-sql-script.png "New SQL script")
 
@@ -1817,3 +1815,23 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
     ![스크립트와 업데이트된 고객 테이블 출력이 표시되어 있는 그래픽](media/second-customer-script-run.png "Updated customer output")
 
     출력에서 확인할 수 있듯이 고객 레코드가 정상적으로 업데이트되어 `LastName` 값이 원본 레코드와 일치하도록 수정되었습니다.
+
+## 연습 6: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

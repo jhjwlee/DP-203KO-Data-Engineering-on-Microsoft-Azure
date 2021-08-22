@@ -19,6 +19,7 @@
     - [Power BI](#power-bi)
   - [시나리오 개요](#scenario-overview)
   - [랩 설정 및 필수 구성 요소](#lab-setup-and-pre-requisites)
+  - [연습 0: 전용 SQL 풀 시작](#exercise-0-start-the-dedicated-sql-pool)
   - [연습 1: 서비스 구성](#exercise-1-configure-services)
     - [작업 1: Event Hubs 구성](#task-1-configure-event-hubs)
     - [작업 2: Synapse Analytics 구성](#task-2-configure-synapse-analytics)
@@ -27,6 +28,10 @@
     - [작업 1: 데이터 생성기 실행](#task-1-run-data-generator)
     - [작업 2: Power BI 대시보드 만들기](#task-2-create-power-bi-dashboard)
     - [작업 3: Synapse Analytics에서 집계 데이터 확인](#task-3-view-aggregate-data-in-synapse-analytics)
+  - [연습 3: 정리](#exercise-3-cleanup)
+    - [작업 1: 데이터 생성기 중지](#task-1-stop-the-data-generator)
+    - [작업 2: Streaming Analytics 작업 중지](#task-2-stop-the-stream-analytics-job)
+    - [작업 3: 전용 SQL 풀 일시 중지](#task-3-pause-the-dedicated-sql-pool)
 
 ## 기술 개요
 
@@ -58,11 +63,31 @@ Azure Stream Analytics를 사용하면 Power BI를 통해 실시간 대시보드
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `랩 설정 및 필수 구성 요소` 단계는 호스트된 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 1부터 바로 진행하면 됩니다.
+> **참고:** `랩 설정 및 필수 구성 요소` 단계는 호스트형 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 - Azure 구독
 - Power BI 계정(<https://powerbi.microsoft.com>에서 등록)
 - [랩 환경 설정](https://github.com/solliancenet/microsoft-data-engineering-ilt-deploy/tree/main/setup/14)
+
+## 연습 0: 전용 SQL 풀 시작
+
+이 랩에서는 전용 SQL 풀을 사용합니다. 그러므로 첫 단계에서는 풀이 일시 중지되지 않았는지를 확인해야 합니다. 풀이 일시 중지되었다면 아래 지침에 따라 풀을 시작합니다.
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀이 일시 중지되어 있으면 풀 이름을 커서로 가리키고 **다시 시작(2)** 을 선택합니다.
+
+    ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](media/resume-dedicated-sql-pool.png "Resume")
+
+4. 메시지가 표시되면 **다시 시작**을 선택합니다. 풀이 다시 시작되려면 1~2분 정도 걸립니다.
+
+    ![다시 시작 단추가 강조 표시되어 있는 그래픽](media/resume-dedicated-sql-pool-confirm.png "Resume")
+
+> 전용 SQL 풀이 다시 시작되는 동안 **다음 연습을 계속 진행**합니다.
 
 ## 연습 1: 서비스 구성
 
@@ -248,11 +273,11 @@ Azure Stream Analytics는 장치에서 대량의 데이터 스트리밍을 검�
 
 16. **새 출력** 블레이드에서 다음 항목을 구성합니다.
 
-    - **출력 별칭:** "powerBIAlerts"를 입력합니다.
+    - **출력 별칭:** `powerBIAlerts`를 입력합니다.
     - **인증 모드:** "사용자 토큰"을 선택합니다.
     - **그룹 작업 영역:** "내 작업 영역"을 선택합니다(이 옵션이 표시되지 않으면 "사용자 토큰" 인증 모드를 먼저 선택합니다).
-    - **데이터 집합 이름:** "ContosoAutoVehicleAnomalies"를 입력합니다.
-    - **테이블 이름:** "Alerts"를 입력합니다.
+    - **데이터 집합 이름:** `ContosoAutoVehicleAnomalies`를 입력합니다.
+    - **테이블 이름:** `Alerts`를 입력합니다.
 
     ![앞에서 설명한 설정을 해당 필드에 입력하여 작성된 새 출력 양식이 표시되어 있는 그래픽](media/stream-analytics-new-output.png 'New Output')
 
@@ -271,7 +296,7 @@ Azure Stream Analytics는 장치에서 대량의 데이터 스트리밍을 검�
     - **테이블:** `dbo.VehicleAverages`를 입력합니다.
     - **인증 모드:** "연결 문자열"을 선택합니다.
     - **사용자 이름:** `asa.sql.admin`을 입력합니다.
-    - **암호:** 랩 환경을 배포할 때 입력한 SQL 관리자 암호 값을 입력합니다.
+    - **암호:** 암호 `P4ssw.rd` 또는 랩 환경 배포 시 입력한 SQL 관리자 암호 값 또는 호스트된 랩 환경의 일부로 제공된 암호를 입력합니다. **참고**: 이 암호는 Azure Portal에 로그인하는 데 사용한 암호와 다를 것입니다.
 
     ![앞에서 설명한 설정을 해당 필드에 입력하여 작성된 새 출력 양식이 표시되어 있는 그래픽](media/synapse-new-output.png "New Output")
 
@@ -403,7 +428,7 @@ Azure Stream Analytics는 장치에서 대량의 데이터 스트리밍을 검�
 
    1. Windows:
 
-      * `win-x64` 폴더 내의 **DataGenerator.exe**를 실행합니다.
+      * `win-x64` 폴더 내의 **TransactionGenerator.exe**를 실행합니다.
 
    2. Linux:
 
@@ -416,6 +441,12 @@ Azure Stream Analytics는 장치에서 대량의 데이터 스트리밍을 검�
       * 새 터미널을 엽니다.
       * `osx-x64` 디렉터리로 이동합니다.
       * `./DataGenerator`를 실행합니다.
+
+6. Windows를 사용하고 데이터 생성기 실행을 시도한 후 대화 상자가 표시되는 경우 **추가 정보**, **실행**을 차례로 선택합니다.
+
+    ![추가 정보가 강조 표시되어 있는 그래픽](media/microsoft-defender-moreinfo.png "Windows protected your PC")
+
+    ![실행 단추가 강조 표시되어 있는 그래픽](media/microsoft-defender-runanyway.png "Run anyway")
 
 6.  새 콘솔 창이 열리고 몇 초 후에 데이터 전송이 시작됩니다. Event Hubs로 데이터가 전송되고 있음을 확인한 후 창을 _최소화_하여 백그라운드에서 계속 실행합니다.
 
@@ -562,3 +593,35 @@ Stream Analytics에서 쿼리를 만들 때 2분 간격으로 엔진 온도 및 
 9. 결과 출력에서 **차트** 뷰를 선택하고 차트 종류를 **영역**으로 설정합니다. 이 시각화에는 시간별 평균 온도와 상관 관계가 지정된 평균 엔진 온도가 표시됩니다. 여러 차트 설정을 적용해 보시기 바랍니다.
 
 ![차트 뷰가 표시되어 있는 그래픽](media/synapse-vehicleaverage-chart.png "VehicleAverages chart")
+
+## 연습 3: 정리
+
+다음 단계를 완료하여 데이터 생성기를 중지하고 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 데이터 생성기 중지
+
+1. 데이터 생성기가 실행 중인 콘솔/터미널 창으로 돌아갑니다. 생성기를 중지하려면 창을 닫습니다.
+
+### 작업 2: Streaming Analytics 작업 중지
+
+1. Azure Portal에서 Stream Analytics 작업으로 이동합니다.
+
+2. 개요 창에서 **중지**를 선택한 다음 메시지가 표시되면 **예**를 선택합니다.
+
+    ![중지 단추가 강조 표시되어 있는 그래픽](media/asa-stop.png "Stop")
+
+### 작업 3: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

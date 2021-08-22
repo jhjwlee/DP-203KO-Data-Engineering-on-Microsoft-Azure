@@ -30,6 +30,8 @@
   - [연습 3: SQL 서버리스를 사용하여 데이터 시각화](#exercise-3-visualize-data-with-sql-serverless)
     - [작업 1: SQL 서버리스를 사용하여 데이터 레이크 살펴보기](#task-1-explore-the-data-lake-with-sql-serverless)
     - [작업 2: SQL 서버리스를 사용하여 데이터를 시각화하고 Power BI 보고서 만들기](#task-2-visualize-data-with-sql-serverless-and-create-a-power-bi-report)
+  - [연습 4: 정리](#exercise-4-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
 
 ## 이 랩에서 사용하는 리소스 명명 방법
 
@@ -189,29 +191,26 @@
 3. **SQLPool01**에 연결한 후 다음 쿼리를 실행하여 대략적인 실행 시간(약 1분)을 확인합니다. 이 연습 뒷부분에서 작성할 Power BI 보고서의 데이터를 가져올 때 이 쿼리를 사용할 것입니다.
 
     ```sql
-    SELECT count(*) FROM
-    (
-        SELECT
-            FS.CustomerID
-            ,P.Seasonality
-            ,D.Year
-            ,D.Quarter
-            ,D.Month
-            ,avg(FS.TotalAmount) as AvgTotalAmount
-            ,avg(FS.ProfitAmount) as AvgProfitAmount
-            ,sum(FS.TotalAmount) as TotalAmount
-            ,sum(FS.ProfitAmount) as ProfitAmount
-        FROM
-            wwi.SaleSmall FS
-            JOIN wwi.Product P ON P.ProductId = FS.ProductId
-            JOIN wwi.Date D ON FS.TransactionDateId = D.DateId
-        GROUP BY
-            FS.CustomerID
-            ,P.Seasonality
-            ,D.Year
-            ,D.Quarter
-            ,D.Month
-    ) T
+    SELECT
+        FS.CustomerID
+        ,P.Seasonality
+        ,D.Year
+        ,D.Quarter
+        ,D.Month
+        ,avg(FS.TotalAmount) as AvgTotalAmount
+        ,avg(FS.ProfitAmount) as AvgProfitAmount
+        ,sum(FS.TotalAmount) as TotalAmount
+        ,sum(FS.ProfitAmount) as ProfitAmount
+    FROM
+        wwi.SaleSmall FS
+        JOIN wwi.Product P ON P.ProductId = FS.ProductId
+        JOIN wwi.Date D ON FS.TransactionDateId = D.DateId
+    GROUP BY
+        FS.CustomerID
+        ,P.Seasonality
+        ,D.Year
+        ,D.Quarter
+        ,D.Month
     ```
 
     쿼리 결과로 194683820이 표시되어야 합니다.
@@ -757,3 +756,23 @@ Azure Synapse Analytics에 Power BI 보고서를 통합할 때는 다양한 성�
 22. **`synapse-sql-serverless`** 보고서를 선택합니다. 이 보고서도 확인 및 편집할 수 있습니다.
 
     ![Synapse Studio에 포함된 보고서의 스크린샷](media/data-synapse-sql-serverless-report.png "Report")
+
+## 연습 4: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")

@@ -25,6 +25,8 @@
     - [작업 3: Synapse 파이프라인에서 기계 학습 기반 보강 절차 통합](#task-3-integrate-a-machine-learning-based-enrichment-procedure-in-a-synapse-pipeline)
   - [연습 4: Power BI를 사용하여 예측 결과 제공](#exercise-4-serve-prediction-results-using-power-bi)
     - [작업 1: Power BI 보고서에서 예측 결과 표시](#task-1-display-prediction-results-in-a-power-bi-report)
+  - [연습 5: 정리](#exercise-5-cleanup)
+    - [작업 1: 전용 SQL 풀 일시 중지](#task-1-pause-the-dedicated-sql-pool)
   - [리소스](#resources)
 
 ## 필수 구성 요소
@@ -643,6 +645,26 @@ Synapse Analytics 연결된 서비스는 서비스 주체를 사용하여 Azure 
 8. Synapse Studio에서 왼쪽의 `Data` 허브를 선택하고 `Linked` 섹션에서 기본 데이터 레이크 계정으로 이동한 다음 `wwi-02 > sale-small-product-quantity-forecast` 경로를 엽니다. 기존 `ProductQuantity-20201209-11.csv` 파일을 삭제하고 `ProductQuantity-20201209-12.csv` 파일을 업로드합니다. 그러면 `Product Quantity Forecast` 파이프라인이 트리거됩니다. 이 파이프라인은 해당 CSV 파일에서 예측 요청을 가져온 다음 예측 저장 프로시저를 실행합니다.
 
 9. Synapse Studio에서 왼쪽의 `Monitor` 허브를 선택하고 `트리거 실행`을 선택하여 새로 활성화된 파이프라인 실행을 확인합니다. 파이프라인 실행이 완료되면 Synapse Studio에서 Power BI 보고서를 새로 고쳐 업데이트된 데이터를 확인합니다. -->
+
+## 연습 5: 정리
+
+다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
+
+### 작업 1: 전용 SQL 풀 일시 중지
+
+1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
+
+2. **관리** 허브를 선택합니다.
+
+    ![관리 허브가 강조 표시되어 있는 그래픽](media/manage-hub.png "Manage hub")
+
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다 **(1)**. 전용 SQL 풀의 이름을 마우스 커서로 가리키고 **일시 중지(2)** 를 선택합니다.
+
+    ![전용 SQL 풀에서 일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool.png "Pause")
+
+4. 메시지가 표시되면 **일시 중지**를 선택합니다.
+
+    ![일시 중지 단추가 강조 표시되어 있는 그래픽](media/pause-dedicated-sql-pool-confirm.png "Pause")
 
 ## 리소스
 
