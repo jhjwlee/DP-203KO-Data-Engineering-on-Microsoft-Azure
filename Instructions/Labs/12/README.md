@@ -91,7 +91,7 @@
 4. 다음 특성으로 데이터 집합을 구성하고 **확인(4)** 을 선택합니다.
 
     - **이름**: `asal400_customerprofile_cosmosdb`**(1)** 를 입력합니다.
-    - **연결된 서비스**: Azure Cosmos DB 연결된 서비스**(2)** 를 선택합니다.
+    - **연결된 서비스**: Azure Cosmos DB 연결된 서비스 **(2)** 를 선택합니다.
     - **컬렉션**: `OnlineUserProfile01`**(3)** 을 선택합니다.
 
     ![새 Azure Cosmos DB 데이터 집합](media/create-cosmos-db-dataset.png "New Cosmos DB dataset")
@@ -126,7 +126,7 @@ Azure Synapse Link는 Cosmos DB의 트랜잭션 처리 및 기본 제공 분석 
 
     ![Azure Cosmos DB 계정이 강조 표시되어 있는 그래픽](media/resource-group-cosmos.png "Azure Cosmos DB account")
 
-3. 왼쪽 메뉴에서 **기능** **(1)**을 선택한 다음 **Azure Synapse Link(2)** 를 선택합니다.
+3. 왼쪽 메뉴에서 **기능** **(1)** 을 선택한 다음 **Azure Synapse Link(2)** 를 선택합니다.
 
     ![기능 블레이드가 표시되어 있는 그래픽](media/cosmos-db-features.png "Features")
 
@@ -148,7 +148,7 @@ Azure Synapse Link는 Cosmos DB의 트랜잭션 처리 및 기본 제공 분석 
 
 Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있습니다. 컨테이너가 이미 생성된 후 Azure Synapse Link 기능을 활성화했으므로 컨테이너에서 분석 저장소를 활성화할 수 없습니다. 파티션 키가 동일한 새 컨테이너를 만들고 분석 저장소를 활성화합니다.
 
-컨테이너를 만든 후 새 Synapse Pipeline을 만들어 OnlineUserProfile01 컨테이너의 데이터를 새 컨테이너에 복사합니다.
+컨테이너를 만든 후 새 Synapse Pipeline을 만들어 `OnlineUserProfile01` 컨테이너의 데이터를 새 컨테이너에 복사합니다.
 
 1. 왼쪽 메뉴에서 **Data Explorer**를 선택합니다.
 
@@ -162,7 +162,7 @@ Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있
 
     ![설명에 따라 구성한 양식의 그래픽](media/new-container.png "New container")
 
-    여기서는 `파티션 키` 값을 `customerId`로 설정합니다. 이 필드가 쿼리에 가장 많이 사용되고 적절한 분할 성능을 위해 비교적 높은 카디널리티(고유 값 수)를 포함하기 때문입니다. 최대 값이 4,000RU(요청 단위)인 자동 크기 조정으로 처리량을 설정합니다. 즉, 컨테이너에는 최소 400RU가 할당되고(최대 10%), 스케일링 엔진에서 처리량 증가를 보장하기에 충분한 수요를 감지하면 최대 4,000까지 스케일 업됩니다. 마지막으로, 컨테이너에서 **분석 저장소**를 활성화하면 이를 통해 Synapse Analytics 내에서 하이브리드 HTAP(트랜잭션/분석 처리) 아키텍처를 최대한 활용할 수 있습니다.
+    여기서는 `partition key` 값을 `customerId`로 설정합니다. 이 필드가 쿼리에 가장 많이 사용되고 적절한 분할 성능을 위해 비교적 높은 카디널리티(고유 값 수)를 포함하기 때문입니다. 최대 값이 4,000RU(요청 단위)인 자동 크기 조정으로 처리량을 설정합니다. 즉, 컨테이너에는 최소 400RU가 할당되고(최대 10%), 스케일링 엔진에서 처리량 증가를 보장하기에 충분한 수요를 감지하면 최대 4,000까지 스케일 업됩니다. 마지막으로, 컨테이너에서 **분석 저장소**를 활성화하면 이를 통해 Synapse Analytics 내에서 하이브리드 HTAP(트랜잭션/분석 처리) 아키텍처를 최대한 활용할 수 있습니다.
 
     새 컨테이너에 복사할 데이터를 간략히 살펴보겠습니다.
 
@@ -188,7 +188,7 @@ Tailwind Traders에는 Azure Cosmos DB 컨테이너 `OnlineUserProfile01`이 있
 
     ![새 파이프라인 링크가 강조 표시되어 있는 그래픽](media/new-pipeline.png "New pipeline")
 
-3. 활동 아래에서 `이동 및 변환` 그룹을 확장한 다음 **데이터 복사** 활동을 캔버스 **(1)** 로 끕니다. 속성 블레이드에서 **이름**을 **`Copy Cosmos DB Container`** 로 설정합니다 **(2)**.
+3. 활동 아래에서 `Move & transform` 그룹을 확장한 다음 **데이터 복사** 활동을 캔버스 **(1)** 로 끕니다. 속성 블레이드에서 **이름**을 **`Copy Cosmos DB Container`** 로 설정합니다 **(2)**.
 
     ![새 복사 활동이 표시되어 있는 그래픽](media/add-copy-pipeline.png "Add copy activity")
 
@@ -242,7 +242,7 @@ Tailwind Traders는 각 사용자에게서 확인된 선호 제품 목록과 리
 
     ![데이터 허브](media/data-hub.png "Data hub")
 
-2. **연결됨** 탭 **(1)* *을 선택하고 **Azure Cosmos DB** 섹션을 확장한 다음 **asacosmosdb01(CustomerProfile)** 연결된 서비스 **(2)** 를 확장합니다. **UserProfileHTAP** 컨테이너 **(3)** 를 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 제스처 **(4)** 를 선택한 다음 **데이터 프레임에 로드(5)** 를 선택합니다.
+2. **연결됨** 탭 **(1)** 을 선택하고 **Azure Cosmos DB** 섹션을 확장한 다음 **asacosmosdb01(CustomerProfile)** 연결된 서비스 **(2)** 를 확장합니다. **UserProfileHTAP** 컨테이너 **(3)** 를 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 제스처 **(4)** 를 선택한 다음 **데이터 프레임에 로드(5)** 를 선택합니다.
 
     ![새 Notebook 제스처가 강조 표시되어 있는 그래픽](media/new-notebook.png "New notebook")
 

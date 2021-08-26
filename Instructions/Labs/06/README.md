@@ -33,7 +33,7 @@
 
 ## 랩 1 - 데이터 프레임 사용
 
-데이터를 읽고 처리하도록 데이터 프레임을 정의하여 Azure Databricks의 데이터 처리를 수행합니다. 이 랩에서는 Azure Databricks 데이터 프레임을 사용하여 데이터를 읽는 방법을 알아봅니다. 이 랩의 연습은 Databricks Notebooks 내에서 완료해야 합니다. 시작하려면 Azure Databricks 작업 영역에 대한 액세스 권한이 있어야 합니다. 사용 가능한 작업 영역이 없으면 아래 지침을 따르세요. 사용 가능한 작업 영역이 있으면 `Databricks 보관 파일 복제` 단계부터 진행하면 됩니다.
+데이터를 읽고 처리하도록 데이터 프레임을 정의하여 Azure Databricks의 데이터 처리를 수행합니다. 이 랩에서는 Azure Databricks 데이터 프레임을 사용하여 데이터를 읽는 방법을 알아봅니다. 이 랩의 연습은 Databricks Notebooks 내에서 완료해야 합니다. 시작하려면 Azure Databricks 작업 영역에 대한 액세스 권한이 있어야 합니다. 사용 가능한 작업 영역이 없으면 아래 지침을 따르세요. 사용 가능한 작업 영역이 있으면 `Clone the Databricks archive` 단계부터 진행하면 됩니다.
 
 ### 실습 랩 시작 전 준비 사항
 

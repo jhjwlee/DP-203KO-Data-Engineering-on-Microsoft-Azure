@@ -1576,7 +1576,7 @@ Synapse Analytics의 연결된 서비스를 사용하면 외부 리소스에 대
 
     ![+ 단추와 조회 메뉴 항목이 모두 강조 표시되어 있는 그래픽](media/data-flow-new-lookup.png "New Lookup")
 
-29. `조회 설정`에서 다음 속성을 구성합니다.
+29. `Lookup settings`에서 다음 속성을 구성합니다.
 
     - **출력 스트림 이름**: `LookupCustomerID`를 입력합니다.
     - **기본 스트림**: `Exists`를 선택합니다.

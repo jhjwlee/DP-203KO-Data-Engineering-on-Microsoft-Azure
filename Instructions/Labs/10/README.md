@@ -1304,7 +1304,7 @@ Tailwind Traders에서 제공한 워크로드 요구 사항을 고려하여 CEO�
         ,D.Month
     ```
 
-4. 다음 쿼리를 실행하여 예상 실행 계획을 가져옵니다(도구 모음에서 `쿼리 계획`을 선택하면 안 됩니다. 이렇게 하면 쿼리 계획을 다운로드하여 SQL Server Management Studio에서 여는 과정이 진행되기 때문입니다).
+4. 다음 쿼리를 실행하여 예상 실행 계획을 가져옵니다(도구 모음에서 `Query Plan`을 선택하면 안 됩니다. 이렇게 하면 쿼리 계획을 다운로드하여 SQL Server Management Studio에서 여는 과정이 진행되기 때문입니다).
 
     ```sql
     EXPLAIN

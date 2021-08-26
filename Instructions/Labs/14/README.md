@@ -63,7 +63,7 @@ Azure Stream Analytics를 사용하면 Power BI를 통해 실시간 대시보드
 
 ## 랩 설정 및 필수 구성 요소
 
-> **참고:** `랩 설정 및 필수 구성 요소` 단계는 호스트형 랩 환경이 **아닌 **자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
+> **참고:** `Lab setup and pre-requisites` 단계는 호스트형 랩 환경이 **아닌** 자체 Azure 구독을 사용하는 경우에만 완료하세요. 호스트형 랩 환경을 사용하는 경우에는 연습 0부터 바로 진행하면 됩니다.
 
 - Azure 구독
 - Power BI 계정(<https://powerbi.microsoft.com>에서 등록)
@@ -175,7 +175,7 @@ Azure Synapse는 SQL 데이터 웨어하우징, 빅 데이터 분석 및 데이�
 
     ![데이터 허브가 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-6. **작업 영역** 탭**(1)**을 선택하고 데이터베이스를 확장한 다음 **ContosoAuto(2)**를 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)**를 차례로 선택합니다.
+6. **작업 영역** 탭 **(1)** 을 선택하고 데이터베이스를 확장한 다음 **ContosoAuto(2)** 를 마우스 오른쪽 단추로 클릭합니다. **새 SQL 스크립트(3)**, **빈 스크립트(4)** 를 차례로 선택합니다.
 
     ![ContosoAuto 상황에 맞는 메뉴에서 새 SQL 스크립트 옵션이 강조 표시되어 있는 그래픽](media/synapse-new-script.png "New SQL script")
 
@@ -283,7 +283,7 @@ Azure Stream Analytics는 장치에서 대량의 데이터 스트리밍을 검�
 
 17. 값을 모두 입력한 후 양식 아래쪽의 **저장**을 선택합니다.
 
-18. 위쪽 도구 모음에서 **+ 추가**를 선택한 다음 **Azure Synapse Analytics(이전 명칭 SQL DW)**를 선택하여 새 Synapse Analytics 출력을 만듭니다.
+18. 위쪽 도구 모음에서 **+ 추가**를 선택한 다음 **Azure Synapse Analytics(이전 명칭 SQL DW)** 를 선택하여 새 Synapse Analytics 출력을 만듭니다.
 
     ![Azure Synapse Analytics 메뉴 항목이 강조 표시되어 있는 그래픽](media/stream-analytics-add-output-synapse-link.png "Add output - Azure Synapse Analytics")
 
@@ -442,7 +442,7 @@ Azure Stream Analytics는 장치에서 대량의 데이터 스트리밍을 검�
       * `osx-x64` 디렉터리로 이동합니다.
       * `./DataGenerator`를 실행합니다.
 
-6. Windows를 사용하고 데이터 생성기 실행을 시도한 후 대화 상자가 표시되는 경우 **추가 정보**, **실행**을 차례로 선택합니다.
+6. Windows를 사용하고 데이터 생성기 실행을 시도한 후 대화 상자가 표시되는 경우 **추가 정보**, **실행** 을 차례로 선택합니다.
 
     ![추가 정보가 강조 표시되어 있는 그래픽](media/microsoft-defender-moreinfo.png "Windows protected your PC")
 
@@ -582,7 +582,7 @@ Stream Analytics에서 쿼리를 만들 때 2분 간격으로 엔진 온도 및 
 
     ![데이터 허브가 강조 표시되어 있는 그래픽](media/data-hub.png "Data hub")
 
-7. **작업 영역** 탭**(1)**을 선택하고 `ContosoAuto` 데이터베이스와 `테이블`을 차례로 확장한 다음 **dbo.VehicleAverages** 테이블**(2)**을 마우스 오른쪽 단추로 클릭합니다. 이 테이블이 목록에 표시되지 않으면 테이블 목록을 새로 고칩니다. **새 SQL 스크립트(3)**, **상위 100개 행 선택(4)**을 차례로 선택합니다.
+7. **작업 영역** 탭**(1)** 을 선택하고 `ContosoAuto` 데이터베이스와 `테이블`을 차례로 확장한 다음 **dbo.VehicleAverages** 테이블**(2)** 을 마우스 오른쪽 단추로 클릭합니다. 이 테이블이 목록에 표시되지 않으면 테이블 목록을 새로 고칩니다. **새 SQL 스크립트(3)**, **상위 100개 행 선택(4)** 을 차례로 선택합니다.
 
     ![상위 100개 행 선택 메뉴 항목이 선택되어 있는 그래픽](media/select-top-100-rows.png "Select TOP 100 rows")
 
