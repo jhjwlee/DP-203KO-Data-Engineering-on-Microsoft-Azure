@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'Azure Synapse Link를 사용한 HTAP(하이브리드 트랜잭션 분석 처리) 지원'
     module: '모듈 9'
