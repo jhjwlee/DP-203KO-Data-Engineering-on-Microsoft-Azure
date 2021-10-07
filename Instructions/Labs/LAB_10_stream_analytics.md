@@ -47,7 +47,7 @@ Azure Stream Analytics를 사용하면 Power BI를 통해 실시간 대시보드
 
 1. Azure Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
 2. **관리** 허브를 선택합니다.
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다. **SQLPool01** 전용 SQL 풀이 일시 중지되어 있으면 해당 이름을 커서로 가리키고 **&#9655;**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다. **SQLPool01** 전용 SQL 풀이 일시 중지되어 있으면 해당 이름을 커서로 가리키고 **&#9655;** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](images/resume-dedicated-sql-pool.png "Resume")
 
@@ -259,7 +259,7 @@ Azure Stream Analytics는 디바이스에서 대량의 데이터 스트리밍을
 
     ![쿼리 창 내에 위의 쿼리를 삽입한 화면의 스크린샷](images/stream-analytics-query.png 'Query window')
 
-    이 쿼리는 2초 동안의 엔진 온도와 속도 평균을 계산합니다. **TumblingWindow(Duration(minute, 2))**를 사용하여 지난 2분 동안의 모든 차량 평균 엔진 온도 및 속도도 집계한 다음 **synapse** 출력에 해당 필드를 표시합니다.
+    이 쿼리는 2초 동안의 엔진 온도와 속도 평균을 계산합니다. **TumblingWindow(Duration(minute, 2))** 를 사용하여 지난 2분 동안의 모든 차량 평균 엔진 온도 및 속도도 집계한 다음 **synapse** 출력에 해당 필드를 표시합니다.
 
 15. 쿼리 업데이트를 완료한 후 위쪽 도구 모음에서 **쿼리 저장**을 선택합니다.
 

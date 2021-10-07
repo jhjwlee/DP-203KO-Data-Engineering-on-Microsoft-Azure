@@ -20,7 +20,7 @@ lab:
 
 > **참고**: 랩 6을 완료하지 ***않았지만*** 이 과정의 랩 설정을 <u>완료한</u> 경우에는 이 단계를 완료하여 필요한 연결된 서비스 및 데이터 세트를 만들 수 있습니다.
 >
-> 1. Synapse Studio의 **관리** 허브에서 다음과 같은 설정으로 **Azure Cosmos DB(SQL API)**에 대해 새 **연결된 서비스**를 추가합니다.
+> 1. Synapse Studio의 **관리** 허브에서 다음과 같은 설정으로 **Azure Cosmos DB(SQL API)** 에 대해 새 **연결된 서비스**를 추가합니다.
 >       - **이름**: asacosmosdb01
 >       - **Cosmos DB 계정 이름**: asacosmosdb*xxxxxxx*
 >       - **데이터베이스 이름**: CustomerProfile
@@ -116,7 +116,7 @@ Tailwind Traders에는 이름이 **OnlineUserProfile01**인 Azure Cosmos DB 컨�
 
     ![새 파이프라인 링크가 강조 표시되어 있는 그래픽](images/new-pipeline.png "New pipeline")
 
-3. **활동** 아래에서 **이동 및 변환** 그룹을 확장한 다음 **데이터 복사** 활동을 캔버스로 끕니다. **속성** 블레이드에서 **이름**을 **`Copy Cosmos DB Container`**로 설정합니다.
+3. **활동** 아래에서 **이동 및 변환** 그룹을 확장한 다음 **데이터 복사** 활동을 캔버스로 끕니다. **속성** 블레이드에서 **이름**을 **`Copy Cosmos DB Container`** 로 설정합니다.
 
     ![새 복사 활동이 표시되어 있는 그래픽](images/add-copy-pipeline.png "Add copy activity")
 
@@ -348,7 +348,7 @@ Tailwind Traders는 T-SQL을 사용하여 Azure Cosmos DB 분석 저장소를 �
     - **UserProfileHTAP** 보기가 있으면 삭제합니다.
     - SQL 보기 **UserProfileHTAP**를 만듭니다.
     - OPENROWSET 문을 사용하여 데이터 원본 형식을 **CosmosDB**로 설정하고 계정 세부 정보를 설정합니다. 그런 다음 Azure Cosmos DB 분석 저장소 컨테이너 **UserProfileHTAP**를 통해 보기를 만들 것임을 지정합니다.
-    - JSON 문서의 속성 이름 일치 여부를 확인한 다음 적절한 SQL 데이터 형식을 적용합니다. **preferredProducts** 및 **productReviews** 필드는 **varchar(max)**로 설정됩니다. 이 두 속성 내에는 모두 JSON 형식 데이터가 포함되어 있기 때문입니다.
+    - JSON 문서의 속성 이름 일치 여부를 확인한 다음 적절한 SQL 데이터 형식을 적용합니다. **preferredProducts** 및 **productReviews** 필드는 **varchar(max)** 로 설정됩니다. 이 두 속성 내에는 모두 JSON 형식 데이터가 포함되어 있기 때문입니다.
     - JSON 문서의 **productReviews** 속성에는 중첩 하위 배열이 포함되어 있으므로 스크립트는 문서의 모든 속성을 배열의 모든 요소와 "조인"해야 합니다. Synapse SQL에서는 중첩 배열에 OPENJSON 함수를 적용하여 중첩 구조를 평면화할 수 있습니다. 앞에서 Synapse Notebook의 Python **explode** 함수를 사용하여 값을 평면화했던 것처럼 여기서도 **productReviews** 내의 값을 평면화합니다.
 
 7. **데이터** 허브로 이동합니다.

@@ -22,7 +22,7 @@ lab:
 
 1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
 2. **관리** 허브를 선택합니다.
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다. **SQLPool01** 전용 SQL 풀이 일시 중지되어 있으면 해당 이름을 커서로 가리키고 **&#9655;**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다. **SQLPool01** 전용 SQL 풀이 일시 중지되어 있으면 해당 이름을 커서로 가리키고 **&#9655;** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](images/resume-dedicated-sql-pool.png "Resume")
 
@@ -438,7 +438,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![새 파이프라인 상황에 맞는 메뉴 항목이 선택되어 있는 그래픽](images/new-pipeline.png "New pipeline")
 
-3. 새 파이프라인의 **속성** 창에서 파이프라인의 **이름**을 **`Copy December Sales`**로 설정합니다.
+3. 새 파이프라인의 **속성** 창에서 파이프라인의 **이름**을 **`Copy December Sales`** 로 설정합니다.
 
     ![이름 속성이 강조 표시되어 있는 그래픽](images/pipeline-copy-sales-name.png "Properties")
 
@@ -448,7 +448,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
 
     ![캔버스로 데이터 복사를 끄는 화면의 스크린샷](images/pipeline-copy-sales-drag-copy-data.png "Pipeline canvas")
 
-5. 캔버스에서 **데이터 복사** 활동을 선택합니다. 그런 다음에 캔버스 아래의 **일반** 탭에서 활동의 **이름**을 **`Copy Sales`**로 설정합니다.
+5. 캔버스에서 **데이터 복사** 활동을 선택합니다. 그런 다음에 캔버스 아래의 **일반** 탭에서 활동의 **이름**을 **`Copy Sales`** 로 설정합니다.
 
     ![일반 탭의 이름이 강조 표시되어 있는 그래픽](images/pipeline-copy-sales-general.png "General tab")
 
@@ -465,7 +465,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
     ![Parquet 형식이 강조 표시되어 있는 그래픽](images/new-dataset-adlsgen2-parquet.png "Select format")
 
 9. **속성 설정** 창에서 다음을 수행합니다.
-    1. 이름을 **`asal400_december_sales`**로 설정합니다.
+    1. 이름을 **`asal400_december_sales`** 로 설정합니다.
     2. **asadatalake*xxxxxxx*** 연결된 서비스를 선택합니다.
     3. **wwi-02/campaign-analytics/sale-20161230-snappy.parquet** 파일로 이동합니다.
     4. 스키마 가져오기에서 **샘플 파일**을 선택합니다.
@@ -485,7 +485,7 @@ WWI에서는 야간 프로세스를 통해 파트너 분석 시스템에서 지�
     ![Azure Synapse Analytics가 선택되어 있는 그래픽](images/new-dataset-asa.png "New dataset")
 
 12. **속성 설정** 창에서 다음을 수행합니다.
-    1. **이름**을 **`asal400_saleheap_asa`**로 설정합니다.
+    1. **이름**을 **`asal400_saleheap_asa`** 로 설정합니다.
     2. **sqlpool01_import01** 연결된 서비스를 선택합니다.
     3. **wwi_perf.Sale_Heap** 테이블을 선택합니다.
     4. **확인**을 선택합니다.

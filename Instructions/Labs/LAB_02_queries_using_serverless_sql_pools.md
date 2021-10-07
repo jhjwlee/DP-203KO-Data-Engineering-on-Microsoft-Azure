@@ -274,7 +274,7 @@ Tailwind Traders는 사내에서 사용하려는 국가 인구 데이터용 공�
 
     이번에는 첫 번째 행에 열 머리글이 없습니다. 뷰를 만들 때 OPENROWSET 문에서 FIRSTROW=2 설정을 사용했기 때문입니다.
 
-6. **데이터** 허브 내에서 **작업 영역** 탭을 선택합니다. 그런 다음에 데이터베이스 그룹 오른쪽의 작업 줄임표**(...)**를 선택하고 **&#8635; 새로 고침**을 선택합니다.
+6. **데이터** 허브 내에서 **작업 영역** 탭을 선택합니다. 그런 다음에 데이터베이스 그룹 오른쪽의 작업 줄임표 **(...)** 를 선택하고 **&#8635; 새로 고침**을 선택합니다.
 
     ![새로 고침 단추가 강조 표시되어 있는 그래픽](images/refresh-databases.png "Refresh databases")
 
@@ -373,7 +373,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![스토리지 계정이 선택되어 있는 그래픽](images/resource-group-storage-account.png "Resource group")
 
-3. 왼쪽 메뉴에서 **액세스 제어(IAM)**를 선택합니다.
+3. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 
     ![액세스 제어가 선택되어 있는 그래픽](images/storage-access-control.png "Access Control")
 
@@ -413,7 +413,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 ### 작업 4: 데이터 레이크 보안 구성 - ACL(액세스 제어 목록)
 
-1. 왼쪽 메뉴에서 **Storage Explorer(미리 보기)**를 선택합니다. **컨테이너**를 확장하고 **wwi-02** 컨테이너를 선택합니다. **sale-small** 폴더를 열고 **Year=2019** 폴더를 마우스 오른쪽 단추로 클릭한 다음 **액세스 관리...**를 선택합니다.
+1. 왼쪽 메뉴에서 **Storage Explorer(미리 보기)** 를 선택합니다. **컨테이너**를 확장하고 **wwi-02** 컨테이너를 선택합니다. **sale-small** 폴더를 열고 **Year=2019** 폴더를 마우스 오른쪽 단추로 클릭한 다음 **액세스 관리..** 를 선택합니다.
 
     ![2019 폴더가 강조 표시되어 있고 액세스 관리가 선택되어 있는 그래픽](images/manage-access-2019.png "Storage Explorer")
 
@@ -433,7 +433,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     *액세스* ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
 
-    *기본 *ACL은 디렉터리에 생성된 모든 자식 항목의 액세스 ACL을 결정하는 디렉터리와 연결된 ACL 템플릿입니다. 파일에는 기본 ACL이 없습니다.
+    *기본* ACL은 디렉터리에 생성된 모든 자식 항목의 액세스 ACL을 결정하는 디렉터리와 연결된 ACL 템플릿입니다. 파일에는 기본 ACL이 없습니다.
 
     액세스 ACL 및 기본 ACL의 구조는 모두 동일합니다.
 
@@ -479,7 +479,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![셀 2 출력에 오류가 표시되어 있는 그래픽](images/notebook-error.png "Notebook error")
 
-    즉, 쓰기 권한이 없는 것입니다. 셀 2에서 반환되는 오류는 *This request is not authorized to perform this operation using this permission.*이며 상태 코드는 403입니다.
+    즉, 쓰기 권한이 없는 것입니다. 셀 2에서 반환되는 오류는 *This request is not authorized to perform this operation using this permission.* 이며 상태 코드는 403입니다.
 
 9. Notebook을 게시하고 세션을 종료합니다. 그런 다음에 Azure Synapse Studio에서 로그아웃하고 브라우저 탭을 닫아서 Azure Portal 탭(<https://portal.azure.com>)으로 돌아갑니다.
 

@@ -18,7 +18,7 @@ Azure Synapse 파이프라인에서 연결된 서비스를 만들고 데이터 �
 
 > **참고**: 랩 6을 완료하지 ***않았지만*** 이 과정의 랩 설정을 <u>완료한</u> 경우에는 이 단계를 완료하여 필요한 연결된 서비스 및 데이터 세트를 만들 수 있습니다.
 >
-> 1. Synapse Studio의 **관리** 허브에서 다음과 같은 설정으로 **Azure Cosmos DB(SQL API)**에 대해 새 **연결된 서비스**를 추가합니다.
+> 1. Synapse Studio의 **관리** 허브에서 다음과 같은 설정으로 **Azure Cosmos DB(SQL API)** 에 대해 새 **연결된 서비스**를 추가합니다.
 >       - **이름**: asacosmosdb01
 >       - **Cosmos DB 계정 이름**: asacosmosdb*xxxxxxx*
 >       - **데이터베이스 이름**: CustomerProfile
@@ -51,7 +51,7 @@ Azure Synapse 파이프라인에서 연결된 서비스를 만들고 데이터 �
 
     ![새 데이터 흐름 링크가 강조 표시되어 있는 그래픽](images/new-data-flow-link.png "New data flow")
 
-4. 새 데이터 흐름 **속성** 블레이드의 **일반 **설정에서 **이름**을 `user_profiles_to_datalake`로 업데이트합니다. 이름이 정확하게 일치해야 합니다.
+4. 새 데이터 흐름 **속성** 블레이드의 **일반**설정에서 **이름**을 `user_profiles_to_datalake`로 업데이트합니다. 이름이 정확하게 일치해야 합니다.
 
     ![정의된 값이 입력되어 있는 이름 필드의 스크린샷](images/data-flow-user-profiles-name.png "Name")
 
@@ -147,7 +147,7 @@ Azure Synapse 파이프라인에서 연결된 서비스를 만들고 데이터 �
 
     ![설명에 따라 일반 탭에서 이름을 설정한 그래픽](images/pipeline-data-flow-general-datalake.png "Name on the General tab")
 
-5. **설정** 탭에서 **user_profiles_to_datalake** 데이터 흐름을 선택하고, **AutoResolveIntegrationRuntime**이 선택되었는지 확인합니다. **기본(범용)** 컴퓨팅 유형을 선택하고 코어 개수를 **4(+4개 드라이버 코어)**로 설정합니다.
+5. **설정** 탭에서 **user_profiles_to_datalake** 데이터 흐름을 선택하고, **AutoResolveIntegrationRuntime**이 선택되었는지 확인합니다. **기본(범용)** 컴퓨팅 유형을 선택하고 코어 개수를 **4(+4개 드라이버 코어)** 로 설정합니다.
 
     ![설명에 해당하는 매핑 데이터 흐름 활동 설정이 구성되어 있는 그래픽](images/pipeline-user-profiles-datalake-data-flow-settings.png "Mapping data flow activity settings")
 
@@ -343,7 +343,7 @@ Tailwind Traders는 Synapse Analytics의 매핑 데이터 흐름을 사용하여
 
     위의 코드에 나와 있는 것처럼, Spark에서 제공되는 **uuid** 라이브러리를 사용하여 임의 GUID를 생성했습니다. 파이프라인에서 전달한 매개 변수로 `runId` 변수를 재정의하려고 합니다. 이렇게 하려면 이 셀을 매개 변수 셀로 토글해야 합니다.
 
-15. 셀 위의 미니 도구 모음에서 작업 줄임표**(...)**를 선택한 다음 **매개 변수 셀 토글**을 선택합니다.
+15. 셀 위의 미니 도구 모음에서 작업 줄임표 **(...)** 를 선택한 다음 **매개 변수 셀 토글**을 선택합니다.
 
     ![메뉴 항목이 강조 표시되어 있는 그래픽](images/toggle-parameter-cell.png "Toggle parameter cell")
 
@@ -385,7 +385,7 @@ Tailwind Traders는 오케스트레이션 프로세스의 일환으로 매핑 �
 
     성공 활동 화살표를 Notebook 활동으로 끌면 데이터 흐름 활동이 정상적으로 실행된 후 Notebook 활동을 실행하라는 명령이 파이프라인에 전송됩니다.
 
-5. **Notebook 활동**을 선택하고 **설정** 탭을 선택한 후 **기본 매개 변수**를 확장하고 **+ 새로 만들기**를 선택합니다. **이름** 필드에 **`runId`**를 입력합니다. **유형**을 **문자열**로 설정하고 **값**을 **동적 콘텐츠 추가**로 설정합니다.
+5. **Notebook 활동**을 선택하고 **설정** 탭을 선택한 후 **기본 매개 변수**를 확장하고 **+ 새로 만들기**를 선택합니다. **이름** 필드에 **`runId`** 를 입력합니다. **유형**을 **문자열**로 설정하고 **값**을 **동적 콘텐츠 추가**로 설정합니다.
 
     ![설정이 표시되어 있는 그래픽](images/notebook-activity-settings-datalake.png "Settings")
 

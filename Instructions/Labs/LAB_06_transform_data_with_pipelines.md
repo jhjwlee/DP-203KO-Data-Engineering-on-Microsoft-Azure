@@ -22,7 +22,7 @@ lab:
 
 1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
 2. **관리** 허브를 선택합니다.
-3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다. **SQLPool01** 전용 SQL 풀이 일시 중지되어 있으면 해당 이름을 커서로 가리키고 **&#9655;**을 선택합니다.
+3. 왼쪽 메뉴에서 **SQL 풀**을 선택합니다. **SQLPool01** 전용 SQL 풀이 일시 중지되어 있으면 해당 이름을 커서로 가리키고 **&#9655;** 을 선택합니다.
 
     ![전용 SQL 풀에서 다시 시작 단추가 강조 표시되어 있는 그래픽](images/resume-dedicated-sql-pool.png "Resume")
 
@@ -119,7 +119,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![관리 메뉴 항목이 강조 표시되어 있는 그래픽](images/manage-hub.png "Manage hub")
 
-2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)**를 선택하고 **계속**을 선택합니다.
+2. **연결된 서비스**를 열고 **+새로 만들기**를 선택하여 새 연결된 서비스를 만듭니다. 옵션 목록에서 **Azure Cosmos DB(SQL API)** 를 선택하고 **계속**을 선택합니다.
 
     ![관리, 새로 만들기, Azure Cosmos DB 연결된 서비스 옵션이 강조 표시되어 있는 그래픽](images/create-cosmos-db-linked-service-step1.png "New linked service")
 
@@ -141,7 +141,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![새 데이터 집합 만들기 화면의 스크린샷](images/new-dataset.png "New Dataset")
 
-3. **Azure Cosmos DB(SQL API)**를 선택하고 **계속**을 클릭합니다.
+3. **Azure Cosmos DB(SQL API)** 를 선택하고 **계속**을 클릭합니다.
 
     ![Azure Cosmos DB SQL API 옵션이 강조 표시되어 있는 그래픽](images/new-cosmos-db-dataset.png "Integration dataset")
 
@@ -279,7 +279,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![새 데이터 흐름 링크가 강조 표시되어 있는 그래픽](images/new-data-flow-link.png "New data flow")
 
-3. 새 데이터 흐름 **속성** 블레이드의 **일반 **설정에서 **이름**을 `asal400_lab2_writecampaignanalyticstoasa`로 변경합니다.
+3. 새 데이터 흐름 **속성** 블레이드의 **일반**설정에서 **이름**을 `asal400_lab2_writecampaignanalyticstoasa`로 변경합니다.
 
     ![정의된 값이 입력되어 있는 이름 필드의 스크린샷](images/data-flow-campaign-analysis-name.png "Name")
 
@@ -329,7 +329,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![가져온 프로젝션이 표시되어 있는 그래픽](images/data-flow-campaign-analysis-source-projection.png "Projection")
 
-9. **CampaignAnalytics** 단계 오른쪽의 **+**를 선택한 다음 **Select **스키마 한정자를 선택합니다.
+9. **CampaignAnalytics** 단계 오른쪽의 **+** 를 선택한 다음 **Select** 스키마 한정자를 선택합니다.
 
     ![새 Select 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-campaign-analysis-new-select.png "New Select schema modifier")
 
@@ -352,7 +352,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![설명에 해당하는 Select 설정이 표시되어 있는 그래픽](images/data-flow-campaign-analysis-select-settings.png "Select settings")
 
-11. **MapCampaignAnalytics** 단계 오른쪽의 **+**를 선택한 다음 **파생 열** 스키마 한정자를 선택합니다.
+11. **MapCampaignAnalytics** 단계 오른쪽의 **+** 를 선택한 다음 **파생 열** 스키마 한정자를 선택합니다.
 
     ![새 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-campaign-analysis-new-derived.png "New Derived Column")
 
@@ -373,7 +373,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     정의한 식이 **RevenuePart1** 및 **Revenue** 값과 **RevelueTargetPart1** 및 **RevenueTarget** 값을 연결하고 정리합니다.
 
-13. **ConvertColumnTypesAndValues** 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **Select **스키마 한정자를 선택합니다.
+13. **ConvertColumnTypesAndValues** 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **Select** 스키마 한정자를 선택합니다.
 
     ![새 Select 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-campaign-analysis-new-select2.png "New Select schema modifier")
 
@@ -386,7 +386,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![설명에 해당하는 Select 설정이 표시되어 있는 그래픽](images/data-flow-campaign-analysis-select-settings2.png "Select settings")
 
-15. **SelectCampaignAnalyticsColumns** 단계 오른쪽의 **+**를 선택한 다음 **싱크** 대상을 선택합니다.
+15. **SelectCampaignAnalyticsColumns** 단계 오른쪽의 **+** 를 선택한 다음 **싱크** 대상을 선택합니다.
 
     ![새 싱크 대상이 강조 표시되어 있는 그래픽](images/data-flow-campaign-analysis-new-sink.png "New sink")
 
@@ -428,7 +428,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![새 파이프라인 상황에 맞는 메뉴 항목이 선택되어 있는 그래픽](images/new-pipeline.png "New pipeline")
 
-3. 새 파이프라인 **속성** 블레이드의 **일반 **설정에서 **이름**을 `Write Campaign Analytics to ASA`로 입력합니다.
+3. 새 파이프라인 **속성** 블레이드의 **일반**설정에서 **이름**을 `Write Campaign Analytics to ASA`로 입력합니다.
 
 4. 활동 목록 내에서 **이동 및 변환**을 확장하고 **데이터 흐름** 활동을 파이프라인 캔버스로 끕니다.
 
@@ -553,7 +553,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
         ![설명에 해당하는 원본 옵션이 구성되어 있는 그래픽](images/data-flow-user-profiles-source-options.png "Source options")
 
-8. **EcommerceUserProfiles** 원본 오른쪽의 **+**를 선택한 다음 **파생 열** 스키마 한정자를 선택합니다.
+8. **EcommerceUserProfiles** 원본 오른쪽의 **+** 를 선택한 다음 **파생 열** 스키마 한정자를 선택합니다.
 
     ![+ 기호와 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-derived-column.png "New Derived Column")
 
@@ -571,7 +571,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
         이 식은 **visitorId** 열 값을 정수 데이터 유형으로 변환합니다.
 
-10. **userId** 단계 오른쪽의 **+**를 선택한 다음 **평면화** 스키마 한정자를 선택합니다.
+10. **userId** 단계 오른쪽의 **+** 를 선택한 다음 **평면화** 스키마 한정자를 선택합니다.
 
     ![+ 기호와 평면화 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-flatten.png "New Flatten schema modifier")
 
@@ -621,7 +621,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
         skipDuplicateMapOutputs: false) ~> UserTopProducts
     ```
 
-13. **UserTopProducts** 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **파생 열 **스키마 한정자를 선택합니다.
+13. **UserTopProducts** 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **파생 열**스키마 한정자를 선택합니다.
 
     ![+ 기호와 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-derived-column2.png "New Derived Column")
 
@@ -638,7 +638,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
         ![설명에 해당하는 파생 열 설정이 구성되어 있는 그래픽](images/data-flow-user-profiles-derived-column2-settings.png "Derived column's settings")
 
-        > **참고**: 파생 열 설정에 열을 추가하려면 첫 번째 오른쪽의 **+**를 선택하고 **열 추가**를 선택합니다.
+        > **참고**: 파생 열 설정에 열을 추가하려면 첫 번째 오른쪽의 **+** 를 선택하고 **열 추가**를 선택합니다.
 
         ![열 추가 메뉴 항목이 강조 표시되어 있는 그래픽](images/data-flow-add-derived-column.png "Add derived column")
 
@@ -689,7 +689,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
         format: 'document') ~> UserProfiles
     ```
 
-20. **UserProfiles** 원본 오른쪽의 **+**를 선택한 다음 **평면화** 스키마 한정자를 선택합니다.
+20. **UserProfiles** 원본 오른쪽의 **+** 를 선택한 다음 **평면화** 스키마 한정자를 선택합니다.
 
     ![+ 기호와 평면화 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-flatten2.png "New Flatten schema modifier")
 
@@ -708,7 +708,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
         ![설명에 해당하는 평면화 설정이 구성되어 있는 그래픽](images/data-flow-user-profiles-flatten2-settings.png "Flatten settings")
 
-22. 이제 두 데이터 원본을 조인합니다. **DeriveProductColumns** 단계 오른쪽의 **+**를 선택한 다음 **조인** 옵션을 선택합니다.
+22. 이제 두 데이터 원본을 조인합니다. **DeriveProductColumns** 단계 오른쪽의 **+** 를 선택한 다음 **조인** 옵션을 선택합니다.
 
     ![+ 기호와 새 조인 메뉴 항목이 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-join.png "New Join")
 
@@ -729,7 +729,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 24. **최적화**를 선택하고 다음 항목을 구성합니다.
 
     - **브로드캐스트**: **고정**을 선택합니다.
-    - **브로드캐스트 옵션**: **왼쪽: 'DeriveProductColumns'**를 선택합니다.
+    - **브로드캐스트 옵션**: **왼쪽: 'DeriveProductColumns'** 를 선택합니다.
     - **파티션 옵션**: **분할 설정**을 선택합니다.
     - **파티션 유형**: **해시**를 선택합니다.
     - **파티션 수**: `30`을 입력합니다.
@@ -741,7 +741,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![검사 실행 블레이드가 표시되어 있는 그래픽](images/data-flow-user-profiles-join-inspect.png "Inspect")
 
-26. **JoinTopProductsWithPreferredProducts** 단계 오른쪽의 **+**를 선택한 다음 **파생 열** 스키마 한정자를 선택합니다.
+26. **JoinTopProductsWithPreferredProducts** 단계 오른쪽의 **+** 를 선택한 다음 **파생 열** 스키마 한정자를 선택합니다.
 
     ![+ 기호와 파생 열 스키마 한정자가 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-derived-column3.png "New Derived Column")
 
@@ -764,7 +764,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
         ![데이터 미리 보기가 표시되어 있는 그래픽](images/data-flow-user-profiles-derived-column3-preview.png "Data preview")
 
-28. **DerivedColumnsForMerge** 단계 오른쪽의 **+**를 선택한 다음 **필터** 행 한정자를 선택합니다.
+28. **DerivedColumnsForMerge** 단계 오른쪽의 **+** 를 선택한 다음 **필터** 행 한정자를 선택합니다.
 
     ![새 필터 대상이 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-filter.png "New filter")
 
@@ -774,7 +774,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
     ![필터 설정이 표시되어 있는 그래픽](images/data-flow-user-profiles-new-filter-settings.png "Filter settings")
 
-30. **Filter1** 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **싱크** 대상을 선택합니다.
+30. **Filter1** 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **싱크** 대상을 선택합니다.
 
     ![새 싱크 대상이 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-sink.png "New sink")
 
@@ -811,7 +811,7 @@ Tailwind Traders는 전자 상거래 시스템에서 JSON 파일로 가져온 �
 
         ![설명에 해당하는 매핑 설정이 구성되어 있는 그래픽](images/data-flow-user-profiles-new-sink-settings-mapping.png "Mapping")
 
-34. **Filter1** 단계 오른쪽의 **+**를 선택한 다음 상황에 맞는 메뉴에서 **싱크** 대상을 선택하여 두 번째 싱크를 추가합니다.
+34. **Filter1** 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **싱크** 대상을 선택하여 두 번째 싱크를 추가합니다.
 
     ![새 싱크 대상이 강조 표시되어 있는 그래픽](images/data-flow-user-profiles-new-sink2.png "New sink")
 
@@ -901,7 +901,7 @@ Tailwind Traders는 Synapse 파이프라인에서도 기존에 사용해 왔던 
 
     ![설명에 따라 일반 탭에서 이름을 설정한 그래픽](images/pipeline-data-flow-general.png "Name on the General tab")
 
-7. **설정** 탭에서 **write_user_profile_to_asa** 데이터 흐름을 선택하고, **AutoResolveIntegrationRuntime**이 선택되었는지 확인합니다. **기본(범용)** 컴퓨팅 유형을 선택하고 코어 개수를 **4(+4개 드라이버 코어)**로 설정합니다.
+7. **설정** 탭에서 **write_user_profile_to_asa** 데이터 흐름을 선택하고, **AutoResolveIntegrationRuntime**이 선택되었는지 확인합니다. **기본(범용)** 컴퓨팅 유형을 선택하고 코어 개수를 **4(+4개 드라이버 코어)** 로 설정합니다.
 
 8. **준비**를 확장하고 다음 항목을 구성합니다.
 
