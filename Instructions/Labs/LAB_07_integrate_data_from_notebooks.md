@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'Azure Data Factory 또는 Azure Synapse 파이프라인을 사용하여 Notebooks의 데이터 통합'
     module: '모듈 7'
