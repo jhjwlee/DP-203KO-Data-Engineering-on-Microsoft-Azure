@@ -222,7 +222,7 @@ Tailwind Traders는 사내에서 사용하려는 국가 인구 데이터용 공�
 5. 쿼리 결과에서 **차트** 뷰를 선택하고 다음과 같이 구성합니다.
 
     - **차트 유형**: 가로 막대형
-    - **범주 열**: country_name`
+    - **범주 열**: country_name
     - **범례(계열) 열**: population
     - **범례 위치**: bottom - center
 

@@ -60,7 +60,7 @@ lab:
 1. **가져오기**를 선택합니다.
 1. 표시되는 **11-Delta-Lake-Architecture** 폴더를 선택합니다.
 
-### 작업 2: *1-Delta-Architecture* Notebook에서 코드 실행
+### 작업 3: *1-Delta-Architecture* Notebook에서 코드 실행
 
 1. **1-Delta-Architecture** Notebook을 엽니다.
 1. 지침에 따라 그 안에 들어 있는 셀을 실행하기 전에 클러스터를 Notebook에 연결합니다. 코드 셀을 실행하려면 실행할 셀을 선택하고 오른쪽 상단의 **&#x23f5;** 단추를 사용하여 셀을 실행합니다.
@@ -197,7 +197,7 @@ spark.conf.set("spark.hyperspace.explain.displayMode", "html")
 hyperspace.explain(df1, True, displayHTML)
 ```
 
-17. 새 셀을 실행합니다. 출력에는 `인덱스를 사용하는 계획`과 `인덱스를 사용하지 않는 계획`을 비교한 내용이 표시됩니다. 인덱스 파일이 사용된 첫 번째 경우와 원래 데이터 파일이 사용된 두 번째 경우를 비교하여 살펴봅니다.
+17. 새 셀을 실행합니다. 출력에는 `Plan with indexes`과 `Plan without indexes`을 비교한 내용이 표시됩니다. 인덱스 파일이 사용된 첫 번째 경우와 원래 데이터 파일이 사용된 두 번째 경우를 비교하여 살펴봅니다.
 
     ![Hyperspace 설명 - 계획 비교](images/lab-02-ex-02-task-02-explain-hyperspace-03.png)
 
@@ -209,7 +209,7 @@ eqJoin = dfSales.join(dfCustomers, dfSales.CustomerId == dfCustomers.CustomerId)
 hyperspace.explain(eqJoin, True, displayHTML)
 ```
 
-19. 새 셀을 실행합니다. 이번에도 출력에는 `인덱스를 사용하는 계획`과 `인덱스를 사용하지 않는 계획`을 비교한 내용이 표시됩니다. 앞에서와 마찬가지로 첫 번째 경우에는 인덱스가 사용되었고 두 번째 경우에는 원래 데이터 파일이 사용되었습니다.
+19. 새 셀을 실행합니다. 이번에도 출력에는 `Plan with indexes`과 `Plan without indexes`을 비교한 내용이 표시됩니다. 앞에서와 마찬가지로 첫 번째 경우에는 인덱스가 사용되었고 두 번째 경우에는 원래 데이터 파일이 사용되었습니다.
 
     ![Hyperspace 설명 - 조인의 계획 비교](images/lab-02-ex-02-task-02-explain-hyperspace-04.png)
 
