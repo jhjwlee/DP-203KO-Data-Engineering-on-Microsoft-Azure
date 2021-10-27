@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '서버리스 SQL 풀을 사용하여 대화형 쿼리 실행'
     module: '모듈 2'
@@ -413,7 +413,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 ### 작업 4: 데이터 레이크 보안 구성 - ACL(액세스 제어 목록)
 
-1. 왼쪽 메뉴에서 **Storage Explorer(미리 보기)** 를 선택합니다. **컨테이너**를 확장하고 **wwi-02** 컨테이너를 선택합니다. **sale-small** 폴더를 열고 **Year=2019** 폴더를 마우스 오른쪽 단추로 클릭한 다음 **액세스 관리..** 를 선택합니다.
+1. 왼쪽 메뉴에서 **저장소 브라우저(미리 보기)**를 선택합니다. **Blob 컨테이너**를 확장하고 **wwi-02** 컨테이너를 선택합니다. **sale-small** 폴더를 열고 **Year=2019** 폴더를 마우스 오른쪽 단추로 클릭한 다음 **ACL 관리**를 선택합니다.
 
     ![2019 폴더가 강조 표시되어 있고 액세스 관리가 선택되어 있는 그래픽](images/manage-access-2019.png "Storage Explorer")
 
@@ -439,7 +439,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 ### 작업 5: 권한 테스트
 
-1. Synapse Studio, **데이터** 허브의 **연결됨** 탭에서 **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** 컨테이너를 선택합니다. 그리고 *sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231* 폴더에서 **sale-small-20161231-snappy.parquet file**을 마우스 오른쪽 단추로 클릭하고, **새 SQL 스크립트**를 선택하고, **상위 100개 행 선택**을 선택합니다.
+1. Synapse Studio, **데이터** 허브의 **연결됨** 탭에서 **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** 컨테이너를 선택합니다. 그리고 *sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231* 폴더에서 **sale-small-20191231-snappy.parquet file**을 마우스 오른쪽 단추로 클릭하고, **새 SQL 스크립트**를 선택하고, **상위 100개 행 선택**을 선택합니다.
 
     ![데이터 허브가 표시되어 있고 옵션이 강조 표시되어 있는 그래픽](images/data-hub-parquet-select-rows.png "Select TOP 100 rows")
 
@@ -457,7 +457,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     결과를 확인해 보겠습니다.
 
-3. **wwi-02** 창에서 **sale-small-20161231-snappy.parquet** 파일을 마우스 오른쪽 단추로 클릭하고, **새 Notebook**을 선택한 후에 **데이터 프레임에 로드**를 선택합니다.
+3. **wwi-02** 창에서 **sale-small-20191231-snappy.parquet** 파일을 마우스 오른쪽 단추로 클릭하고, **새 Notebook**을 선택한 후에 **데이터 프레임에 로드**를 선택합니다.
 
     ![데이터 허브가 표시되어 있고 옵션이 강조 표시되어 있는 그래픽](images/data-hub-parquet-new-notebook.png "New notebook")
 
@@ -472,7 +472,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 7. 다음 코드를 입력합니다. 이때 *SUFFIX*를 데이터 레이크 리소스의 고유 접미사로 바꿉니다(위의 셀 1에서 복사할 수 있음).
 
     ```python
-    df.write.parquet('abfss://wwi-02@asadatalakeSUFFIX.dfs.core.windows.net/sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231/sale-small-20161231-snappy-test.parquet')
+    df.write.parquet('abfss://wwi-02@asadatalakeSUFFIX.dfs.core.windows.net/sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231/sale-small-20191231-snappy-test.parquet')
     ```
 
 8. 방금 추가한 새 셀을 실행합니다. 출력에 **403 오류**가 표시됩니다.
@@ -518,6 +518,6 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     이제 데이터 레이크에 파일이 작성되었는지 확인해 보겠습니다.
 
-19. Synapse Studio, **데이터** 허브의 **연결됨** 탭에서 **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** 컨테이너를 선택합니다. 그리고 *sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231* 폴더로 이동하여 이 폴더에 새 파일이 추가되었는지 확인합니다.
+19. Synapse Studio, **데이터** 허브의 **연결됨** 탭에서 **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** 컨테이너를 선택합니다. 그리고 *sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231* 폴더로 이동하여 이 폴더에 새 파일이 추가되었는지 확인합니다.
 
     ![테스트 Parquet 파일이 표시되어 있는 그래픽](images/test-parquet-file.png "Test parquet file")
