@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'Stream Analytics를 사용하여 실시간 스트림 처리'
     module: '모듈 10'
