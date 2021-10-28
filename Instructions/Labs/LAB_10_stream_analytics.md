@@ -27,8 +27,6 @@ Azure Stream Analytics를 사용하면 대규모 병렬 CEP(복합 이벤트 처
 
 [이벤트 배달이 보장](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)되며 가용성 99.9%의 엔터프라이즈급 SLA가 제공되는 Azure Stream Analytics는 중요 업무용 워크로드에 적합한 솔루션입니다. 또한 자동화된 검사점이 제공되므로 작업에서 내결함성을 유지할 수 있으며, 데이터 손실 없이 중단된 작업을 빠르게 다시 시작할 수 있습니다.
 
-Azure Stream Analytics를 사용하면 Power BI를 통해 실시간 대시보드를 빠르게 작성하여 라이브 명령 및 제어 보기를 활용할 수 있습니다. [실시간 대시보드](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard)에서는 라이브 데이터를 유용한 인사이트를 제공하는 실행 가능한 시각적 개체로 변환할 수 있으며 가장 중요한 정보를 중점적으로 파악할 수 있습니다.
-
 ### Azure Event Hubs
 
 초당 수백만 개의 이벤트를 수집할 수 있는 빅 데이터 파이프라인인 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)에서는 HTTPS, AMQP, websocket을 통한 AMQP, Kafka 등의 표준 프로토콜을 사용하여 원격 분석 및 이벤트 스트림 데이터 캡처, 보존, 재생을 원활하게 진행할 수 있습니다. 여러 원본에서 데이터를 동시에 수신할 수 있으며, 최대 20개 소비자 그룹에서 애플리케이션을 통해 원하는 속도로 전체 이벤트 허브를 독립적으로 읽을 수 있습니다.
@@ -58,7 +56,7 @@ Azure Stream Analytics를 사용하면 Power BI를 통해 실시간 대시보드
 
 ## 연습 1 - 서비스 구성
 
-Azure Event Hubs는 초당 이벤트 수백만 개를 수신하고 처리할 수 있는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 여기서는 Azure Event Hubs를 사용하여 차량 원격 분석 데이터를 임시로 저장합니다. 이렇게 저장된 데이터는 실시간 대시보드로 전송할 수 있도록 처리됩니다. 데이터가 Event Hubs로 전송되면 Azure Stream Analytics가 데이터를 쿼리하여 집계를 적용하고 변칙에 태그를 적용합니다. 그런 다음 Azure Synapse Analytics 및 Power BI에 해당 데이터를 전송합니다.
+Azure Event Hubs는 초당 이벤트 수백만 개를 수신하고 처리할 수 있는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 여기서는 Azure Event Hubs를 사용하여 차량 원격 분석 데이터를 임시로 저장합니다. 이렇게 저장된 데이터는 실시간 대시보드로 전송할 수 있도록 처리됩니다. 데이터가 Event Hubs로 전송되면 Azure Stream Analytics가 데이터를 쿼리하여 집계를 적용하고 변칙에 태그를 적용합니다. 그런 다음 Azure Synapse Analytics에 해당 데이터를 전송합니다.
 
 ### 작업 1: Event Hubs 구성
 
@@ -157,7 +155,7 @@ Azure Synapse는 SQL 데이터 웨어하우징, 빅 데이터 분석 및 데이�
 
 Azure Stream Analytics는 디바이스에서 대량의 데이터 스트리밍을 검사할 수 있는 이벤트 처리 엔진입니다. 들어오는 데이터는 장치, 센서, 웹 사이트, 소셜 미디어 피드, 애플리케이션 등에서 수집할 수 있습니다. 또한 데이터 스트림에서 정보 추출, 패턴 식별 및 관계도 지원합니다. 그런 다음 이러한 패턴을 사용하여 경고 만들기, 보고 도구에 정보를 피드하거나 나중에 사용할 수 있도록 저장하는 등의 다른 작업 다운스트림을 트리거할 수 있습니다.
 
-이 작업에서는 원본으로 만든 이벤트 허브를 사용하도록 Stream Analytics를 구성하고 해당 데이터를 쿼리 및 분석합니다. 그런 다음 보고용으로 Power Bi에 해당 데이터를 전송하고, 집계된 데이터를 Azure Synapse Analytics에 전송합니다.
+이 작업에서는 원본으로 만든 이벤트 허브를 사용하도록 Stream Analytics를 구성하고 해당 데이터를 쿼리 및 분석합니다.
 
 1. Azure Portal의 **data-engineering-synapse-*xxxxxxx*** 리소스 그룹에서 **as*xxxxxxx*** Stream Analytics 작업을 선택합니다.
 
