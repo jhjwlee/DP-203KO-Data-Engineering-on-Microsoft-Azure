@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: 'Azure Synapse Link를 사용한 HTAP(하이브리드 트랜잭션 분석 처리) 지원'
     module: '모듈 9'
@@ -25,14 +25,13 @@ lab:
 >       - **Cosmos DB 계정 이름**: asacosmosdb*xxxxxxx*
 >       - **데이터베이스 이름**: CustomerProfile
 > 2. **데이터** 허브에서 다음과 같은 **통합 데이터 세트**를 만듭니다.
->       - **원본**: Azure Data Lake Storage Gen2
->       - **형식**: JSON
+>       - **원본**: Azure Cosmos DB(SQL API)
 >       - **이름**: asal400_customerprofile_cosmosdb
->       - **연결된 서비스**: asadatalake*xxxxxxx*
->       - **파일 경로**: wwi-02/online-user-profiles-02
+>       - **연결된 서비스**: asacosmosdb01
+>       - **컬렉션**: OnlineUserProfile01
 >       - **스키마 가져오기**: 연결/저장소에서
 
-## 연습 1 ? Azure Cosmos DB를 사용하여 Azure Synapse Link 구성
+## 연습 1 - Azure Cosmos DB를 사용하여 Azure Synapse Link 구성
 
 Tailwind Traders에서는 Azure Cosmos DB를 사용하여 전자 상거래 사이트의 사용자 프로필 데이터를 저장합니다. Azure Cosmos DB SQL API에서 제공하는 NoSQL 문서 저장소를 사용하면 SQL 구문으로 익숙하게 데이터를 관리하는 동시에 글로벌한 범위의 대규모 파일을 읽고 쓸 수 있습니다.
 
