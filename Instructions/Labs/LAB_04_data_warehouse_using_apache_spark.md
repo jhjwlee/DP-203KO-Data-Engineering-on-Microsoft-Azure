@@ -33,7 +33,7 @@ lab:
 
     ![새로 만들기 단추가 강조 표시되어 있는 그래픽](images/new-dedicated-sql-pool.png "New dedicated SQL pool")
 
-4. **전용 SQL 풀 만들기** 페이지에서 풀 이름으로 **`SQLPool01`**을 입력하고(여기에 표시된 것과 <u>똑같은</u> 이름을 사용해야 함) **Geo-redundant** 옵션을 **No**로 설정한 후에 성능 수준을 **DW100c**로 설정합니다(슬라이더를 왼쪽 끝으로 이동).
+4. **전용 SQL 풀 만들기** 페이지에서 풀 이름으로 **`SQLPool01`** 을 입력하고(여기에 표시된 것과 <u>똑같은</u> 이름을 사용해야 함) **Geo-redundant** 옵션을 **No**로 설정한 후에 성능 수준을 **DW100c**로 설정합니다(슬라이더를 왼쪽 끝으로 이동).
 
     ![SQLPool01이라는 DW100c 풀의 설정.](images/new-sql-pool.png "New DW100c SQL Pool")
 
@@ -532,7 +532,7 @@ Tailwind Traders에는 영업 데이터 외에 전자 상거래 시스템의 고
 
     ![오류가 표시되어 있는 그래픽](images/sort-desc-error.png "Sort desc error")
 
-    **itemsPurchasedLast12Months desc**가 열 이름과 일치하지 않으므로 **AnalysisException**`** 오류가 발생합니다.
+    **itemsPurchasedLast12Months desc**가 열 이름과 일치하지 않으므로 **AnalysisException** 오류가 발생합니다.
 
     이 코드가 작동하지 않는 이유는
 
