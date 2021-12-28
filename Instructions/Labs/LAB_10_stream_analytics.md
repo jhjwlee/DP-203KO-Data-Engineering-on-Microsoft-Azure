@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: 'Stream Analytics를 사용하여 실시간 스트림 처리'
     module: '모듈 10'
@@ -128,7 +128,7 @@ Azure Synapse는 SQL 데이터 웨어하우징, 빅 데이터 분석 및 데이�
 
     ![데이터 허브가 강조 표시되어 있는 그래픽](images/data-hub.png "Data hub")
 
-2. **작업 영역** 탭을 선택하고 **데이터베이스**를 확장한 다음 **SQLPool01**을 마우스 오른쪽 단추로 클릭합니다. 그런 다음에 **새 SQL 스크립트**, **빈 스크립트**를 차례로 선택합니다.
+2. **작업 영역** 탭을 선택하고 **SQL Database 그룹**을 확장한 다음 **SQLPool01**을 마우스 오른쪽 단추로 클릭합니다. 그런 다음에 **새 SQL 스크립트**, **빈 스크립트**를 차례로 선택합니다.
 
     ![SQLPool01 상황에 맞는 메뉴에서 새 SQL 스크립트 옵션이 강조 표시되어 있는 그래픽](images/synapse-new-script.png "New SQL script")
 

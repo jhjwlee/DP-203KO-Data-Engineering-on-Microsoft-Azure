@@ -1,4 +1,4 @@
----
+﻿---
 lab:
     title: '서버리스 SQL 풀을 사용하여 대화형 쿼리 실행'
     module: '모듈 2'
@@ -87,8 +87,8 @@ Azure Synapse Analytics에서는 SQL 또는 Apache Spark for Synapse 중 한 가
 Parquet 파일을 쿼리할 때마다 OPENROWSET 및 루트 2019 폴더가 포함된 스크립트를 작성하지 않고 외부 테이블을 만들 수도 있습니다.
 
 1. Synapse Studio에서 **wwi-02** 탭으로 돌아가면 *sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231* 폴더의 콘텐츠가 여전히 표시되어 있습니다.
-2. **sale-small-20191231-snappy.parquet** 파일을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트**, **외부 테이블 만들기**를 차례로 선택합니다.
-3. **SQP 풀**에서 **기본 제공**이 선택되어 있는지 확인합니다. 그런 다음에 **데이터베이스 선택** 아래에서 **+ 새로 만들기**를 선택하고 `demo`라는 데이터베이스를 만듭니다. **외부 테이블 이름**에는 `All2019Sales`를 입력합니다. 마지막으로, **외부 테이블 만들기** 아래에서 **SQL 스크립트 사용**이 선택되었는지 확인한 후에 **만들기**를 선택하여 SQL 스크립트를 생성합니다.
+2. **sale-small-20191231-snappy.parquet** 파일을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트**, **외부 테이블 만들기**를 차례로 선택합니다. 새 외부 테이블 대화 상자에서 **계속**을 클릭합니다.
+3. **SQP 풀**에서 **기본 제공**이 선택되어 있는지 확인합니다. 그런 다음에 **데이터베이스 선택** 아래에서 **+ 새로 만들기**를 선택하고 `demo`라는 데이터베이스를 만들고 **만들기**를 클릭합니다. **외부 테이블 이름**에는 `All2019Sales`를 입력합니다. 마지막으로, **외부 테이블 만들기** 아래에서 **SQL 스크립트 사용**이 선택되었는지 확인한 후에 **스크립트 열기**를 선택하여 SQL 스크립트를 생성합니다.
 
     ![외부 테이블 만들기 양식이 표시되어 있는 그래픽](images/create-external-table-form.png "Create external table")
 
@@ -101,7 +101,7 @@ Parquet 파일을 쿼리할 때마다 OPENROWSET 및 루트 2019 폴더가 포�
     - **3)** CREATE EXTERNAL TABLE WITH 문은 파일 위치를 지정하며, 위에서 만든 새 외부 파일 형식과 데이터 원본을 참조합니다.
     - **4)** 마지막으로 `2019Sales` 외부 테이블에서 상위 결과 100개를 선택합니다.
     
-4 CREATE EXTERNAL TABLE 문의 **[TransactionId] varchar(8000)** 행에서 `COLLATE Latin1_General_100_BIN2_UTF8`를 추가하고, *LOCATION* 값을 `sale-small/Year=2019/*/*/*/*.parquet`으로 바꿔서 이 문이 다음과 비슷해지도록 합니다(고유 리소스 접미사 제외).
+4 CREATE EXTERNAL TABLE 문의 **[TransactionId] varchar(8000)** 행에서 8000을 4000으로 변경하고, `COLLATE Latin1_General_100_BIN2_UTF8`를 추가하고, *위치* 값을 `sale-small/Year=2019/*/*/*/*.parquet`으로 바꿔서 이 문이 다음과 비슷해지도록 합니다(고유 리소스 접미사 제외).
 
 ```sql
 CREATE EXTERNAL TABLE All2019Sales (
@@ -323,8 +323,6 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 4. **+ 새 그룹**을 선택합니다.
 
-    ![새 그룹 단추](images/new-group.png "New group")
-
 5. **보안** 그룹 유형이 선택되었는지 확인하고, **그룹 이름**으로 `tailwind-history-owners-SUFFIX`(여기서 *suffix*는 고유 리소스 접미사)를 입력한 후에 **만들기**를 선택합니다.
 
     ![설명에 따라 구성한 양식의 그래픽](images/new-group-history-owners.png "New Group")
@@ -345,15 +343,11 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![그룹이 표시되어 있고 구성원 추가가 강조 표시되어 있는 그래픽](images/tailwind-readers.png "tailwind-readers group")
 
-3. 랩 진행을 위해 로그인한 사용자 계정을 추가하고 **선택**을 선택합니다.
-
-    ![양식이 표시되어 있는 그래픽](images/add-members.png "Add members")
+3. 랩 진행을 위해 로그인한 사용자 계정을 검색하고 **선택**을 선택합니다.
 
 4. **tailwind-2019-writers** 그룹을 엽니다.
 
 5. 왼쪽에서 **구성원**을 선택하고 **+ 구성원 추가**를 선택합니다.
-
-    ![그룹이 표시되어 있고 구성원 추가가 강조 표시되어 있는 그래픽](images/tailwind-2019-writers.png "tailwind-2019-writers group")
 
 6. `tailwind`를 검색하여 **tailwind-current-writers** 그룹을 선택하고 **선택**을 선택합니다.
 
@@ -385,9 +379,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![역할 할당 추가가 강조 표시되어 있는 그래픽](images/add-role-assignment.png "Add role assignment")
 
-6. **역할**에 대해 **Storage Blob 데이터 읽기 권한자**를 선택합니다. `tailwind-readers`를 검색하고 결과에서 **tailwind-readers** 그룹을 선택합니다. 그리고 **저장**을 선택합니다.
-
-    ![설명의 양식이 표시되어 있는 그래픽](images/add-tailwind-readers.png "Add role assignment")
+6. **역할** 화면에서 **Storage Blob 데이터 읽기 권한자**를 선택한 후에 **다음**을 클릭합니다. **구성원** 화면에서 **+ 구성원 선택**을 클릭한 후에 `tailwind-readers`를 검색하고 결과에서 **tailwind-readers** 그룹을 선택합니다. 그런 다음, **선택**을 클릭합니다. 그런 다음 **검토 + 할당**을 클릭하고, **검토 + 할당**을 다시 한 번 클릭합니다.
 
     이 그룹에 사용자 계정을 추가했으므로 이 계정의 Blob 컨테이너에 있는 모든 파일에 대한 읽기 권한이 부여되었습니다. Tailwind Traders는 **tailwind-readers** 보안 그룹에 모든 사용자를 추가해야 합니다.
 
@@ -395,17 +387,15 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![역할 할당 추가가 강조 표시되어 있는 그래픽](images/add-role-assignment.png "Add role assignment")
 
-8. **역할**에 대해 **Storage Blob 데이터 소유자**를 선택합니다. `tailwind`를 검색하고 결과에서 **tailwind-history-owners** 그룹을 선택합니다. 그리고 **저장**을 선택합니다.
+8. **역할**의 경우, **Storage Blob 데이터 읽기 권한자**를 검색한 후에 **다음**을 선택합니다.
 
-    ![설명의 양식이 표시되어 있는 그래픽](images/add-tailwind-history-owners.png "Add role assignment")
+9. **구성원** 화면에서 **+ 구성원 선택**을 클릭한 후에 `tailwind`를 검색하고 결과에서 **tailwind-history-owners** 그룹을 선택합니다. 그런 다음 **검토 + 할당**을 클릭하고, **검토 + 할당**을 다시 클릭합니다.
 
     이제, 데이터 레이크가 포함된 Azure Storage 계정의 Azure Storage 기본 제공 RBAC 역할 **Storage Blob 데이터 소유자**에게 **tailwind-history-owners** 보안 그룹이 할당됩니다. 따라서 이 역할에 추가된 Azure AD 사용자와 보안 주체가 작년의 모든 데이터를 수정할 수 있습니다.
 
     Tailwind Traders는 모든 기록 데이터 수정 권한이 있는 사용자 보안 주체를 **tailwind-history-owners** 보안 그룹에 추가해야 합니다.
 
-9. 스토리지 계정의 **액세스 제어(IAM)** 목록에서 **Storage Blob 데이터 소유자 역할** 아래에 표시된 사용자의 Azure 사용자 계정을 선택한 다음 **제거**를 선택합니다.
-
-    ![액세스 제어 설정이 표시되어 있는 그래픽](images/storage-access-control-updated.png "Access Control updated")
+10. 스토리지 계정의 **액세스 제어(IAM)** 목록에서 **Storage Blob 데이터 소유자 역할** 아래에 표시된 사용자의 Azure 사용자 계정을 선택한 다음 **제거**를 선택합니다.
 
     **tailwind-history-owners** 그룹은 **Storage Blob 데이터 소유자 그룹**에 할당되었으며 **tailwind-readers**는 **Storage Blob 데이터 읽기 권한자** 그룹에 할당되었습니다.
 
@@ -417,13 +407,11 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
     ![2019 폴더가 강조 표시되어 있고 액세스 관리가 선택되어 있는 그래픽](images/manage-access-2019.png "Storage Explorer")
 
-2. **tailwind-2019-writers** 보안 그룹에서 복사한 **개체 ID** 값을 **사용자, 그룹 또는 보안 주체 추가** 텍스트 상자에 붙여넣고 **추가**를 선택합니다.
+2. ACL 관리 화면의 **액세스 권한** 화면에서 **+ 주체 추가**를 클릭하고, **tailwind-2019-writers** 보안 그룹에서 복사한 **개체 ID** 값을 **주체 추가** 검색 상자에 붙여넣고, **tailwind-2019-writers-suffix**를 클릭한 후에 **선택**을 선택합니다.
 
-    ![개체 ID 값을 필드에 붙여넣은 화면의 스크린샷](images/manage-access-2019-object-id.png "Manage Access")
+3. 이제 액세스 관리 대화 상자에서 **tailwind-2019-writers** 그룹이 선택됩니다. **읽기**, **쓰기** 및 **실행** 체크박스를 선택한 후에 **저장**을 선택합니다.
 
-3. 이제 액세스 관리 대화 상자에서 **tailwind-2019-writers** 그룹이 선택됩니다. **액세스** 및 **기본값** 체크박스를 선택하고 각 액세스 권한에서 **읽기**, **쓰기**, **실행** 체크박스를 선택한 다음 **저장**을 선택합니다.
-
-    ![설명에 해당하는 권한이 구성되어 있는 그래픽](images/manage-access-2019-permissions.png "Manage Access")
+4. ACL 관리 화면의 **기본 권한** 화면에서 **+ 주체 추가**를 클릭하고, **tailwind-2019-writers** 보안 그룹에서 복사한 **개체 ID** 값을 **주체 추가** 검색 상자에 붙여넣고, **tailwind-2019-writers-suffix**를 클릭한 후에 **선택**을 선택합니다.
 
     **tailwind-current** 보안 그룹에 추가되는 모든 사용자가 **tailwind-2019-writers** 그룹을 통해 **Year=2019** 폴더에 데이터를 쓸 수 있도록 허용하는 보안 ACL이 설정되었습니다. 이러한 사용자는 현재(여기서는 2019년) 영업 파일만 관리할 수 있습니다.
 
@@ -485,23 +473,13 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
 
 10. 포털 메뉴의 **홈** 페이지에서 **Azure Active Directory**를 선택합니다.
 
-    ![메뉴 항목이 강조 표시되어 있는 그래픽](images/azure-ad-menu.png "Azure Active Directory")
-
 11. 왼쪽 메뉴에서 **그룹**을 선택합니다.
-
-    ![그룹이 강조 표시되어 있는 그래픽](images/aad-groups-link.png "Azure Active Directory")
 
 12. 검색 상자에 `tailwind`를 입력하고 결과에서 **tailwind-history-owners**를 선택합니다.
 
-    ![tailwind 그룹이 표시되어 있는 그래픽](images/tailwind-groups.png "All groups")
-
 13. 왼쪽에서 **구성원**을 선택하고 **+ 구성원 추가**를 선택합니다.
 
-    ![그룹이 표시되어 있고 구성원 추가가 강조 표시되어 있는 그래픽](images/tailwind-history-owners.png "tailwind-history-owners group")
-
 14. 랩 진행을 위해 로그인한 사용자 계정을 추가하고 **선택**을 선택합니다.
-
-    ![양식이 표시되어 있는 그래픽](images/add-members.png "Add members")
 
 15. 새 탭에서 Azure Synapse Studio(<https://web.azuresynapse.net/>)로 이동합니다. 그런 다음에 **개발** 탭에서 **Notebooks**를 확장하고 앞서 게시한 Notebook을 다시 엽니다.
 
@@ -514,6 +492,7 @@ Tailwind Traders는 권한이 있는 모든 사용자의 전체 데이터 쿼리
     > **참고**: 이번에도 같은 오류가 발생하면 Notebook에서 **Spart 세션을 중지**하고 **모두 게시**, 게시를 차례로 선택합니다. 변경 내용을 게시한 후 페이지 오른쪽 위의 사용자 프로필을 선택하고 **로그아웃**을 선택합니다. 정상적으로 로그아웃되면 **브라우저 탭을 닫고** Synapse Studio(<https://web.azuresynapse.net/>)를 다시 시작한 후 Notebook을 다시 열고 셀을 다시 실행합니다. 인증 변경 내용이 적용되려면 보안 토큰을 새로 고쳐야 하기 때문입니다.
 
 17. Notebook의 오른쪽 상단에서 **세션 중지** 단추를 사용하여 Notebook 세션을 중지합니다.
+
 18. 변경 사항을 저장하려면 Notebook을 게시합니다. 그런 다음에 닫습니다.
 
     이제 데이터 레이크에 파일이 작성되었는지 확인해 보겠습니다.
