@@ -371,7 +371,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![설명에 해당하는 파생 열 설정이 표시되어 있는 그래픽](images/data-flow-campaign-analysis-derived-column-settings.png "Derived column's settings")
 
-    정의한 식이 **RevenuePart1** 및 **Revenue** 값과 **RevelueTargetPart1** 및 **RevenueTarget** 값을 연결하고 정리합니다.
+    정의한 식이 **RevenuePart1** 및 **Revenue** 값과 **RevenueTargetPart1** 및 **RevenueTarget** 값을 연결하고 정리합니다.
 
 13. **ConvertColumnTypesAndValues** 단계 오른쪽의 **+** 를 선택한 다음 상황에 맞는 메뉴에서 **Select** 스키마 한정자를 선택합니다.
 
@@ -442,7 +442,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
     ![데이터 흐름이 선택되어 있는 그래픽](images/pipeline-campaign-analysis-data-flow-settings-tab.png "Settings")
 
-8. **모두 게시**를 선택하여 새 파이프라인을 저장합니다.
+8. **모두 게시**를 선택하여 새 파이프라인을 저장한 후에 **게시**를 선택합니다.
 
     ![모두 게시가 강조 표시되어 있는 그래픽](images/publish-all-1.png "Publish all")
 
@@ -474,7 +474,7 @@ Tailwind Traders는 데이터 엔지니어리이 작업에 코드 없는 옵션�
 
 2. **작업 영역** 섹션 아래에서 **SqlPool01** 데이터베이스를 확장한 다음 **테이블**을 확장합니다(새 테이블을 표시하기 위해 새로 고쳐야 할 수도 있음).
 
-3. **wwi.CampaignAnalytics** 테이블을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트**, **상위 1000개 행 선택**을 차례로 선택합니다. 
+3. **wwi.CampaignAnalytics** 테이블을 마우스 오른쪽 단추로 클릭하고 **새 SQL 스크립트**, **상위 100개 행 선택**을 차례로 선택합니다. 
 
     ![상위 1000개 행 선택 메뉴 항목이 강조 표시되어 있는 그래픽](images/select-top-1000-rows-campaign-analytics.png "Select TOP 1000 rows")
 

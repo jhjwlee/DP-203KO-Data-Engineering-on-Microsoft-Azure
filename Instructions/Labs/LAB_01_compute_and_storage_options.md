@@ -85,7 +85,7 @@ Hyperspace를 사용하면 지속형 데이터 파일에서 스캔한 레코드�
 
 또한 Hyperspace를 사용하는 경우 쿼리를 실행하기 전에 원래 계획과 업데이트된 인덱스 종속 계획을 비교할 수 있습니다.
 
-1. Synapse Studio(`https://web.azuresynapse.net`)를 열고, 관련 메시지가 나타나면 Azure Active Directory 테넌트, 구독 및 Azure Synapse Analytics 작업 영역을 선택합니다.
+1. Synapse Studio(`https://web.azuresynapse.net`)를 열고, 관련 메시지가 나타나면 Azure Active Directory 테넌트, 구독 및 Azure Synapse Analytics 작업 영역을 선택합니다. "더 나은 경험을 제공하기 위해 선택 사항인 쿠키를 사용합니다" 메시지가 나타나면 수락을 선택합니다.
 
 2. **개발** 허브를 선택합니다.
 
