@@ -77,6 +77,21 @@ lab:
 
 연습을 완료하면 Azure Synapse Analytics 작업 영역에서 Spark 라이브러리를 로드하고 사용하는 방법을 이해하게 됩니다.
 
+In the hosted VM environment provided for this course, open Powershell in administrator mode, and execute the following to set the execution policy to Unrestricted so you can run the local PowerShell script file:
+
+Set-ExecutionPolicy Unrestricted
+Note: If you receive a prompt that you are installing the module from an untrusted repository, select Yes to All to proceed with the setup.
+
+Change directories to the root of this repo within your local file system.
+
+cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
+Enter the following command to run a PowerShell script that creates objects into the Azure Data Lake that will be consumed in Azure Synapse Analytics notebooks and as External Tables or Views:
+
+.\dp-203-setup-Part02.ps1
+When the script is completed run the following command in the PowerShell window:
+
+exit
+
 ### 작업 1: Hyperspace를 사용하여 Data Lake 스토리지 인덱싱
 
 Azure Data Lake Gen 2에서 데이터를 로드할 때 리소스를 가장 많이 사용하는 작업 중 하나는 데이터 검색입니다. Apache Spark 사용자는 [Hyperspace](https://github.com/microsoft/hyperspace)의 기능을 사용해 CSV, JSON, Parquet 파일 등의 데이터 세트에서 인덱스를 만든 다음 발생 가능한 쿼리 및 워크로드 가속화에 해당 인덱스를 사용할 수 있습니다.
