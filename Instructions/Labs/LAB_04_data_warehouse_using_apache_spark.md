@@ -276,7 +276,9 @@ Tailwind Traders에는 다양한 데이터 원본에서 수집된 비구조적 �
 1. Azure Synapse Studio에서 **데이터** 허브를 선택합니다.
 2. **연결됨** 탭의 **wwi-02** 컨테이너에서 *sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231* 폴더로 이동합니다. 그런 다음에 Parquet 파일을 마우스 오른쪽 단추로 클릭하고 **새 Notebook**, **데이터 프레임에 로드**를 차례로 선택합니다.
 
-    ![설명에 해당하는 Parquet 파일이 표시되어 있는 그래픽](images/2019-sale-parquet-new-notebook.png "New notebook")
+   
+    ![Parquet 파일 찾기](https://user-images.githubusercontent.com/89170455/173683533-390f0505-4a2f-4dbc-9363-126ced256bea.png)
+
 
     그러면 Spark 데이터 프레임에 데이터를 로드하고 헤더와 함께 10개의 행을 표시하는 PySpark 코드가 있는 Notebook이 생성됩니다.
 
