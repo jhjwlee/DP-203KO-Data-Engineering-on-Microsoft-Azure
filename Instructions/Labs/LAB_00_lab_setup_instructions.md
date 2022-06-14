@@ -59,7 +59,7 @@ lab:
 5. Windows PowerShell에서 다음 명령을 입력하여 설정 스크립트를 실행합니다.
 
     ```
-    .\dp-203-setup.ps1
+    .\dp-203-setup-Part01.ps1
     ```
 
 6. Azure에 로그인하라는 메시지가 나타나고 브라우저가 열리면 본인의 자격 증명을 사용하여 로그인합니다. 로그인한 후에는 브라우저를 닫고 Windows PowerShell로 돌아갈 수 있습니다. 그러면 액세스 권한이 있는 Azure 구독이 표시됩니다.
