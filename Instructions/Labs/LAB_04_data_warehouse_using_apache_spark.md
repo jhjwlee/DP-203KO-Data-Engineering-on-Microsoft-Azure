@@ -21,6 +21,8 @@ lab:
 
 > **참고**: 설정 작업에는 약 6~7분이 소요됩니다. 스크립트가 실행 중인 동안 랩을 계속할 수 있습니다.
 
+> **참고**: 클라우드에 만드신 개발용VM 에서 브라우저를 띄우고 azure에 접속하여 진행합니다. (<http://portal.azure.com/>)
+
 ### 작업 1: 전용 SQL 풀 만들기
 
 1. Synapse Studio(<https://web.azuresynapse.net/>)를 엽니다.
