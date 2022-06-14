@@ -77,20 +77,26 @@ lab:
 
 연습을 완료하면 Azure Synapse Analytics 작업 영역에서 Spark 라이브러리를 로드하고 사용하는 방법을 이해하게 됩니다.
 
-In the hosted VM environment provided for this course, open Powershell in administrator mode, and execute the following to set the execution policy to Unrestricted so you can run the local PowerShell script file:
+0. Windows PowerShell에서 로컬 PowerShell 스크립트 파일을 실행할 수 있도록 다음 명령을 실행하여 실행 정책을 설정합니다.
 
-Set-ExecutionPolicy Unrestricted
-Note: If you receive a prompt that you are installing the module from an untrusted repository, select Yes to All to proceed with the setup.
+    ```
+    Set-ExecutionPolicy Unrestricted
+    ```
 
-Change directories to the root of this repo within your local file system.
+    > **참고**: 신뢰할 수 없는 리포지토리로부터 모듈을 설치하고 있다는 메시지가 나타나면 **A**를 입력하여 *모두 예* 옵션을 선택합니다.
 
-cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
-Enter the following command to run a PowerShell script that creates objects into the Azure Data Lake that will be consumed in Azure Synapse Analytics notebooks and as External Tables or Views:
+1. Windows PowerShell에서 다음 명령을 실행하여 디렉터리를 자동화 스크립트를 포함하고 있는 폴더로 변경합니다.
 
-.\dp-203-setup-Part02.ps1
-When the script is completed run the following command in the PowerShell window:
+    ```
+    cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
+    ```
+    
+2. Windows PowerShell에서 다음 명령을 입력하여 설정 스크립트를 실행합니다.
 
-exit
+    ```
+    .\dp-203-setup-Part02.ps1
+    ```
+
 
 ### 작업 1: Hyperspace를 사용하여 Data Lake 스토리지 인덱싱
 
