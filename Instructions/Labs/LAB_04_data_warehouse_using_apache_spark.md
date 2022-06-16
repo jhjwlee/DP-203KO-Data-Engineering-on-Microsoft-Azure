@@ -58,6 +58,17 @@ lab:
     cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
     ```
 
+2.1 필요한 모듈을 설치합니다. 
+```
+    Install-Module sqlserver
+```
+
+   - 선택을 물으면 [A] Yes to All 를 선택합니다. 
+  
+  ```
+    Import-Module sqlserver
+  
+  ```
 3. 다음 명령을 입력하여 SQL 풀에서 개체를 만드는 PowerShell 스크립트를 실행합니다.
 
     ```
