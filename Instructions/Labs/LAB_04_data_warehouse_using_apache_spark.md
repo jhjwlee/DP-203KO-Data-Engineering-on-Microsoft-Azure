@@ -273,6 +273,14 @@ Synapse Studio의 미리 보기 기능을 사용하면 파일을 빠르게 탐�
 
 4. Notebook 내에 포함된 지침에 따라 이 작업의 나머지 부분을 완료하고, **SparkPool01** Spark 풀에 연결합니다. 첫 번째 셀은 Spark 풀이 시작되어야 하기 때문에 실행하는 데 시간이 좀 걸릴 수도 있습니다. 
 
+4.0 <주의> 의도된 에러가 있습니다. 
+
+   노트북의 7번 항목에서 설명합니다. 
+   
+   As we saw in T-SQL, we receive a similar error in Spark that the number of columns processed may have exceeded limit of 20480 columns. To work with the data in this file, we need to use more advanced methods, as you will see in the next section below.
+   
+   의도된 에러이므로, 다음 cell로 넘어가서 계속 진행합니다. (진행하면서 에러를 수정합니다) 
+
 4.1. Notebook 의 마지막 부분에서 fixed data를 확인하기 위해 새로고침을 하세요.
    ![fixed data를 확인하기 위해 새로고침 누르기](https://user-images.githubusercontent.com/89170455/173680764-7282a78b-9709-469a-a29e-c5283a50821c.png)
 
