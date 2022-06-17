@@ -184,6 +184,10 @@ Synapse Studio의 미리 보기 기능을 사용하면 파일을 빠르게 탐�
     ![파일의 상위 100개 행을 읽도록 생성된 T-SQL 스크립트가 표시되어 있는 그래픽](images/sale-20170501-csv-sql-select-top-100.png "T-SQL script to preview CSV file")
 
     > **팁**: 스크립트의 **속성** 창을 숨기면 스크립트를 좀 더 쉽게 볼 수 있습니다.
+    > ![image](https://user-images.githubusercontent.com/89170455/174226703-3a733e2d-aa3e-4914-8a7d-51e2fc699803.png)
+
+
+
 
     데이터 레이크에 저장된 파일에 대한 T-SQL 쿼리는 OPENROWSET 함수를 활용하는데, 이 함수는 쿼리의 FROM 절에서 마치 테이블인 것처럼 참조될 수 있습니다. 이 함수는 파일의 데이터를 읽어서 행 세트로 반환할 수 있는 기본 제공 BULK 공급자를 통해 대량 작업을 지원합니다. 자세한 내용을 알아보려는 경우 [OPENROWSET 설명서](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset)를 검토하면 됩니다.
 
