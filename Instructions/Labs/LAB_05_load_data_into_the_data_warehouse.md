@@ -475,7 +475,7 @@ Azure Synapse Analytics에서는 두 가지 중요 기능 범주인 (1) data flo
 9. **속성 설정** 창에서 다음을 수행합니다.
     1. 이름을 **`asal400_december_sales`** 로 설정합니다.
     2. **asadatalake*xxxxxxx*** 연결된 서비스를 선택합니다.
-    3. **wwi-02/campaign-analytics/sale-20161230-snappy.parquet** 파일로 이동합니다.
+    3. 오른쪽 폴더 아이콘을 누르고, **wwi-02/campaign-analytics/sale-20161230-snappy.parquet** 파일로 이동합니다.
     4. 스키마 가져오기에서 **샘플 파일**을 선택합니다.
     5. **파일 선택** 필드에서 **C:\dp-203\data-engineering-ilt-deployment\Allfiles\samplefiles\sale-small-20100102-snappy.parquet**으로 이동합니다.
     6. **확인**을 선택합니다.
