@@ -381,10 +381,10 @@ Azure Synapse Analytics에서는 두 가지 중요 기능 범주인 (1) data flo
 적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 특정 리소스 클래스 또는 워크로드 그룹에 각 로드 사용자를 할당합니다. 로드를 실행하려면 로드 사용자 중 한 명으로 로그인한 후에 로드를 실행합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.
 
 1. 이전 연습에서 작업한 SQL 스크립트 쿼리 창에서 스크립트를 바꿔서 다음을 만듭니다.
-    - 최소 50%, 최대 100%의 리소스를 예약함으로써 워크로드 격리를 사용하는 워크로드 그룹, **BigDataLoad**
-    - **asa.sql.import01** 사용자를 **BigDataLoad** 워크로드 그룹에 할당하는 새로운 워크로드 분류자, **HeavyLoader**
+    - workload group : 최소 50%, 최대 100%의 리소스를 예약함으로써 워크로드 격리를 사용하는 워크로드 그룹, **BigDataLoad**
+    - workload classifier : **asa.sql.import01** 사용자를 **BigDataLoad** 워크로드 그룹에 할당하는 새로운 워크로드 분류자, **HeavyLoader**
     
-    코드 끝부분에서는 **sys.workload_management_workload_classifiers** 중에서 적절한 분류자를 선택하여 방금 만든 분류자를 비롯한 모든 분류자를 확인합니다.
+    코드 끝부분(View classifiers) 에서는 **sys.workload_management_workload_classifiers** 중에서 적절한 분류자를 선택하여 방금 만든 분류자를 비롯한 모든 분류자를 확인합니다.
 
     ```sql
     -- Drop objects if they exist
