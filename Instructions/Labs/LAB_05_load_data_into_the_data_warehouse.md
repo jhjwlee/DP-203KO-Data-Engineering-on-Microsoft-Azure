@@ -538,6 +538,36 @@ Azure Synapse Analytics에서는 두 가지 중요 기능 범주인 (1) data flo
     select top(100) * from wwi_perf.Sale_Heap
     ```
 
+### 작업 3: Execute PowerShell script to Prepare CosmosDB
+
+1. 개발용 VM 환경에서, Powershell 을 열고 ( 관리자 권한 administrator mode) , 스크립트를 수행합니다.:
+
+    ```
+    Set-ExecutionPolicy Unrestricted
+    ```
+
+    > **Note**: If you receive a prompt that you are installing the module from an untrusted repository, select **Yes to All** to proceed with the setup.
+
+2.  local file system 에서 아래 명령으로 이동합니다. 
+
+    ```
+    cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
+    ```
+
+3. 다음 PowerShell script 를 실행하여 Cosmos DB objects 와 pipelines (to load the data from Synapse to Cosmos DB) 을 준비합니다. :
+
+    ```
+    .\dp-203-setup-Part03.ps1
+    ```
+
+    >**NOTE**: This script should run in roughly 10-15 minutes and loads data into CosmosDB.
+
+4. Azure에 로그인하라는 메시지가 나타나고 브라우저가 열리면 본인의 자격 증명을 사용하여 로그인합니다. 로그인한 후에는 브라우저를 닫고 Windows PowerShell로 돌아갈 수 있습니다. 그러면 액세스 권한이 있는 Azure 구독이 표시됩니다.
+
+5. 관련 메시지가 나타날 때 Azure 계정에 다시 로그인합니다. (스크립트가 Azure 구독에서 리소스를 관리할 수 있도록 하기 위해 필요합니다. 앞서와 동일한 자격 증명을 사용해야 합니다.)
+
+6. Azure 구독이 여러 개인 경우에는 관련 메시지가 나타날 때 구독 목록에서 번호를 입력하여 랩에서 사용할 구독을 선택합니다.
+
 ## 중요: SQL 풀 일시 중지
 
 다음 단계를 완료하여 더 이상 필요없는 리소스를 정리할 수 있습니다.
