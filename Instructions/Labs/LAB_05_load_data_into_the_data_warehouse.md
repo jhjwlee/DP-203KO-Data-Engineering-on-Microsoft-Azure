@@ -54,6 +54,8 @@ WWI는 특히 대형 데이터 집합 사용 시 PolyBase의 속도가 COPY보�
 
 이 작업에서는 새 스키마 **wwi_staging**에 새 준비 테이블 **SaleHeap**을 만듭니다. 이 테이블은 [힙](https://docs.microsoft.com/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?view=sql-server-ver15)으로 정의하며, 라운드 로빈 분산을 사용합니다. WWI는 데이터 로드 파이프라인을 완성하면 **SaleHeap**에 데이터를 로드한 다음 힙 테이블에서 **Sale**에 데이터를 삽입할 예정입니다. 이 프로세스는 두 단계로 구성되어 있지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 분산 간에 데이터가 이동되지 않습니다.
 
+(When WWI finalizes their data loading pipeline, they will load the data into SaleHeap, then insert from the heap table into Sale. Although this is a two-step process, the second step of inserting the rows to the production table does not incur data movement across the distributions.)
+
 그리고 **wwi_staging** 스키마 내에 새 **Sale** 클러스터형 columnstore 테이블도 만들어 데이터 로드 속도를 비교합니다.
 
 1. Synapse Analytics Studio에서 **개발** 허브로 이동합니다.
