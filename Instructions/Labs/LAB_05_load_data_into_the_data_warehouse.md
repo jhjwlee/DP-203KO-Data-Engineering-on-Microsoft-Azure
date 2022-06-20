@@ -533,6 +533,10 @@ Azure Synapse Analytics에서는 두 가지 중요 기능 범주인 (1) data flo
 19. **파이프라인 실행**을 선택합니다. 여기서 파이프라인 상태를 확인할 수 있습니다. 보기를 새로 고쳐야 할 수도 있습니다. 파이프라인 실행이 완료되면 **wwi_perf.Sale_Heap** 테이블을 쿼리하여 가져온 데이터를 확인할 수 있습니다.
 
     ![완료된 파이프라인 실행이 표시되어 있는 그래픽](images/pipeline-copy-sales-pipeline-run.png "Pipeline runs")
+    
+    ```sql
+    select top(100) * from wwi_perf.Sale_Heap
+    ```
 
 ## 중요: SQL 풀 일시 중지
 
