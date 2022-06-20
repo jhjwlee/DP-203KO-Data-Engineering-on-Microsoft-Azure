@@ -142,9 +142,11 @@ WWI는 특히 대형 데이터 집합 사용 시 PolyBase의 속도가 COPY보�
 
 PolyBase를 사용하려면 다음 요소가 필요합니다.
 
-- Parquet 파일이 있는 ADLS Gen2의 **abfss** 경로를 가리키는 외부 데이터 원본
-- Parquet 파일용 외부 파일 형식
-- 파일의 스키마와 위치, 데이터 원본, 파일 형식을 정의하는 외부 테이블
+- An external data source : Parquet 파일이 있는 ADLS Gen2의 **abfss** 경로를 가리키는 외부 데이터 원본
+- An external file format : Parquet 파일용 외부 파일 형식
+- An external table : 파일의 스키마와 위치, 데이터 원본, 파일 형식을 정의하는 외부 테이블
+   
+   [참고] ABFS : Azure Blob File System , 끝에 's'를 추가(abfss)하면 ABFS Hadoop 클라이언트 드라이버는 선택한 인증 방법에 관계없이 항상 TLS(전송 계층 보안)를 사용
 
 1. 쿼리 창에서 스크립트를 다음 코드로 바꿔 외부 데이터 원본을 만듭니다. ***SUFFIX***를 이 랩에 있는 Azure 리소스의 고유 접미사로 바꿔야 합니다.
 
