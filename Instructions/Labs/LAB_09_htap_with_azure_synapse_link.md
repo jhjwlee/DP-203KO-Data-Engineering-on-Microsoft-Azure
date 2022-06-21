@@ -129,7 +129,8 @@ Tailwind Traders에는 이름이 **OnlineUserProfile01**인 Azure Cosmos DB 컨�
 
 6. **Azure Cosmos DB(SQL API)** 데이터 세트 형식을 선택하고 **계속**을 선택합니다.
 
-    ![Azure Cosmos DB가 선택되어 있는 그래픽](images/dataset-type.png "New dataset")
+    ![image](https://user-images.githubusercontent.com/89170455/174897455-877067e3-a3ff-4831-bc01-1ef8112bd577.png)
+
 
 7. 다음 속성을 설정하고 **확인**을 클릭합니다.
     - **이름**: `cosmos_db_htap`을 입력합니다.
