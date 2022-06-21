@@ -141,7 +141,7 @@ Azure Key Vault가 연결된 서비스로 설정되어 있으므로 새 연결�
 
         ![웹 활동 설정 탭이 선택되어 있고 위에 나와 있는 값이 양식에 입력되어 있는 화면의 스크린샷](images/lab5_pipelineconfigurewebactivity.png)
 
-9. 활동 창에서 파이프라인 디자인 화면에 **변수 설정** 활동을 추가합니다.
+9. 활동 창에서 파이프라인 디자인 화면에 **변수 설정** 활동을 추가합니다. ( * 아래 그림에는 '변수 추가' 라고 되어있으나, '변수 설정' 을 드래그 & 드랍 하셔야 합니다.)
 
     ![활동 아래의 변수 설정 항목에서 파이프라인 캔버스 방향을 가리키는 화살표가 표시된 그래픽](images/pipeline-activities-set-variable.png "Activities: Set variable")
 
