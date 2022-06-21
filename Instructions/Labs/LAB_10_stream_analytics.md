@@ -190,13 +190,23 @@ Azure Stream Analytics는 디바이스에서 대량의 데이터 스트리밍을
     - **구독에서 이벤트 허브를 선택합니다.** 선택됨
     - **구독:** 이 랩에 사용 중인 구독이 선택되어 있는지 확인합니다.
     - **이벤트 허브 네임스페이스:** **eventhub*xxxxxxx*** Event Hub 네임스페이스를 선택합니다.
-    - **이벤트 허브 이름:** **기존 항목 사용**을 선택하고 앞에서 만든 **원격 분석**을 선택합니다.
+    - **이벤트 허브 이름:** **기존 항목 사용**을 선택하고 앞에서 만든 **telemetry**을 선택합니다.
     - **이벤트 허브 소비자 그룹:** **기존 항목 사용**을 선택하고 **$Default**를 선택합니다.
     - **인증 모드:** **연결 문자열**을 선택합니다.
-    - **이벤트 허브 정책 이름:** **기존 항목 사용**을 선택하고 **읽기**를 선택합니다.
+    - **이벤트 허브 정책 이름:** **기존 항목 사용**을 선택하고 **Read**를 선택합니다.
     - 나머지 값은 모두 기본값을 그대로 유지합니다.
+    [영문은 아래 값 참조]
+    - **Select Event Hub from your subscriptions:** Selected
+    - **Subscription:** Make sure the subscription you are using for this lab is selected.
+    - **Event Hub namespace:** Select the **eventhub*xxxxxxx*** Event Hub namespace.
+    - **Event Hub name:** Select **Use existing**, then select **telemetry**, which you created earlier.
+    - **Event Hub consumer group:** Select **Use existing**, then select **$Default**.
+    - **Authentication mode:** Select **Connection string**.
+    - **Event Hub policy name:** Select **Use existing**, then select **Read**.
+    - Leave all other values at their defaults.
 
-        ![앞에서 설명한 설정을 해당 필드에 입력하여 작성된 새 입력 양식이 표시되어 있는 그래픽](images/stream-analytics-new-input.png 'New Input')
+        ![image](https://user-images.githubusercontent.com/89170455/174903998-71c80f57-8d02-4230-9ab3-d31be974a2df.png)
+
 
 8. 값을 모두 입력한 후 양식 아래쪽의 **저장**을 선택합니다.
 
