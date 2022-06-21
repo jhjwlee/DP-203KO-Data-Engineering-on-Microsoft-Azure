@@ -6,7 +6,7 @@ lab:
 
 # 랩 8 - Azure Synapse Analytics를 통한 엔드투엔드 보안
 
-이 랩에서는 Synapse Analytics 작업 영역 및 지원 인프라를 보호하는 방법을 알아봅니다. 구체적으로는 SQL Active Directory 관리자를 확인하고, IP 방화벽 규칙을 관리하고, Azure Key Vault를 사용해 비밀을 관리하고, Key Vault 연결된 서비스 및 파이프라인 활동을 통해 이러한 비밀에 액세스합니다. 그런 후에는 전용 SQL 풀 사용 시 열 수준 보안, 행 수준 보안 및 동적 데이터 마스킹을 구현하는 방법을 파악합니다.
+이 랩에서는 Synapse Analytics 작업 영역 및 지원 인프라를 보호하는 방법을 알아봅니다. 구체적으로는 SQL Active Directory 관리자를 확인하고, IP 방화벽 규칙을 관리하고, Azure Key Vault를 사용해 secret 을 관리하고, Key Vault 연결된 서비스 및 파이프라인 활동을 통해 이러한 secret 에 액세스합니다. 그런 후에는 전용 SQL 풀 사용 시 열 수준 보안, 행 수준 보안 및 동적 데이터 마스킹을 구현하는 방법을 파악합니다.
 
 이 랩을 마치면 다음과 같은 역량을 갖추게 됩니다.
 
