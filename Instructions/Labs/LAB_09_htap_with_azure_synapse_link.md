@@ -267,7 +267,7 @@ Tailwind Traders는 각 사용자에게서 확인된 선호 제품 목록과 리
     ```python
     preferredProductReviews = (preferredProductsFlat.join(productReviews,
         (preferredProductsFlat.userId == productReviews.userId) &
-        (preferredProductsFlat.productId == productReviews.productId))
+        (preferredProductsFlat.productId == productReviews.productId)).select(preferredProductsFlat.userId,preferredProductsFlat.productId,'reviewText')
     )
 
     display(preferredProductReviews.limit(100))
